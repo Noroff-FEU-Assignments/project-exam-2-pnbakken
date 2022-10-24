@@ -1,14 +1,14 @@
-import Layout from './Layout/layout';
-import {BrowserRouter as Router} from 'react-router-dom'
+import Layout from "./Components/Layout/main-layout";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import "./style/style.scss";
 
 function App() {
   return (
     <div className="App">
-    <Router>
-      <Layout />
-    </Router>
+      <Router>
+        <Layout />
+      </Router>
     </div>
   );
 }
