@@ -2,15 +2,22 @@ import React from "react";
 import Footer from "./footer";
 import Header from "./header";
 import Main from "./main";
+import PropTypes from "prop-types";
 
-function Layout() {
+import "./main-layout.style.scss";
+
+function MainLayout({ children }) {
   return (
-    <div id="page-layout">
+    <div id="main-page-layout">
       <Header />
-      <Main />
+      <Main>{children}</Main>
       <Footer />
     </div>
   );
 }
 
-export default Layout;
+export default MainLayout;
+
+MainLayout.propTypes = {
+  children: PropTypes.node,
+};

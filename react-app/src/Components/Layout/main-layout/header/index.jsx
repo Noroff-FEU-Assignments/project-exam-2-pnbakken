@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalNavBar from "../../../global-navbar/navbar";
+import GlobalNavBar from "../../../navbar/global-navbar";
 
 function Header() {
   return (
