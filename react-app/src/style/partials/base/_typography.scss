@@ -2,3 +2,15 @@
 
 $font-brand: "Jost", sans-serif;
 $font-body: "Albert Sans", sans-serif;
+
+.decorative-text {
+    display: inline-block;
+    max-width: 800px;
+    font-family: $font-brand;
+    font-weight: 800;
+    background: $colour-primary-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    // https://cssgradient.io/blog/css-gradient-text/
+}
