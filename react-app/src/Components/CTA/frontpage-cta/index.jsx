@@ -4,11 +4,16 @@ import DecorativeText from "../../Typography/decorative-text";
 
 function FrontPageCTA() {
   return (
-    <section className="flex-column align-center">
-      <DecorativeText size="120">Catchy call to action!</DecorativeText>
+    <section className="flex-row justify-center">
       <div>
-        Some more text
-        <Link to="/register">Register</Link>
+        <DecorativeText size={120}>Catchy call to action!</DecorativeText>
+        <div className="flex-column">
+          <span>Some more text</span>
+          <Link to="/register">Register</Link>
+        </div>
+        <div>
+          Already registered? <Link to="/login">Log In</Link>
+        </div>
       </div>
     </section>
   );

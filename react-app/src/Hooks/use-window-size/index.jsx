@@ -23,7 +23,6 @@ function useWindowSize() {
 export default useWindowSize;
 
 function getWindowSize() {
-  console.log(window);
   const { innerWidth, innerHeight } = window;
   return { innerWidth, innerHeight };
 }

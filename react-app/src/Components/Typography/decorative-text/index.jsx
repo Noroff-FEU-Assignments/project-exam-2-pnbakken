@@ -11,10 +11,10 @@ function DecorativeText({ children, size = 80 }) {
       setFontSize(80);
     } else if (windowSize.innerWidth <= 425) {
       setFontSize(64);
-    } else if (windowSize.innerWidth > 768) {
+    } /* else if (windowSize.innerWidth > 768) */ else {
       setFontSize(size);
     }
-  }, [windowSize]);
+  }, [windowSize, size]);
 
   return (
     <div
