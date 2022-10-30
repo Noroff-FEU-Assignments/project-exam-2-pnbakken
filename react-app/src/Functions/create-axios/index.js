@@ -8,7 +8,9 @@ import axios from "axios";
 export default function createAxios(auth) {
   const client = axios.create();
   if (auth) {
-    client.defaults.headers.common["Authorization"] = auth.token;
+    client.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${auth.accessToken}`;
   }
 
   return client;
