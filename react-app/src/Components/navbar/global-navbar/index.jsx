@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import AuthContext from "../../../Context/auth-context";
+import LogoutButton from "../../Buttons/logout-button";
 
 function GlobalNavBar() {
+  const [auth, setAuth] = useContext(AuthContext);
   return (
     <Navbar expand="lg" className="top-level-indent" variant="dark">
-      <NavLink to="/">
+      <NavLink to={auth ? "/home" : "/"}>
         <Navbar.Brand>Just Post</Navbar.Brand>
       </NavLink>
       <Navbar.Toggle aria-controls="global-nav-menu" />
@@ -18,9 +21,13 @@ function GlobalNavBar() {
           <NavLink className="nav-link" to="/about">
             About
           </NavLink>
-          <NavLink className="nav-link" to="/login">
-            Log In
-          </NavLink>
+          {auth ? (
+            <LogoutButton />
+          ) : (
+            <NavLink className="nav-link" to="/login">
+              Log In
+            </NavLink>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

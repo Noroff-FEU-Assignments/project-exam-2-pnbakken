@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import FrontPageCTA from "../../Components/CTA/frontpage-cta";
@@ -9,9 +9,11 @@ function FrontPage() {
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
 
-  if (auth) {
-    navigate("/home");
-  }
+  useEffect(() => {
+    if (auth) {
+      navigate("/home");
+    }
+  });
   return (
     <MainLayout>
       <FrontPageCTA />
