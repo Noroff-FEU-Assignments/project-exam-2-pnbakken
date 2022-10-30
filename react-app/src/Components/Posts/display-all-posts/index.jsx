@@ -1,5 +1,6 @@
 import React from "react";
 import useGetPosts from "../../../Hooks/use-get-posts";
+import PostListItem from "./post-list-item";
 
 function DisplayAllPosts() {
   const { posts, loading, error } = useGetPosts();
@@ -23,6 +24,6 @@ export default DisplayAllPosts;
 
 function renderPostList(posts) {
   return posts.map((post) => {
-    return <li key={post.id}>{post.title}</li>;
+    return <PostListItem data={post} />;
   });
 }
