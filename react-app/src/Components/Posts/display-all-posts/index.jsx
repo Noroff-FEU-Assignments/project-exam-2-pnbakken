@@ -8,10 +8,10 @@ function DisplayAllPosts() {
   const { posts, loading, error } = useGetPosts();
 
   return (
-    <div id="posts-display" className="flex-column align-center full-size">
+    <div id="posts-display" className="flex-column align-center full-width">
       {loading && <>Loading</>}
       {posts && (
-        <ul className="post-list flex-column align-center gap-lg full-size">
+        <ul className="post-list flex-column align-center gap-lg full-width p-2">
           All Posts
           {posts.map((post) => {
             return <PostListItem data={post} />;

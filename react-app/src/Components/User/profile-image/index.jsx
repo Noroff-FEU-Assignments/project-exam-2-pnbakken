@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./index.style.scss";
+
 function ProfileImage({ src }) {
-  return <div className="profile-image" style={{ backgroundImage: `` }}></div>;
+  return <div className="profile-image"></div>;
 }
 
 export default ProfileImage;
