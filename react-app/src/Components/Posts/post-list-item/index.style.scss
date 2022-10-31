@@ -1,6 +1,11 @@
+@import "/src/style/partials/base/base";
+
 .post-list-item {
     max-width: 560px;
     width: 100%;
+    background: $colour-light;
+    color: $colour-dark;
+    padding: 24px;
 
     img {
         max-width: 100%;
