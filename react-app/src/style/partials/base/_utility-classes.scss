@@ -105,3 +105,28 @@
 .full-size {
     width: 100%;
 }
+
+/*
+    Spacing
+*/
+
+// Gap
+.gap-xs {
+    gap: 16px;
+}
+
+.gap-sm {
+    gap: 24px;
+}
+
+.gap-md {
+    gap: 40px;
+}
+
+.gap-lg {
+    gap: 80px;
+}
+
+.gap-xl {
+    gap: 160px;
+}
