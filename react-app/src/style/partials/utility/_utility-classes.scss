@@ -176,3 +176,23 @@
 .gap-xl {
     gap: 160px;
 }
+
+// Border Radius
+
+.radius-sm {
+    border-radius: 5px;
+}
+
+.radius-md {
+    border-radius: 10px;
+}
+
+.radius-lg {
+    border-radius: 20px;
+}
+
+//Miscellaneous
+
+.show-interact:hover {
+    cursor: pointer;
+}
