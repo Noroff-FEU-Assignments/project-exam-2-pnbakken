@@ -59,7 +59,7 @@ function RegisterForm() {
         });
         console.log(loginResponse);
         if (loginResponse.status === 200) {
-          setAuth(response.data);
+          setAuth(loginResponse.data);
           navigate("/home");
         }
       }

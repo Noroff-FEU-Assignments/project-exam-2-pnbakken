@@ -11,21 +11,23 @@ function useGetPosts() {
   const client = createAxios(auth);
   useEffect(() => {
     async function getPosts() {
-      try {
-        setLoading(true);
-        const response = await client.get(ALL_POSTS_URL + "?_author=true");
-        console.log(response);
-        if (response.status === 200) {
-          console.log("Status 200");
-          setPosts(response.data);
+      if (auth) {
+        try {
+          setLoading(true);
+          const response = await client.get(ALL_POSTS_URL + "?_author=true");
+          console.log(response);
+          if (response.status === 200) {
+            console.log("Status 200");
+            setPosts(response.data);
+          }
+        } catch (error) {
+        } finally {
+          setLoading(false);
         }
-      } catch (error) {
-      } finally {
-        setLoading(false);
       }
     }
     getPosts();
-  }, []);
+  }, [auth]);
   return { posts, loading, error };
 }
 
