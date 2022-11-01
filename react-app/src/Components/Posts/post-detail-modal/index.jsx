@@ -5,6 +5,8 @@ import { ALL_POSTS_URL } from "../../../Constants";
 import { useEffect } from "react";
 import DetailContent from "./detail-content";
 import useGet from "../../../Hooks/use-get";
+import Post from "../post";
+import PostFooter from "../post/post-footer";
 
 function PostDetailModal({ postID, show, setShow, isOwner }) {
   console.log(postID);
@@ -20,11 +22,12 @@ function PostDetailModal({ postID, show, setShow, isOwner }) {
   }, [data]);
 
   return (
-    <Modal show={show} onHide={setShow} className="radius-sm">
+    <Modal show={show} onHide={setShow} className="radius-sm full-width">
       {data && (
-        <>
-          <DetailContent data={data} isOwner={isOwner} />
-        </>
+        <Post isOwner={isOwner}>
+          <DetailContent data={data} />
+          <PostFooter data={data} isOwner={isOwner} />
+        </Post>
       )}
     </Modal>
   );

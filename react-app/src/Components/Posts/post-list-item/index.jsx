@@ -31,11 +31,9 @@ function PostListItem({ data }) {
   return (
     <li
       key={data.id}
-      className={`post-list-item flex-column align-center full-width radius-sm ${
-        isOwner ? "owner" : ""
-      } `}
+      className={`post-list-item flex-column align-center full-width radius-sm `}
     >
-      <Post>
+      <Post isOwner>
         <PostContent
           data={data}
           hasModal={true}
