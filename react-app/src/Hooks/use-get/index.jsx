@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { ALL_POSTS_URL } from "../../Constants";
 import AuthContext from "../../Context/auth-context";
 import createAxios from "../../Functions/create-axios";
 
-function useGetPosts(settings) {
-  const [posts, setPosts] = useState(null);
+function useGet(settings) {
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [auth, setAuth] = useContext(AuthContext);
   const client = createAxios(auth);
   useEffect(() => {
-    async function getPosts() {
+    async function getData() {
       if (auth) {
         try {
           setLoading(true);
@@ -18,7 +17,7 @@ function useGetPosts(settings) {
           console.log(response);
           if (response.status === 200) {
             console.log("Status 200");
-            setPosts(response.data);
+            setData(response.data);
           }
         } catch (error) {
         } finally {
@@ -26,9 +25,9 @@ function useGetPosts(settings) {
         }
       }
     }
-    getPosts();
+    getData();
   }, [auth]);
-  return { posts, loading, error };
+  return { data, loading, error };
 }
 
-export default useGetPosts;
+export default useGet;

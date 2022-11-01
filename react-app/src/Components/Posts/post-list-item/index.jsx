@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
-import ProfileImage from "../../User/profile-image";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
-import PostFooter from "./post-footer";
-import PostContent from "./post-content";
 import PostDetailModal from "../post-detail-modal";
+import PostContent from "../post/post-content";
+import PostFooter from "../post/post-footer";
+import ClickableWrapper from "./clickable-wrapper";
+import Post from "../post";
 
 function PostListItem({ data }) {
   const [auth, setAuth] = useContext(AuthContext);
-  const [isOwner, setIsOwner] = useState(findOwner(data));
+  const isOwner = findOwner(data);
 
   const [showPostDetail, setShowPostDetail] = useState(false);
   const showDetail = () => setShowPostDetail(!showPostDetail);
@@ -31,22 +31,33 @@ function PostListItem({ data }) {
   return (
     <li
       key={data.id}
-      className={`post-list-item ${
+      className={`post-list-item flex-column align-center full-width radius-sm ${
         isOwner ? "owner" : ""
-      }   flex-column radius-sm`}
+      } `}
     >
-      <PostContent data={data} show={showPostDetail} setShow={showDetail} />
-      <PostFooter
-        data={data}
-        isOwner={isOwner}
-        show={showPostDetail}
-        setShow={showDetail}
-      />
+      <Post>
+        <PostContent
+          data={data}
+          hasModal={true}
+          show={showPostDetail}
+          setShow={showDetail}
+        />
+        <ClickableWrapper onClick={showDetail}>
+          <PostFooter
+            data={data}
+            isOwner={isOwner}
+            hasModal={true}
+            show={showPostDetail}
+            setShow={showDetail}
+          />
+        </ClickableWrapper>
+      </Post>
       {showPostDetail && (
         <PostDetailModal
           postID={data.id}
           show={showPostDetail}
           setShow={setShowPostDetail}
+          isOwner={isOwner}
         />
       )}
     </li>

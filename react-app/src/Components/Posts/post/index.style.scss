@@ -1,0 +1,18 @@
+@import "/src/style/partials/base/base";
+
+.post {
+    max-width: 560px;
+    width: 100%;
+    background: $colour-light;
+    color: $colour-dark;
+    max-height: 700px;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.post.own-post {
+    background: $colour-primary-gradient;
+    color: $colour-light;
+}

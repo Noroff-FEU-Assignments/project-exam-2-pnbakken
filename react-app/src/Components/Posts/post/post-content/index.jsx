@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProfileImage from "../../../User/profile-image";
 
-function PostContent({ data, show, setShow }) {
+function PostContent({ data, setShow }) {
   return (
     <div className="post-content p-2">
       <div className="post-header flex-row wrap full-width align center gap-sm">

@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
-function PostFooter({ data, isOwner, show, setShow }) {
+function PostFooter({ data, isOwner, show, setShow, detail }) {
+  if (detail) {
+    return <div className="post-footer flex-column full-width"></div>;
+  }
+
   return (
     <div className="post-footer flex-row justify-evenly full-width">
       <div
@@ -38,4 +42,5 @@ PostFooter.propTypes = {
   isOwner: PropTypes.bool,
   show: PropTypes.bool,
   setShow: PropTypes.func,
+  detail: PropTypes.bool,
 };
