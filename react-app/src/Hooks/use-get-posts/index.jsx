@@ -3,7 +3,7 @@ import { ALL_POSTS_URL } from "../../Constants";
 import AuthContext from "../../Context/auth-context";
 import createAxios from "../../Functions/create-axios";
 
-function useGetPosts() {
+function useGetPosts(settings) {
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ function useGetPosts() {
       if (auth) {
         try {
           setLoading(true);
-          const response = await client.get(ALL_POSTS_URL + "?_author=true");
+          const response = await client.get(settings.url);
           console.log(response);
           if (response.status === 200) {
             console.log("Status 200");

@@ -7,44 +7,48 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import PostFooter from "./post-footer";
+import PostContent from "./post-content";
+import PostDetailModal from "../post-detail-modal";
 
 function PostListItem({ data }) {
   const [auth, setAuth] = useContext(AuthContext);
-  const [isOwnPost, setIsOwnPost] = useState(findOwner(data));
+  const [isOwner, setIsOwner] = useState(findOwner(data));
+
+  const [showPostDetail, setShowPostDetail] = useState(false);
+  const showDetail = () => setShowPostDetail(!showPostDetail);
 
   function findOwner(post) {
     if (auth) {
-      const localUser = auth.name;
-      const postAuthor = post.author.name;
+      const localUser = auth.email;
+      const postAuthor = post.author.email;
 
       if (postAuthor === localUser) {
         return true;
       } else return false;
     } else return false;
   }
+
   return (
-    <li key={data.id} className="post-list-item flex-column align-center p-2">
-      <div className="post-header flex-row wrap full-width align center gap-sm">
-        <Link to="#">
-          <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
-        </Link>
-        <div className="flex-column align-between ">
-          <Link to="#">
-            <span className="author-name">{data.author.name}</span>
-          </Link>
-          <span className="post-date">{data.created}</span>
-        </div>
-        {isOwnPost && <div className="post-menu">Menu</div>}
-      </div>
-      <div className="post-body flex-column align-center full-width gap-md">
-        {data.body}
-        {data.media && (
-          <div className="post-image full-width">
-            <img src={data.media} />
-          </div>
-        )}
-      </div>
-      <PostFooter data={data} />
+    <li
+      key={data.id}
+      className={`post-list-item ${
+        isOwner ? "owner" : ""
+      }   flex-column radius-sm`}
+    >
+      <PostContent data={data} show={showPostDetail} setShow={showDetail} />
+      <PostFooter
+        data={data}
+        isOwner={isOwner}
+        show={showPostDetail}
+        setShow={showDetail}
+      />
+      {showPostDetail && (
+        <PostDetailModal
+          postID={data.id}
+          show={showPostDetail}
+          setShow={setShowPostDetail}
+        />
+      )}
     </li>
   );
 }

@@ -5,9 +5,14 @@
     width: 100%;
     background: $colour-light;
     color: $colour-dark;
-    padding: 24px;
+    max-height: 700px;
 
     img {
         max-width: 100%;
     }
+}
+
+.post-list-item.own-post {
+    background: $colour-primary-gradient;
+    color: $colour-light;
 }
