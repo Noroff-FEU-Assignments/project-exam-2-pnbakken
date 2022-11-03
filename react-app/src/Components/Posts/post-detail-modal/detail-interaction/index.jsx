@@ -1,10 +1,10 @@
 import React from "react";
-import DisplayReaction from "../../post-interaction/reaction/display-reaction";
+import InteractionPanel from "../../post-interaction/interaction-panel";
 
 function DetailInteraction({ data }) {
   return (
     <div>
-      <DisplayReaction />
+      <InteractionPanel data={data} />
     </div>
   );
 }

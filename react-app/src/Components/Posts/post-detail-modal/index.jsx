@@ -7,6 +7,7 @@ import DetailContent from "./detail-content";
 import useGet from "../../../Hooks/use-get";
 import Post from "../post";
 import PostFooter from "../post/post-footer";
+import DetailInteraction from "./detail-interaction";
 
 function PostDetailModal({ postID, show, setShow, isOwner }) {
   console.log(postID);
@@ -26,7 +27,7 @@ function PostDetailModal({ postID, show, setShow, isOwner }) {
       {data && (
         <Post isOwner={isOwner}>
           <DetailContent data={data} />
-          <PostFooter data={data} isOwner={isOwner} />
+          <DetailInteraction data={data} />
         </Post>
       )}
     </Modal>
