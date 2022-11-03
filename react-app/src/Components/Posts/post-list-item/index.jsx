@@ -7,7 +7,7 @@ import AuthContext from "../../../Context/auth-context";
 import PostDetailModal from "../post-detail-modal";
 import PostContent from "../post/post-content";
 import PostFooter from "../post/post-footer";
-import ClickableWrapper from "./clickable-wrapper";
+import ClickableWrapper from "../../Utility-Components/clickable-wrapper";
 import Post from "../post";
 
 function PostListItem({ data }) {

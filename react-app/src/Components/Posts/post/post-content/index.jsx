@@ -17,13 +17,10 @@ function PostContent({ data, setShow }) {
           <span className="post-date">{data.created}</span>
         </div>
       </div>
-      <div
-        className="post-body flex-column align-center full-width gap-md show-interact"
-        onClick={setShow}
-      >
+      <div className="post-body flex-column align-center full-width gap-md">
         {data.body}
         {data.media && (
-          <div className="post-image full-width">
+          <div className="post-image">
             <img src={data.media} />
           </div>
         )}

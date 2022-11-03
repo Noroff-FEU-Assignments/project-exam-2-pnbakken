@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 import "./index.style.scss";
 
 function ProfileImage({ src }) {
-  return <div className="profile-image"></div>;
+  const style = {
+    ...(src && { backgroundImage: `url(${src})` }),
+  };
+
+  return <div className="profile-image" style={style}></div>;
 }
 
 export default ProfileImage;
