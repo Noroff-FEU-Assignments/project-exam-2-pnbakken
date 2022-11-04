@@ -16,7 +16,6 @@ function DisplayAllPosts() {
       {loading && <>Loading</>}
       {data && (
         <ul className="post-list flex-column align-center gap-lg full-width p-2">
-          All Posts
           {data.map((post) => {
             return <PostListItem data={post} />;
           })}
