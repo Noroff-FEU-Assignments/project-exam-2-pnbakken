@@ -8,6 +8,7 @@ import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
 import { ALL_POSTS_URL } from "../../../Constants";
+import getRandomEncouragement from "./string-collection";
 
 const schema = yup.object().shape({
   title: yup.string(),
@@ -44,7 +45,7 @@ function CreatePostForm() {
 
   return (
     <Form id="new-post-form" onSubmit={handleSubmit(onSubmit)}>
-      <fieldset disable={disabled}>
+      <fieldset disabled={disabled}>
         <Form.Group>
           <Form.Label>Title</Form.Label>
           <Form.Control
@@ -58,7 +59,7 @@ function CreatePostForm() {
           <Form.Label>Content</Form.Label>
           <Form.Control
             as="textarea"
-            placeholder="Random encouragement to post"
+            placeholder={getRandomEncouragement()}
             id="new-post-body"
             {...register("body")}
           />
