@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CentralColumn from "../../Components/Design-Components/center-column";
 import MainLayout from "../../Components/Layout/main-layout";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
+import NewPost from "../../Components/Posts/new-post";
 import AuthContext from "../../Context/auth-context";
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
   return (
     <MainLayout>
       <CentralColumn>
+        <NewPost />
         <DisplayAllPosts />
       </CentralColumn>
     </MainLayout>

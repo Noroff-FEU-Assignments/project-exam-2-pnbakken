@@ -2,16 +2,19 @@
 
 .post {
     max-width: 560px;
-    width: 100%;
     background: $colour-light;
     color: $colour-dark;
 
     img {
         max-width: 100%;
     }
+
+    .post-main {
+        max-width: 400px;
+    }
 }
 
-.post.isOwner {
+.post.owner {
     background: $colour-primary-gradient;
     color: $colour-light;
 }

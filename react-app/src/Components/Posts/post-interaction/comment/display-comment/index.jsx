@@ -15,7 +15,7 @@ function DisplayComment({ commentData }) {
 export default DisplayComment;
 
 DisplayComment.propTypes = {
-  commentData: PropTypes.object.isRequired,
+  commentData: PropTypes.array.isRequired,
 };
 
 function Comment({ comment }) {

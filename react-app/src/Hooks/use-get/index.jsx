@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../Context/auth-context";
 import createAxios from "../../Functions/create-axios";
+import PropTypes from "prop-types";
 
 function useGet(settings) {
   const [data, setData] = useState(null);
@@ -31,3 +32,7 @@ function useGet(settings) {
 }
 
 export default useGet;
+
+useGet.propTypes = {
+  settings: PropTypes.object.isRequired,
+};

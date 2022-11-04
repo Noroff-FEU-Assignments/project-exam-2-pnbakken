@@ -9,7 +9,7 @@ import Post from "../post";
 import PostFooter from "../post/post-footer";
 import DetailInteraction from "./detail-interaction";
 
-function PostDetailModal({ postID, show, setShow, isOwner }) {
+function PostDetailModal({ postID, show, setShow }) {
   console.log(postID);
   const settings = {
     url:
@@ -19,13 +19,15 @@ function PostDetailModal({ postID, show, setShow, isOwner }) {
   const { data, loading, error } = useGet(settings);
 
   useEffect(() => {
+    console.log("LOGGING MODAL DATA");
     console.log(data);
   }, [data]);
 
   return (
     <Modal show={show} onHide={setShow} className="radius-sm full-width">
+      {loading && <>Loading</>}
       {data && (
-        <Post isOwner={isOwner}>
+        <Post data={data}>
           <DetailContent data={data} />
           <DetailInteraction data={data} />
         </Post>

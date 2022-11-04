@@ -12,38 +12,20 @@ import Post from "../post";
 
 function PostListItem({ data }) {
   const [auth, setAuth] = useContext(AuthContext);
-  const isOwner = findOwner(data);
 
   const [showPostDetail, setShowPostDetail] = useState(false);
   const showDetail = () => setShowPostDetail(!showPostDetail);
-
-  function findOwner(post) {
-    if (auth) {
-      const localUser = auth.email;
-      const postAuthor = post.author.email;
-
-      if (postAuthor === localUser) {
-        return true;
-      } else return false;
-    } else return false;
-  }
 
   return (
     <li
       key={data.id}
       className={`post-list-item flex-column align-center full-width radius-sm `}
     >
-      <Post isOwner>
-        <PostContent
-          data={data}
-          hasModal={true}
-          show={showPostDetail}
-          setShow={showDetail}
-        />
+      <Post data={data}>
+        <PostContent data={data} hasModal={true} />
         <ClickableWrapper onClick={showDetail}>
           <PostFooter
             data={data}
-            isOwner={isOwner}
             hasModal={true}
             show={showPostDetail}
             setShow={showDetail}
@@ -55,7 +37,6 @@ function PostListItem({ data }) {
           postID={data.id}
           show={showPostDetail}
           setShow={setShowPostDetail}
-          isOwner={isOwner}
         />
       )}
     </li>
