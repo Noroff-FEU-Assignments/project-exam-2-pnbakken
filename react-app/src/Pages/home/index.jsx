@@ -1,27 +1,17 @@
-import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import CentralColumn from "../../Components/Design-Components/center-column";
+import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import NewPost from "../../Components/Posts/new-post";
-import AuthContext from "../../Context/auth-context";
 
 function Home() {
-  const [auth, sethAuth] = useContext(AuthContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!auth) {
-      navigate("/");
-    }
-  });
-
   return (
     <MainLayout>
-      <CentralColumn>
+      <AppInterfaceLayout>
         <NewPost />
         <DisplayAllPosts />
-      </CentralColumn>
+      </AppInterfaceLayout>
     </MainLayout>
   );
 }
