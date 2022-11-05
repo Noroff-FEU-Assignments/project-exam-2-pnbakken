@@ -3,4 +3,6 @@
 #central-column {
     max-width: 800px;
     background: $colour-secondary-background;
+    height: 100vh;
+    overflow: scroll;
 }
