@@ -3,8 +3,6 @@
 #main-page-layout {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-
     background: $colour-dark-gradient;
     color: $colour-light;
     font-family: $font-body;

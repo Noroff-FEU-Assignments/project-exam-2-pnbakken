@@ -1,0 +1,12 @@
+.app-interface {
+    height: 100Vh;
+    overflow: scroll;
+
+    grid-template-columns: auto 1fr;
+
+    @media(max-width: 991px) {
+        grid-template-columns: auto;
+        grid-template-rows: auto 1fr;
+
+    }
+}

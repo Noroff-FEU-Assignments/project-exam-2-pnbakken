@@ -44,8 +44,12 @@ function CreatePostForm() {
   }
 
   return (
-    <Form id="new-post-form" onSubmit={handleSubmit(onSubmit)}>
-      <fieldset disabled={disabled}>
+    <Form
+      id="new-post-form"
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex-column align-center"
+    >
+      <fieldset disabled={disabled} className="standard-component-width">
         <Form.Group>
           <Form.Label>Title</Form.Label>
           <Form.Control
@@ -64,11 +68,11 @@ function CreatePostForm() {
             {...register("body")}
           />
         </Form.Group>
+        <div className="new-post-menu flex-row justify-between">
+          <Button>Add Image</Button>
+          <Button type="submit">Post</Button>
+        </div>
       </fieldset>
-      <div className="new-post-menu flex-row justify-between">
-        <Button>Add Image</Button>
-        <Button type="submit">Post</Button>
-      </div>
     </Form>
   );
 }

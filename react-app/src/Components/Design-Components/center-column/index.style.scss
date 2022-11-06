@@ -5,4 +5,9 @@
     background: $colour-secondary-background;
     height: 100vh;
     overflow: scroll;
+
+    @media (max-width: 991px) {
+        height: fit-content;
+    }
+
 }

@@ -4,7 +4,7 @@ import SidebarUser from "./sidebar-user";
 
 function AppSidebar() {
   return (
-    <div className="sidebar flex-column align-center justify-self-start">
+    <div className="sidebar grid justify-start">
       <SidebarUser />
       <AppNavbar />
     </div>

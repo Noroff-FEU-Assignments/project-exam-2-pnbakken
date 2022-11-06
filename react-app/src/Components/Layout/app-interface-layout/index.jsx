@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import AppSidebar from "./app-sidebar";
 import CentralColumn from "../../Design-Components/center-column";
 
+import "./index.style.scss";
+
 function AppInterfaceLayout({ children }) {
   const navigate = useNavigate();
   const [auth, setAuth] = useContext(AuthContext);
@@ -16,7 +18,7 @@ function AppInterfaceLayout({ children }) {
   });
 
   return (
-    <div className="app-interface flex-row full-width">
+    <div className="app-interface grid full-width">
       <AppSidebar />
       <CentralColumn>{children}</CentralColumn>
     </div>
