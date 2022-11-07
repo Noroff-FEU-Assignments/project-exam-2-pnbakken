@@ -1,12 +1,12 @@
 import React from "react";
-import AppNavbar from "../../../navbar/app-navbar";
+import AppNavMenu from "./app-nav-menu";
 import SidebarUser from "./sidebar-user";
 
 function AppSidebar() {
   return (
-    <div className="sidebar grid justify-start">
+    <div className="sidebar flex-column justify-start">
       <SidebarUser />
-      <AppNavbar />
+      <AppNavMenu />
     </div>
   );
 }

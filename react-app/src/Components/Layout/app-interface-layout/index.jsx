@@ -2,10 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../Context/auth-context";
 import PropTypes from "prop-types";
-import AppSidebar from "./app-sidebar";
 import CentralColumn from "../../Design-Components/center-column";
 
 import "./index.style.scss";
+import AppSidebar from "../../navbar/app-sidebar";
 
 function AppInterfaceLayout({ children }) {
   const navigate = useNavigate();

@@ -13,7 +13,7 @@ function PageRoutes() {
       <Route path="/home" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/user-page" element={<UserPage />} />
+      <Route path="/user/:name" element={<UserPage />} />
     </Routes>
   );
 }

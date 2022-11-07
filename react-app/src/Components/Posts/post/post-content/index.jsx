@@ -11,7 +11,7 @@ function PostContent({ data }) {
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
         </Link>
         <div className="flex-column align-between ">
-          <Link to="#">
+          <Link to={`/user/${data.author.name}`}>
             <span className="author-name">{data.author.name}</span>
           </Link>
           <span className="post-date">{data.created}</span>
@@ -20,7 +20,7 @@ function PostContent({ data }) {
       <div className="post-main flex-column align-self-center full-width gap-xs">
         <div className="post-title align-self-start">{data.title}</div>
         <div className="post-body flex-column align-center full-width gap-md">
-          {data.body}
+          <p>{data.body}</p>
           {data.media && (
             <div className="post-image">
               <img src={data.media} />

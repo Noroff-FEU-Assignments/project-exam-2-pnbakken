@@ -2,8 +2,6 @@
 
 #central-column {
     max-width: 800px;
-    height: 100vh;
-    overflow: scroll;
 
     @media (max-width: 991px) {
         height: fit-content;

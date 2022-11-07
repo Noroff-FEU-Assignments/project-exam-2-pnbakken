@@ -12,7 +12,7 @@ function InteractionPanel({ data }) {
         <ReactionCount data={data} />
       </div>
       <DisplayReaction reactionData={data.reactions} />
-      <DisplayComment commentData={data.comments} />
+      <DisplayComment commentData={data.comments} postID={data.id} />
     </div>
   );
 }

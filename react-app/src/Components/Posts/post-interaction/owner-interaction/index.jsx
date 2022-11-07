@@ -5,7 +5,7 @@ import AuthContext from "../../../../Context/auth-context";
 import DeletePost from "./delete-post";
 import EditPost from "./edit-post";
 
-function OwnerInteraction({ postID }) {
+function OwnerInteraction({ post }) {
   const [show, setShow] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
 
@@ -18,9 +18,9 @@ function OwnerInteraction({ postID }) {
         <button onClick={handleSetShow}>menu</button>
       </div>
       {show && (
-        <div className="owner-interaction-menu">
-          <EditPost id={postID} auth={auth} />
-          <DeletePost id={postID} auth={auth} />
+        <div className="owner-interaction-menu flex-row justify-between">
+          <EditPost post={post} auth={auth} />
+          <DeletePost id={post.id} auth={auth} />
         </div>
       )}
     </div>

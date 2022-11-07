@@ -9,17 +9,27 @@ import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
 import { ALL_POSTS_URL } from "../../../Constants";
 import getRandomEncouragement from "./string-collection";
+import PropTypes from "prop-types";
 
 const schema = yup.object().shape({
-  title: yup.string(),
+  title: yup.string().required("Your post must have a title"),
   body: yup.string(),
   media: yup.string(),
   tags: yup.array(),
 });
 
-function CreatePostForm() {
+/**
+ * Multi-purpose form for creating and editing posts.
+ * @param {url} string use default posts url for create, or provide post id url for editing
+ * @param {edit} object to be edited
+ *
+ * @returns <Form>
+ */
+
+function CreatePostForm({ url, edit = null }) {
   const [disabled, setDisabled] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -35,7 +45,12 @@ function CreatePostForm() {
     const client = createAxios(auth);
 
     try {
-      const response = await client.post(ALL_POSTS_URL, data);
+      let response = null;
+      if (edit) {
+        response = await client.put(url, data);
+      } else {
+        response = await client.post(url, data);
+      }
       console.log(response);
     } catch (error) {
     } finally {
@@ -56,8 +71,11 @@ function CreatePostForm() {
             type="text"
             id="new-post-title"
             placeholder="Title"
+            className="mb-2"
             {...register("title")}
+            defaultValue={edit ? edit.title : ""}
           />
+          {errors.title && <>{errors.title.message}</>}
         </Form.Group>
         <Form.Group>
           <Form.Label>Content</Form.Label>
@@ -66,6 +84,7 @@ function CreatePostForm() {
             placeholder={getRandomEncouragement()}
             id="new-post-body"
             {...register("body")}
+            defaultValue={edit ? edit.body : ""}
           />
         </Form.Group>
         <div className="new-post-menu flex-row justify-between">
@@ -77,4 +96,8 @@ function CreatePostForm() {
   );
 }
 
+CreatePostForm.propTypes = {
+  url: PropTypes.string.isRequired,
+  edit: PropTypes.object,
+};
 export default CreatePostForm;
