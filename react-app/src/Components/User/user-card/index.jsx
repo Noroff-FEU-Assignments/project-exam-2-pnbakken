@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
+import Follow from "../../Buttons/follow-user";
 import ProfileImage from "../profile-image";
 
 import "./index.style.scss";
@@ -28,6 +29,7 @@ function UserCard({ user }) {
             <div>{user._count.following}</div>
             <div>Following</div>
           </div>
+          {!isOwner && <Follow />}
         </div>
       </div>
     </div>
