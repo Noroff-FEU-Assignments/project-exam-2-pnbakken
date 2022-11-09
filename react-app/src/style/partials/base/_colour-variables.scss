@@ -14,6 +14,7 @@ $colour-secondary: $colour-carolina-blue;
 
 $colour-primary-background: $colour-space-cadet;
 $colour-secondary-background: $colour-rich-black;
+$colour-secondary-background-opaque: rgb($colour-rich-black, 0.8);
 
 $colour-primary-gradient: linear-gradient(150deg, $colour-primary 20%, $colour-secondary 85%);
 $colour-dark-gradient: radial-gradient(circle, $colour-primary-background 75%, $colour-secondary-background 150%);

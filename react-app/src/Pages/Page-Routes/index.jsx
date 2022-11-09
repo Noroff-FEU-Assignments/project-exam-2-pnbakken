@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import AllUsers from "../All-Users";
 import FrontPage from "../front-page";
 import Home from "../home";
 import Login from "../login";
@@ -14,6 +15,7 @@ function PageRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/user/:name" element={<UserPage />} />
+      <Route path="/all-users" element={<AllUsers />} />
     </Routes>
   );
 }

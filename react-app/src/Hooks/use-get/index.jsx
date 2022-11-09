@@ -21,6 +21,8 @@ function useGet(settings) {
             setData(response.data);
           }
         } catch (error) {
+          setError(error);
+          console.error(error);
         } finally {
           setLoading(false);
         }

@@ -5,7 +5,7 @@ function DisplayReaction({ reactionData }) {
   console.log(reactionData);
 
   return (
-    <div className="reaction-display flex-row wrap full-width">
+    <div className="reaction-display flex-row wrap full-width gap-xs">
       {reactionData &&
         reactionData.map((reaction) => {
           return <Reaction data={reaction} />;

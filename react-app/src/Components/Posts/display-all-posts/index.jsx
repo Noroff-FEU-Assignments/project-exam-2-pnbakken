@@ -5,10 +5,7 @@ import PostListItem from "../post-list-item";
 
 import "./index.style.scss";
 
-function DisplayAllPosts() {
-  const settings = {
-    url: ALL_POSTS_URL + "?_author=true",
-  };
+function DisplayAllPosts({ settings }) {
   const { data, loading, error } = useGet(settings);
 
   return (
