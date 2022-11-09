@@ -52,6 +52,9 @@ function CreatePostForm({ url, edit = null }) {
 
     try {
       let response = null;
+      if (imageUrl) {
+        data.media = imageUrl;
+      }
       if (edit) {
         response = await client.put(url, data);
       } else {
@@ -101,6 +104,11 @@ function CreatePostForm({ url, edit = null }) {
               defaultValue={edit ? edit.body : ""}
             />
           </Form.Group>
+          {imageUrl && (
+            <div>
+              <img src={imageUrl} />
+            </div>
+          )}
           <div className="new-post-menu flex-row justify-between">
             <Button onClick={handleShowAddImage}>Add Image</Button>
 

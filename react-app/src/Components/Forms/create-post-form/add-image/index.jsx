@@ -48,8 +48,8 @@ function AddImage({ url, handleShow, setImageUrl }) {
       const result = await doUpload(imageString);
       console.log(result);
     } else if (data.imageUrl) {
-      const result = await doUpload(data.imageUrl);
-      console.log(result);
+      //const result = await doUpload(data.imageUrl);
+      setImageUrl(data.imageUrl);
     }
   }
 
