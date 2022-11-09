@@ -5,4 +5,4 @@ export const LOGIN_URL = BASE_URL + "/social/auth/login";
 
 export const ALL_POSTS_URL = BASE_URL + "/social/posts";
 
-export const USER_URL = BASE_URL + "/social/user";
+export const USER_URL = BASE_URL + "/social/profiles";
