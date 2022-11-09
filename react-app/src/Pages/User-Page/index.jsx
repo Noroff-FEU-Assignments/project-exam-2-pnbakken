@@ -16,7 +16,7 @@ function UserPage() {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState(null);
   const getUserSettings = {
-    url: `${USER_URL}/${name}`,
+    url: `${USER_URL}/${name}?_following=true&_followers=true`,
   };
   const getPostsSettings = {
     url: `${USER_URL}/${name}/posts?_author=true`,
