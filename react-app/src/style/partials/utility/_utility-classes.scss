@@ -213,3 +213,15 @@
 .height-fit {
     height: fit-content;
 }
+
+.height-match {
+    height: match-parent;
+}
+
+.raise {
+    z-index: 1;
+}
+
+.absolute {
+    position: absolute;
+}

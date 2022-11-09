@@ -10,6 +10,7 @@ import createAxios from "../../../Functions/create-axios";
 import { ALL_POSTS_URL } from "../../../Constants";
 import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
+import AddImage from "./add-image";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -29,6 +30,11 @@ const schema = yup.object().shape({
 function CreatePostForm({ url, edit = null }) {
   const [disabled, setDisabled] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
+  const [imageUrl, setImageUrl] = useState("");
+  const [showAddImage, setShowAddImage] = useState(false);
+  function handleShowAddImage() {
+    setShowAddImage(!showAddImage);
+  }
 
   const {
     register,
@@ -59,40 +65,50 @@ function CreatePostForm({ url, edit = null }) {
   }
 
   return (
-    <Form
-      id="new-post-form"
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex-column align-center"
-    >
-      <fieldset disabled={disabled} className="standard-component-width">
-        <Form.Group>
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            type="text"
-            id="new-post-title"
-            placeholder="Title"
-            className="mb-2"
-            {...register("title")}
-            defaultValue={edit ? edit.title : ""}
-          />
-          {errors.title && <>{errors.title.message}</>}
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Content</Form.Label>
-          <Form.Control
-            as="textarea"
-            placeholder={getRandomEncouragement()}
-            id="new-post-body"
-            {...register("body")}
-            defaultValue={edit ? edit.body : ""}
-          />
-        </Form.Group>
-        <div className="new-post-menu flex-row justify-between">
-          <Button>Add Image</Button>
-          <Button type="submit">Post</Button>
-        </div>
-      </fieldset>
-    </Form>
+    <>
+      {showAddImage && (
+        <AddImage
+          url={edit && edit.media ? edit.media : ""}
+          handleShow={handleShowAddImage}
+          setImageUrl={setImageUrl}
+        />
+      )}
+      <Form
+        id="new-post-form"
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex-column align-center"
+      >
+        <fieldset disabled={disabled} className="standard-component-width">
+          <Form.Group>
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              id="new-post-title"
+              placeholder="Title"
+              className="mb-2"
+              {...register("title")}
+              defaultValue={edit ? edit.title : ""}
+            />
+            {errors.title && <>{errors.title.message}</>}
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Content</Form.Label>
+            <Form.Control
+              as="textarea"
+              placeholder={getRandomEncouragement()}
+              id="new-post-body"
+              {...register("body")}
+              defaultValue={edit ? edit.body : ""}
+            />
+          </Form.Group>
+          <div className="new-post-menu flex-row justify-between">
+            <Button onClick={handleShowAddImage}>Add Image</Button>
+
+            <Button type="submit">Post</Button>
+          </div>
+        </fieldset>
+      </Form>
+    </>
   );
 }
 

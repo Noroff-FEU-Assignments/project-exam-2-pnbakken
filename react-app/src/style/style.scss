@@ -3,6 +3,11 @@
 
 * {
     position: relative;
+    z-index: 0;
+}
+
+img {
+    max-width: 100%;
 }
 
 @import "./custom-bootstrap/custom-bootstrap";

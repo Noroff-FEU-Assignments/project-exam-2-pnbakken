@@ -16,4 +16,6 @@ $colour-primary-background: $colour-space-cadet;
 $colour-secondary-background: $colour-rich-black;
 
 $colour-primary-gradient: linear-gradient(150deg, $colour-primary 20%, $colour-secondary 85%);
-$colour-dark-gradient: radial-gradient(circle, $colour-primary-background 75%, $colour-secondary-background 150%)
+$colour-dark-gradient: radial-gradient(circle, $colour-primary-background 75%, $colour-secondary-background 150%);
+
+$common-shadow: 2px 3px 40px $colour-eerie-black;
