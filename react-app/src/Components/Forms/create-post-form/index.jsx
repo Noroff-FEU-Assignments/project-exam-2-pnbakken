@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import AddImage from "./add-image";
 import BSForm from "../bootstrap-form";
 import BootstrapForm from "../bootstrap-form";
+import BrandButton from "../../Buttons/brand-button";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -85,7 +86,7 @@ function CreatePostForm({ url, edit = null }) {
       >
         <fieldset
           disabled={disabled}
-          className="full-width standard-component-width p-4"
+          className="full-width standard-component-width p-4 radius-sm"
         >
           <Form.Group>
             <Form.Label>Title</Form.Label>
@@ -117,7 +118,7 @@ function CreatePostForm({ url, edit = null }) {
           <div className="new-post-menu flex-row justify-between">
             <Button onClick={handleShowAddImage}>Add Image</Button>
 
-            <Button type="submit">Post</Button>
+            <BrandButton type="submit">Post</BrandButton>
           </div>
         </fieldset>
       </BootstrapForm>
