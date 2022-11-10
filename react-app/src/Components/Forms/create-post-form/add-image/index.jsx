@@ -26,6 +26,8 @@ function AddImage({ url, handleShow, setImageUrl }) {
       ...(url && { url: url }),
     },
   });
+  const [disabled, setDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState("");
   const [imageString, setImageString] = useState("");
   const [imageFile, setImageFile] = useState(null);
@@ -45,22 +47,33 @@ function AddImage({ url, handleShow, setImageUrl }) {
   }, [imageString]);
 
   async function onSubmit(data) {
-    console.log(data);
-    const client = createAxios();
-    if (imageString) {
-      const result = await doUpload(imageString);
-      console.log(result);
-    } else if (data.imageUrl) {
-      //const result = await doUpload(data.imageUrl);
-      try {
-        const response = await client.get(data.imageUrl);
-        if (response.status === 200) {
-          setImageUrl(data.imageUrl);
-          setFormImageUrl(data.imageUrl);
-        } else setFormError("Image must be publically available online");
-      } catch (error) {
-        setFormError("Image must be publically available online");
+    setDisabled(true);
+    setLoading(true);
+    try {
+      console.log(data);
+      const client = createAxios();
+      if (imageFile && data.imageUrl) {
+        setFormError("You can only use one of image url or file upload");
+      } else if (data.imageUrl) {
+        //const result = await doUpload(data.imageUrl);
+        try {
+          const response = await client.get(data.imageUrl);
+          if (response.status === 200) {
+            setImageUrl(data.imageUrl);
+            setFormImageUrl(data.imageUrl);
+          } else setFormError("Image must be publically available online");
+        } catch (error) {
+          setFormError("Image must be publically available online");
+        }
+      } else if (imageFile) {
+        const result = await doUpload(imageFile, setImageUrl);
+        console.log(result);
       }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+      setDisabled(false);
     }
   }
 
@@ -88,6 +101,7 @@ function AddImage({ url, handleShow, setImageUrl }) {
             onChange={(e) => {
               console.log(e);
               convertToBase64(e.target.files[0], setImageString);
+              setImageFile(e.target.files[0]);
             }}
           />
           <button onClick={clearImageFile}>clear image</button>
@@ -96,6 +110,8 @@ function AddImage({ url, handleShow, setImageUrl }) {
           <button onClick={handleShow}>Cancel</button>
           <button type="submit">Add Image</button>
         </div>
+        {loading && <div>Loading...</div>}
+        {formError && <div>{formError}</div>}
         {imageString && (
           <div>
             <img src={imageString} />
@@ -106,7 +122,6 @@ function AddImage({ url, handleShow, setImageUrl }) {
             <img src={formImageUrl} />
           </div>
         )}
-        {formError && <div>{formError}</div>}
       </BootstrapForm>
     </div>
   );
@@ -159,17 +174,20 @@ async function convertToBase64(file, handle) {
   }
 }
 
-async function doUpload(fileString) {
-  const IMGBB_KEY = "fb73b8f580e50eb2027f3610d53f531e";
-  const client = createAxios();
+async function doUpload(file, handler) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", "rv4f402m");
 
-  const url = ` http://freeimage.host/api/1/upload/?key=6d207e02198a847aa98d0a2a901485a5`;
+  const client = createAxios();
   try {
-    const response = await client.post(url);
+    const response = await client.post(
+      "https://api.cloudinary.com/v1_1/dt8j2ptfq/image/upload",
+      formData
+    );
     console.log(response);
-    return response;
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
+    if (response.status === 200) {
+      handler(response.data.url);
+    }
+  } catch (error) {}
 }
