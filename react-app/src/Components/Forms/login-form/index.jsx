@@ -8,6 +8,7 @@ import createAxios from "../../../Functions/create-axios";
 import { LOGIN_URL } from "../../../Constants";
 import InputError from "../../Message/input-error";
 import { useNavigate } from "react-router-dom";
+import BootstrapForm from "../bootstrap-form";
 
 const schema = yup.object().shape({
   email: yup
@@ -53,7 +54,7 @@ function LoginForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={disabled}>
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
@@ -79,7 +80,7 @@ function LoginForm() {
         </Form.Group>
         <Button type="submit">Log In</Button>
       </fieldset>
-    </Form>
+    </BootstrapForm>
   );
 }
 

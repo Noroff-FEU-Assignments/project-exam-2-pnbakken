@@ -9,6 +9,7 @@ import { LOGIN_URL, REGISTER_URL } from "../../../Constants";
 import DisplayResponseErrors from "../../Message/display-response-errors";
 import InputError from "../../Message/input-error";
 import { useNavigate } from "react-router-dom";
+import BootstrapForm from "../bootstrap-form";
 
 const schema = yup.object().shape({
   username: yup.string().required("Please enter a username"),
@@ -71,7 +72,7 @@ function RegisterForm() {
     }
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={disabled}>
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
@@ -124,7 +125,7 @@ function RegisterForm() {
         {responseError && <DisplayResponseErrors data={responseError} />}
         <Button type="submit">Submit</Button>
       </fieldset>
-    </Form>
+    </BootstrapForm>
   );
 }
 

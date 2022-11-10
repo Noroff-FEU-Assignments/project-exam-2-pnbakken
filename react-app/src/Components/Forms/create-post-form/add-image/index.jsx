@@ -8,6 +8,7 @@ import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import BootstrapForm from "../../bootstrap-form";
 
 const schema = yup.object().shape({
   imageUrl: yup.string(),
@@ -55,7 +56,7 @@ function AddImage({ url, handleShow, setImageUrl }) {
 
   return (
     <div className="add-image full-width standard-component-width flex-column align-start raise absolute p-3">
-      <Form
+      <BootstrapForm
         className="full-width height-fit flex-column gap-xs"
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -90,7 +91,7 @@ function AddImage({ url, handleShow, setImageUrl }) {
             <img src={imageString} />
           </div>
         )}
-      </Form>
+      </BootstrapForm>
     </div>
   );
 }

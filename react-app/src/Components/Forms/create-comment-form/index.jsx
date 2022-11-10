@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import createAxios from "../../../Functions/create-axios";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
+import BootstrapForm from "../bootstrap-form";
 
 const schema = yup.object().shape({
   body: yup.string().required("Comments can't be emtpy"),
@@ -41,12 +42,12 @@ function CreateComment({ url, replyID = null }) {
     }
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={disabled}>
         <Form.Control as="textarea" {...register("body")} />
         <Button type="submit">Comment</Button>
       </fieldset>
-    </Form>
+    </BootstrapForm>
   );
 }
 

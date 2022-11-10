@@ -1,0 +1,33 @@
+@import "/src/style/partials/base/base";
+
+.system-form {
+
+
+    fieldset {
+        background: $colour-system-background;
+    }
+
+    input,
+    textarea {
+        background: none;
+        border: none;
+        border-bottom: 2px solid $colour-light;
+        color: $colour-light;
+        border-radius: 0;
+    }
+
+    input:active,
+    input:focus,
+    textarea:active,
+    textarea:focus {
+        background: none;
+        border-color: $colour-primary;
+        box-shadow: none;
+        color: $colour-light;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: $colour-light;
+    }
+}

@@ -11,6 +11,8 @@ import { ALL_POSTS_URL } from "../../../Constants";
 import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
 import AddImage from "./add-image";
+import BSForm from "../bootstrap-form";
+import BootstrapForm from "../bootstrap-form";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -76,12 +78,15 @@ function CreatePostForm({ url, edit = null }) {
           setImageUrl={setImageUrl}
         />
       )}
-      <Form
+      <BootstrapForm
         id="new-post-form"
         onSubmit={handleSubmit(onSubmit)}
-        className="flex-column align-center"
+        className="flex-column align-center full-width"
       >
-        <fieldset disabled={disabled} className="standard-component-width">
+        <fieldset
+          disabled={disabled}
+          className="full-width standard-component-width p-4"
+        >
           <Form.Group>
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -115,7 +120,7 @@ function CreatePostForm({ url, edit = null }) {
             <Button type="submit">Post</Button>
           </div>
         </fieldset>
-      </Form>
+      </BootstrapForm>
     </>
   );
 }
