@@ -3,7 +3,8 @@ $colour-ruby: #e40066;
 $colour-carolina-blue: #3296c8;
 $colour-baby-powder: #fdfffc;
 $colour-rich-black: #031c2b;
-$colour-eerie-black: #232a2e;
+$colour-eerie-black: #262626;
+$colour-pitch-black: #021218;
 
 $colour-dark: $colour-rich-black;
 $colour-light: $colour-baby-powder;
@@ -15,7 +16,7 @@ $colour-secondary: $colour-carolina-blue;
 $colour-primary-background: $colour-space-cadet;
 $colour-secondary-background: $colour-rich-black;
 $colour-secondary-background-transparent: rgb($colour-secondary-background, 0.8);
-$colour-system-background: $colour-eerie-black;
+$colour-system-background: $colour-pitch-black;
 
 $colour-primary-gradient: linear-gradient(150deg, $colour-primary 20%, $colour-secondary 85%);
 $colour-dark-gradient: radial-gradient(circle, $colour-primary-background 75%, $colour-secondary-background 150%);
