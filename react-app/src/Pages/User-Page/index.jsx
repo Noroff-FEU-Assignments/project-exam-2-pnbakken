@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
@@ -8,7 +8,11 @@ import { USER_URL } from "../../Constants";
 import useGet from "../../Hooks/use-get";
 
 function UserPage() {
-  const { name } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [name, setName] = useState(searchParams.get("name"));
+  useEffect(() => {
+    console.log(name);
+  }, [name]);
 
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState(null);
@@ -20,12 +24,17 @@ function UserPage() {
   };
 
   const { data, loading, error } = useGet(getUserSettings);
+  useEffect(() => {
+    if (data) {
+      setUser(data);
+    }
+  }, [data]);
 
   return (
     <MainLayout>
       <AppInterfaceLayout>
-        {data && <UserCard user={data} />}
-        <DisplayAllPosts settings={getPostsSettings} />
+        {user && <UserCard user={user} />}
+        {user && <DisplayAllPosts settings={getPostsSettings} />}
       </AppInterfaceLayout>
     </MainLayout>
   );

@@ -12,7 +12,7 @@ function Post({ children, data }) {
   const isOwner = auth && auth.name === data.author.name ? "owner" : "";
 
   return (
-    <div className={`post full-width ${isOwner}`}>
+    <div className={`post full-width ${isOwner} radius-sm`}>
       {isOwner && <OwnerInteraction post={data} />}
       {children}
     </div>

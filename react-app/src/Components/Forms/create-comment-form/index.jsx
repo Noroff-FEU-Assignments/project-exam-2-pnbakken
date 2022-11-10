@@ -44,7 +44,11 @@ function CreateComment({ url, replyID = null }) {
   return (
     <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={disabled}>
-        <Form.Control as="textarea" {...register("body")} />
+        <Form.Control
+          as="textarea"
+          {...register("body")}
+          placeholder="Leave a comment"
+        />
         <Button type="submit">Comment</Button>
       </fieldset>
     </BootstrapForm>

@@ -10,6 +10,10 @@ function UserCard({ user }) {
   const [auth, isAuth] = useContext(AuthContext);
   const isOwner = auth ? auth.name === user.name : false;
   console.log("Is owner: " + isOwner);
+
+  if (!user) {
+    return <div className="user-card full-width"></div>;
+  }
   return (
     <div
       className="user-card full-width flex-column justify-end"

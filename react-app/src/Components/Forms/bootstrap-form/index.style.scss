@@ -4,8 +4,15 @@
 
 
     fieldset {
+        background: $colour-secondary-background;
+        transition: 0.5s;
+    }
+
+    fieldset.running {
         background: $colour-system-background;
     }
+
+
 
     input,
     textarea {

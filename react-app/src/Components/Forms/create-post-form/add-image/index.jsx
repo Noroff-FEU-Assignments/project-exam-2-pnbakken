@@ -26,9 +26,10 @@ function AddImage({ url, handleShow, setImageUrl }) {
       ...(url && { url: url }),
     },
   });
-  const [error, setError] = useState("");
+  const [formError, setFormError] = useState("");
   const [imageString, setImageString] = useState("");
   const [imageFile, setImageFile] = useState(null);
+  const [formImageUrl, setFormImageUrl] = useState("");
 
   useEffect(() => {
     async function postImage() {
@@ -45,12 +46,21 @@ function AddImage({ url, handleShow, setImageUrl }) {
 
   async function onSubmit(data) {
     console.log(data);
+    const client = createAxios();
     if (imageString) {
       const result = await doUpload(imageString);
       console.log(result);
     } else if (data.imageUrl) {
       //const result = await doUpload(data.imageUrl);
-      setImageUrl(data.imageUrl);
+      try {
+        const response = await client.get(data.imageUrl);
+        if (response.status === 200) {
+          setImageUrl(data.imageUrl);
+          setFormImageUrl(data.imageUrl);
+        } else setFormError("Image must be publically available online");
+      } catch (error) {
+        setFormError("Image must be publically available online");
+      }
     }
   }
 
@@ -91,6 +101,12 @@ function AddImage({ url, handleShow, setImageUrl }) {
             <img src={imageString} />
           </div>
         )}
+        {formImageUrl && (
+          <div>
+            <img src={formImageUrl} />
+          </div>
+        )}
+        {formError && <div>{formError}</div>}
       </BootstrapForm>
     </div>
   );

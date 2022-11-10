@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -14,6 +14,7 @@ import AddImage from "./add-image";
 import BSForm from "../bootstrap-form";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
+import ComponentOpacity from "../../Utility-Components/component-opacity";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -30,7 +31,14 @@ const schema = yup.object().shape({
  * @returns <Form>
  */
 
-function CreatePostForm({ url, edit = null }) {
+function CreatePostForm({ url, edit = null, close }) {
+  const [running, setRunning] = useState(edit ? true : false);
+  function startRunning() {
+    setRunning(true);
+  }
+  function stopRunning() {
+    setRunning(false);
+  }
   const [disabled, setDisabled] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
   const [imageUrl, setImageUrl] = useState("");
@@ -38,6 +46,7 @@ function CreatePostForm({ url, edit = null }) {
   function handleShowAddImage() {
     setShowAddImage(!showAddImage);
   }
+  const randomEncourage = getRandomEncouragement();
 
   const {
     register,
@@ -67,6 +76,7 @@ function CreatePostForm({ url, edit = null }) {
     } catch (error) {
     } finally {
       setDisabled(false);
+      stopRunning();
     }
   }
 
@@ -86,25 +96,33 @@ function CreatePostForm({ url, edit = null }) {
       >
         <fieldset
           disabled={disabled}
-          className="full-width standard-component-width p-4 radius-sm"
+          className={`full-width standard-component-width p-4 radius-sm ${
+            running ? "running" : ""
+          }`}
+          onFocus={startRunning}
         >
+          <ComponentOpacity condition={running}>
+            <Form.Group>
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                id="new-post-title"
+                className="mb-2"
+                {...register("title")}
+                defaultValue={edit ? edit.title : ""}
+              />
+              {errors.title && <>{errors.title.message}</>}
+            </Form.Group>
+          </ComponentOpacity>
+
           <Form.Group>
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              id="new-post-title"
-              placeholder="Title"
-              className="mb-2"
-              {...register("title")}
-              defaultValue={edit ? edit.title : ""}
-            />
-            {errors.title && <>{errors.title.message}</>}
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Content</Form.Label>
+            <ComponentOpacity condition={running}>
+              <Form.Label>Content</Form.Label>
+            </ComponentOpacity>
+
             <Form.Control
               as="textarea"
-              placeholder={getRandomEncouragement()}
+              placeholder={running ? "" : randomEncourage}
               id="new-post-body"
               {...register("body")}
               defaultValue={edit ? edit.body : ""}
@@ -116,9 +134,25 @@ function CreatePostForm({ url, edit = null }) {
             </div>
           )}
           <div className="new-post-menu flex-row justify-between">
-            <Button onClick={handleShowAddImage}>Add Image</Button>
+            <ComponentOpacity condition={running}>
+              <Button onClick={handleShowAddImage}>Add Image</Button>
+            </ComponentOpacity>
 
-            <BrandButton type="submit">Post</BrandButton>
+            <div className="flex-row gap-md">
+              {edit ? (
+                <button onClick={close}>Cancel</button>
+              ) : (
+                <ComponentOpacity condition={running}>
+                  <button onClick={stopRunning}>Cancel</button>
+                </ComponentOpacity>
+              )}
+
+              {running || edit ? (
+                <BrandButton type="submit">Post</BrandButton>
+              ) : (
+                <BrandButton onClick={startRunning}>Post</BrandButton>
+              )}
+            </div>
           </div>
         </fieldset>
       </BootstrapForm>

@@ -14,11 +14,15 @@ function EditPost({ post, auth }) {
     <>
       <button onClick={showEdit}>Edit</button>
       {show && (
-        <>
-          <Modal show={show} onHide={showEdit}>
-            <CreatePostForm url={url} edit={post} />
+        <div className="flex-column align-center full-width">
+          <Modal
+            show={show}
+            onHide={showEdit}
+            className="full-width standard-component-width p-3"
+          >
+            <CreatePostForm url={url} edit={post} close={showEdit} />
           </Modal>
-        </>
+        </div>
       )}
     </>
   );
