@@ -7,7 +7,7 @@ import ProfileImage from "../profile-image";
 
 function UserList({ users }) {
   const settings = {
-    url: USER_URL + "?_followers=true",
+    url: USER_URL + "?_followers=true&sort=name&sortOrder=asc&limit=100",
   };
   const { data, loading, error } = useGet(settings);
   return (
