@@ -8,11 +8,7 @@ import { USER_URL } from "../../Constants";
 import useGet from "../../Hooks/use-get";
 
 function UserPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [name, setName] = useState(searchParams.get("name"));
-  useEffect(() => {
-    console.log(name);
-  }, [name]);
+  const { name } = useParams();
 
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState(null);

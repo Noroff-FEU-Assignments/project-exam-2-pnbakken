@@ -29,7 +29,7 @@ function useGet(settings) {
       }
     }
     getData();
-  }, []);
+  }, [auth, settings.url]);
   return { data, loading, error };
 }
 

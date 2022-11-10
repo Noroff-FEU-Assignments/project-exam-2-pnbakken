@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Button, Form } from "react-bootstrap";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -7,11 +7,9 @@ import { useState } from "react";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
-import { ALL_POSTS_URL } from "../../../Constants";
 import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
 import AddImage from "./add-image";
-import BSForm from "../bootstrap-form";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
@@ -111,11 +109,11 @@ function CreatePostForm({ url, edit = null, close }) {
                 {...register("title")}
                 defaultValue={edit ? edit.title : ""}
               />
-              {errors.title && <>{errors.title.message}</>}
+              {errors.title ? <>{errors.title.message}</> : <div> </div>}
             </Form.Group>
           </ComponentOpacity>
 
-          <Form.Group>
+          <Form.Group className="mb-5">
             <ComponentOpacity condition={running}>
               <Form.Label>Content</Form.Label>
             </ComponentOpacity>
@@ -133,21 +131,24 @@ function CreatePostForm({ url, edit = null, close }) {
               <img src={imageUrl} />
             </div>
           )}
-          <div className="new-post-menu flex-row justify-between">
+          <div className="new-post-menu flex-row justify-between align-center">
             <ComponentOpacity condition={running}>
-              <Button onClick={handleShowAddImage}>Add Image</Button>
+              <Button onClick={running ? handleShowAddImage : undefined}>
+                Add Image
+              </Button>
             </ComponentOpacity>
 
-            <div className="flex-row gap-md">
+            <div className="flex-row gap-md align-center">
               {edit ? (
                 <button onClick={close}>Cancel</button>
               ) : (
                 <ComponentOpacity condition={running}>
-                  <button onClick={stopRunning}>Cancel</button>
+                  <button onClick={running ? stopRunning : undefined}>
+                    Cancel
+                  </button>
                 </ComponentOpacity>
               )}
-
-              {running || edit ? (
+              {running ? (
                 <BrandButton type="submit">Post</BrandButton>
               ) : (
                 <BrandButton onClick={startRunning}>Post</BrandButton>
