@@ -15,7 +15,7 @@ function PageRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/user/:name" element={<UserPage />} />
-      <Route path="/all-users" element={<AllUsers />} />
+      <Route path="/users" element={<AllUsers />} />
     </Routes>
   );
 }

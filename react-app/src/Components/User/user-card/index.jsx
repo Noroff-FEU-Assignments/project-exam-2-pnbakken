@@ -29,7 +29,7 @@ function UserCard({ user }) {
             <div>{user._count.following}</div>
             <div>Following</div>
           </div>
-          {!isOwner && <Follow />}
+          {!isOwner && <Follow user={user} />}
         </div>
       </div>
     </div>

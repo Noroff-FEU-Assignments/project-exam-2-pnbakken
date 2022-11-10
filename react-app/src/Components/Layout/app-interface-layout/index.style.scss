@@ -5,6 +5,7 @@
     background: $colour-secondary-background;
 
     grid-template-columns: auto 1fr;
+    min-height: 100vh;
 
     @media(max-width: 991px) {
         grid-template-columns: auto;

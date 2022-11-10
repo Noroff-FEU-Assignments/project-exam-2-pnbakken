@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import CentralColumn from "../../Components/Design-Components/center-column";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
-import NewPost from "../../Components/Posts/new-post";
 import UserCard from "../../Components/User/user-card";
-import { BASE_URL, USER_URL } from "../../Constants";
+import { USER_URL } from "../../Constants";
 import useGet from "../../Hooks/use-get";
 
 function UserPage() {
@@ -28,7 +25,6 @@ function UserPage() {
     <MainLayout>
       <AppInterfaceLayout>
         {data && <UserCard user={data} />}
-        <NewPost />
         <DisplayAllPosts settings={getPostsSettings} />
       </AppInterfaceLayout>
     </MainLayout>
