@@ -12,11 +12,11 @@ function BootstrapForm({ children, onSubmit, className = "", id = "" }) {
   );
 }
 
-export default BootstrapForm;
-
 BootstrapForm.propTypes = {
   children: PropTypes.node.isRequired,
   onSubmit: PropTypes.func.isRequired,
   className: PropTypes.string,
   id: PropTypes.string,
 };
+
+export default BootstrapForm;
