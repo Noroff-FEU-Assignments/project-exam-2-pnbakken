@@ -14,9 +14,9 @@ function DeletePost({ id, auth }) {
   return <button onClick={doDelete}>delete post</button>;
 }
 
-export default DeletePost;
-
 DeletePost.propTypes = {
   id: PropTypes.number.isRequired,
   auth: PropTypes.object.isRequired,
 };
+
+export default DeletePost;

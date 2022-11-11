@@ -14,11 +14,11 @@ function DisplayReaction({ reactionData }) {
   );
 }
 
-export default DisplayReaction;
-
 DisplayReaction.propTypes = {
   reactionData: PropTypes.object.isRequired,
 };
+
+export default DisplayReaction;
 
 function Reaction({ data }) {
   return (

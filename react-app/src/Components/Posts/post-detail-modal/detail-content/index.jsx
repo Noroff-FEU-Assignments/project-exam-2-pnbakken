@@ -8,8 +8,8 @@ function DetailContent({ data }) {
   return <PostContent data={data} />;
 }
 
-export default DetailContent;
-
 DetailContent.propTypes = {
   data: PropTypes.object.isRequired,
 };
+
+export default DetailContent;

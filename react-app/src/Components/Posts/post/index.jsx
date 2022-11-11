@@ -19,9 +19,9 @@ function Post({ children, data }) {
   );
 }
 
-export default Post;
-
 Post.propTypes = {
   children: PropTypes.node.isRequired,
   data: PropTypes.object.isRequired,
 };
+
+export default Post;

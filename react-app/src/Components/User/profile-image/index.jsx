@@ -11,8 +11,8 @@ function ProfileImage({ src }) {
   return <div className="profile-image" style={style}></div>;
 }
 
-export default ProfileImage;
-
 ProfileImage.propTypes = {
   src: PropTypes.string,
 };
+
+export default ProfileImage;

@@ -13,8 +13,8 @@ export const AuthProvider = (props) => {
   );
 };
 
-export default AuthContext;
-
 AuthContext.propTypes = {
   children: PropTypes.node,
 };
+
+export default AuthContext;

@@ -43,8 +43,8 @@ function PostListItem({ data }) {
   );
 }
 
-export default PostListItem;
-
 PostListItem.propTypes = {
   data: PropTypes.object.isRequired,
 };
+
+export default PostListItem;

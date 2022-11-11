@@ -25,8 +25,8 @@ function AppInterfaceLayout({ children }) {
   );
 }
 
-export default AppInterfaceLayout;
-
 AppInterfaceLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
+
+export default AppInterfaceLayout;

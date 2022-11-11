@@ -5,8 +5,8 @@ function InputError({ children }) {
   return <div className="error input-error">{children}</div>;
 }
 
-export default InputError;
-
 InputError.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+export default InputError;

@@ -36,11 +36,10 @@ function PostDetailModal({ postID, show, setShow }) {
   );
 }
 
-export default PostDetailModal;
-
 PostDetailModal.propTypes = {
   postID: PropTypes.number.isRequired,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
-  isOwner: PropTypes.bool,
 };
+
+export default PostDetailModal;

@@ -15,8 +15,8 @@ function DisplayResponseErrors({ data }) {
   );
 }
 
-export default DisplayResponseErrors;
-
 DisplayResponseErrors.propTypes = {
   data: PropTypes.array.isRequired,
 };
+
+export default DisplayResponseErrors;

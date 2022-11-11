@@ -14,12 +14,8 @@ function PostFooter({ data }) {
   );
 }
 
-export default PostFooter;
-
 PostFooter.propTypes = {
   data: PropTypes.object.isRequired,
-  isOwner: PropTypes.bool,
-  show: PropTypes.bool,
-  setShow: PropTypes.func,
-  detail: PropTypes.bool,
 };
+
+export default PostFooter;

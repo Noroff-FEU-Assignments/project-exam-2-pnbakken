@@ -11,10 +11,10 @@ function BrandButton({ children, onClick, type }) {
   );
 }
 
-export default BrandButton;
-
 BrandButton.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.node,
   type: PropTypes.string,
 };
+
+export default BrandButton;

@@ -127,13 +127,13 @@ function AddImage({ url, handleShow, setImageUrl }) {
   );
 }
 
-export default AddImage;
-
 AddImage.propTypes = {
   url: PropTypes.string,
   handleShow: PropTypes.func.isRequired,
   setImageUrl: PropTypes.func.isRequired,
 };
+
+export default AddImage;
 
 function clearImageFile(event) {
   event.preventDefault();
@@ -174,6 +174,11 @@ async function convertToBase64(file, handle) {
   }
 }
 
+/**
+ *
+ * @param {*} file
+ * @param {*} handler
+ */
 async function doUpload(file, handler) {
   const formData = new FormData();
   formData.append("file", file);

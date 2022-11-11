@@ -33,8 +33,8 @@ function useGet(settings) {
   return { data, loading, error };
 }
 
-export default useGet;
-
 useGet.propTypes = {
   settings: PropTypes.object.isRequired,
 };
+
+export default useGet;

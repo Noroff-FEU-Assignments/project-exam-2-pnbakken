@@ -14,8 +14,7 @@ function CentralColumn({ children }) {
   );
 }
 
-export default CentralColumn;
-
 CentralColumn.propTypes = {
   children: PropTypes.node,
 };
+export default CentralColumn;

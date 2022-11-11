@@ -16,8 +16,8 @@ function MainLayout({ children }) {
   );
 }
 
-export default MainLayout;
-
 MainLayout.propTypes = {
   children: PropTypes.node,
 };
+
+export default MainLayout;

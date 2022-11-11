@@ -27,12 +27,12 @@ function DisplayComment({ commentData, postID }) {
   );
 }
 
-export default DisplayComment;
-
 DisplayComment.propTypes = {
   commentData: PropTypes.array.isRequired,
   postID: PropTypes.number.isRequired,
 };
+
+export default DisplayComment;
 
 function Comment({ comment, allComments, postID }) {
   const [auth, setAuth] = useContext(AuthContext);

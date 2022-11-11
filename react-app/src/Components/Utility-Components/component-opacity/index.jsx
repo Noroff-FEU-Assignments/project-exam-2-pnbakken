@@ -11,9 +11,8 @@ function ComponentOpacity({ condition, children }) {
   );
 }
 
-export default ComponentOpacity;
-
 ComponentOpacity.propTypes = {
   condition: PropTypes.bool.isRequired,
   children: PropTypes.node,
 };
+export default ComponentOpacity;

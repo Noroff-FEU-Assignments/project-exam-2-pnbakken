@@ -12,8 +12,8 @@ function ScrollToTop({ children }) {
   return <>{children}</>;
 }
 
-export default ScrollToTop;
-
 ScrollToTop.propTypes = {
   children: PropTypes.node,
 };
+
+export default ScrollToTop;

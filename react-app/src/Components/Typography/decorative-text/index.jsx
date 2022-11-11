@@ -28,9 +28,9 @@ function DecorativeText({ children, size = 80 }) {
   );
 }
 
-export default DecorativeText;
-
 DecorativeText.propTypes = {
   children: PropTypes.node.isRequired,
   size: PropTypes.number,
 };
+
+export default DecorativeText;

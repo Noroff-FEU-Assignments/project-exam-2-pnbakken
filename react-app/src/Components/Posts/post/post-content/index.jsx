@@ -32,10 +32,10 @@ function PostContent({ data }) {
   );
 }
 
-export default PostContent;
-
 PostContent.propTypes = {
   data: PropTypes.object.isRequired,
   show: PropTypes.bool,
   setShow: PropTypes.func,
 };
+
+export default PostContent;
