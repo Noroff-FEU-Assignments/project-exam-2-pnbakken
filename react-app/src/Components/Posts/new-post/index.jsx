@@ -6,7 +6,7 @@ import CreatePostForm from "../../Forms/create-post-form";
 
 function NewPost() {
   return (
-    <div className="new-post full-width">
+    <div className="new-post full-width raise">
       <CreatePostForm url={ALL_POSTS_URL} />
     </div>
   );
