@@ -17,3 +17,5 @@ export const HistoryProvider = ({ children }) => {
 HistoryProvider.propTypes = {
   children: PropTypes.node,
 };
+
+export default HistoryContext;

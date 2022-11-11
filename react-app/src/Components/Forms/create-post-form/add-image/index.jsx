@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import BootstrapForm from "../../bootstrap-form";
+import HistoryContext from "../../../../Context/history-context";
 
 const schema = yup.object().shape({
   imageUrl: yup.string(),
@@ -33,6 +34,8 @@ function AddImage({ url, handleShow, setImageUrl }) {
   const [imageFile, setImageFile] = useState(null);
   const [formImageUrl, setFormImageUrl] = useState("");
 
+  const [history, setHistory] = useContext(HistoryContext);
+
   useEffect(() => {
     async function postImage() {
       if (imageString) {
@@ -45,6 +48,17 @@ function AddImage({ url, handleShow, setImageUrl }) {
     }
     postImage();
   }, [imageString]);
+
+  function clearImage() {
+    const fileHandler = document.querySelector("#image-file");
+    fileHandler.value = "";
+    const urlHandler = document.querySelecotr("#image-url");
+    urlHandler.value = "";
+    setImageUrl("");
+    setImageString("");
+    setImageFile(null);
+    setFormImageUrl("");
+  }
 
   async function onSubmit(data) {
     setDisabled(true);
@@ -105,8 +119,11 @@ function AddImage({ url, handleShow, setImageUrl }) {
               setImageFile(e.target.files[0]);
             }}
           />
-          <button onClick={clearImageFile}>clear image</button>
+          <button type="button" onClick={clearImage}>
+            clear image
+          </button>
         </Form.Group>
+        <div className="flex-row wrap"></div>
         <div className="form-menu flex-row full-width justify-between">
           <button onClick={handleShow}>Cancel</button>
           {!disabled ? (
@@ -139,12 +156,6 @@ AddImage.propTypes = {
 };
 
 export default AddImage;
-
-function clearImageFile(event) {
-  event.preventDefault();
-  const fileHandler = document.querySelector("#image-file");
-  fileHandler.value = "";
-}
 
 async function testUrl(url) {
   const client = createAxios();

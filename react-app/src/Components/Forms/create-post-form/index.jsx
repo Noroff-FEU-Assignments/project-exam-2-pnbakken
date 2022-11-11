@@ -14,6 +14,7 @@ import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
 import RefreshContext from "../../../Context/refresh-context";
+import { HistoryProvider } from "../../../Context/history-context";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -91,11 +92,13 @@ function CreatePostForm({ url, edit = null, close }) {
   return (
     <>
       {showAddImage && (
-        <AddImage
-          url={edit && edit.media ? edit.media : ""}
-          handleShow={handleShowAddImage}
-          setImageUrl={setImageUrl}
-        />
+        <HistoryProvider>
+          <AddImage
+            url={edit && edit.media ? edit.media : ""}
+            handleShow={handleShowAddImage}
+            setImageUrl={setImageUrl}
+          />
+        </HistoryProvider>
       )}
       <BootstrapForm
         id="new-post-form"
