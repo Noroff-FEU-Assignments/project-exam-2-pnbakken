@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../Context/auth-context";
 import createAxios from "../../Functions/create-axios";
 import PropTypes from "prop-types";
+import RefreshContext from "../../Context/refresh-context";
 
 function useGet(settings) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [auth, setAuth] = useContext(AuthContext);
+  const [refresh, setRefresh] = useContext(RefreshContext);
   const client = createAxios(auth);
   useEffect(() => {
     async function getData() {
@@ -29,7 +31,7 @@ function useGet(settings) {
       }
     }
     getData();
-  }, [auth, settings.url]);
+  }, [refresh, auth, settings.url]);
   return { data, loading, error };
 }
 

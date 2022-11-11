@@ -5,9 +5,13 @@ import PropTypes from "prop-types";
 const RefreshContext = createContext([null, () => {}]);
 
 export const RefreshProvider = (props) => {
-  const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState(true);
 
-  return <RefreshContext.Provider>{props.children}</RefreshContext.Provider>;
+  return (
+    <RefreshContext.Provider value={[refresh, setRefresh]}>
+      {props.children}
+    </RefreshContext.Provider>
+  );
 };
 
 RefreshProvider.propTypes = {

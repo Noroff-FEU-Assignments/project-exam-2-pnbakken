@@ -14,6 +14,7 @@ function Home() {
     <MainLayout>
       <AppInterfaceLayout>
         <NewPost />
+
         <DisplayAllPosts settings={settings} />
       </AppInterfaceLayout>
     </MainLayout>

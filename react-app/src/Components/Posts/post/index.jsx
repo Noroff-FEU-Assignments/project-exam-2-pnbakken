@@ -8,7 +8,6 @@ import OwnerInteraction from "../post-interaction/owner-interaction";
 
 function Post({ children, data }) {
   const [auth, setAuth] = useContext(AuthContext);
-  console.log(data);
   const isOwner = auth && auth.name === data.author.name ? "owner" : "";
 
   return (

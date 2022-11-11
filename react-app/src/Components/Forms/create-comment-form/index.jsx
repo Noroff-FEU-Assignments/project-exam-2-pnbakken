@@ -9,6 +9,7 @@ import createAxios from "../../../Functions/create-axios";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import BootstrapForm from "../bootstrap-form";
+import RefreshContext from "../../../Context/refresh-context";
 
 const schema = yup.object().shape({
   body: yup.string().required("Comments can't be emtpy"),
@@ -17,6 +18,7 @@ const schema = yup.object().shape({
 
 function CreateComment({ url, replyID = null }) {
   const [auth, setAuth] = useContext(AuthContext);
+  const [refresh, setRefresh] = useContext(RefreshContext);
   const {
     handleSubmit,
     register,
@@ -36,6 +38,7 @@ function CreateComment({ url, replyID = null }) {
     try {
       const response = await client.post(url, data);
       console.log(response);
+      setRefresh(!refresh);
     } catch (error) {
     } finally {
       setDisabled(false);

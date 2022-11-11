@@ -1,5 +1,6 @@
 import React from "react";
-import { ALL_POSTS_URL } from "../../../Constants";
+import { useContext } from "react";
+import RefreshContext from "../../../Context/refresh-context";
 import useGet from "../../../Hooks/use-get";
 import PostListItem from "../post-list-item";
 
@@ -14,7 +15,7 @@ function DisplayAllPosts({ settings }) {
       {data && (
         <ul className="post-list flex-column align-center gap-lg full-width p-2">
           {data.map((post) => {
-            return <PostListItem data={post} />;
+            return <PostListItem data={post} key={post.id} />;
           })}
         </ul>
       )}

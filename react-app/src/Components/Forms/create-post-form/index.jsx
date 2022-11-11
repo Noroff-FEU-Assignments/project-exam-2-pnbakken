@@ -13,6 +13,7 @@ import AddImage from "./add-image";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
+import RefreshContext from "../../../Context/refresh-context";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -31,6 +32,7 @@ const schema = yup.object().shape({
 
 function CreatePostForm({ url, edit = null, close }) {
   const [running, setRunning] = useState(edit ? true : false);
+  const [refresh, setRefresh] = useContext(RefreshContext);
   function startRunning() {
     setRunning(true);
   }
@@ -71,10 +73,16 @@ function CreatePostForm({ url, edit = null, close }) {
         response = await client.post(url, data);
       }
       console.log(response);
+      setRefresh(!refresh);
+      console.log("refreshed : " + refresh);
     } catch (error) {
     } finally {
       setDisabled(false);
       stopRunning();
+
+      if (close) {
+        close();
+      }
     }
   }
 
@@ -101,12 +109,13 @@ function CreatePostForm({ url, edit = null, close }) {
         >
           <ComponentOpacity condition={running}>
             <Form.Group>
-              <Form.Label>Title</Form.Label>
+              {/* <Form.Label>Title</Form.Label> */}
               <Form.Control
                 type="text"
                 id="new-post-title"
                 className="mb-2"
                 {...register("title")}
+                placeholder="Post Title"
                 defaultValue={edit ? edit.title : ""}
               />
               {errors.title ? <>{errors.title.message}</> : <div> </div>}
@@ -115,7 +124,7 @@ function CreatePostForm({ url, edit = null, close }) {
 
           <Form.Group className="mb-5">
             <ComponentOpacity condition={running}>
-              <Form.Label>Content</Form.Label>
+              {/* <Form.Label>Content</Form.Label> */}
             </ComponentOpacity>
 
             <Form.Control
@@ -139,20 +148,22 @@ function CreatePostForm({ url, edit = null, close }) {
             </ComponentOpacity>
 
             <div className="flex-row gap-md align-center">
-              {edit ? (
-                <button onClick={close}>Cancel</button>
-              ) : (
-                <ComponentOpacity condition={running}>
-                  <button onClick={running ? stopRunning : undefined}>
+              <div>
+                {edit ? (
+                  <button type="button" onClick={close}>
                     Cancel
                   </button>
-                </ComponentOpacity>
-              )}
-              {running ? (
+                ) : (
+                  <ComponentOpacity condition={running}>
+                    <button type="button" onClick={stopRunning}>
+                      Cancel
+                    </button>
+                  </ComponentOpacity>
+                )}
+              </div>
+              <div>
                 <BrandButton type="submit">Post</BrandButton>
-              ) : (
-                <BrandButton onClick={startRunning}>Post</BrandButton>
-              )}
+              </div>
             </div>
           </div>
         </fieldset>
