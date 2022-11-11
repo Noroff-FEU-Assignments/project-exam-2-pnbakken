@@ -68,6 +68,7 @@ function AddImage({ url, handleShow, setImageUrl }) {
       } else if (imageFile) {
         const result = await doUpload(imageFile, setImageUrl);
         console.log(result);
+        handleShow();
       }
     } catch (error) {
       console.error(error);
@@ -108,7 +109,11 @@ function AddImage({ url, handleShow, setImageUrl }) {
         </Form.Group>
         <div className="form-menu flex-row full-width justify-between">
           <button onClick={handleShow}>Cancel</button>
-          <button type="submit">Add Image</button>
+          {!disabled ? (
+            <button type="submit">Add Image</button>
+          ) : (
+            <>Uploading Image...</>
+          )}
         </div>
         {loading && <div>Loading...</div>}
         {formError && <div>{formError}</div>}
@@ -158,6 +163,7 @@ async function testUrl(url) {
  * @param {} handle callback function to handle resulting base64 string
  */
 async function convertToBase64(file, handle) {
+  //Turns out I don't need this but I'll keep it in case I do some other time
   const reader = new FileReader();
   if (file) {
     try {
@@ -183,11 +189,12 @@ async function doUpload(file, handler) {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("upload_preset", "rv4f402m");
+  const cloud = "dt8j2ptfq";
 
   const client = createAxios();
   try {
     const response = await client.post(
-      "https://api.cloudinary.com/v1_1/dt8j2ptfq/image/upload",
+      `https://api.cloudinary.com/v1_1/${cloud}/image/upload`,
       formData
     );
     console.log(response);

@@ -1,15 +1,19 @@
 @import "/src/style/partials/base/base";
+@import "/src/style/partials/utility/utility-classes";
 
 .system-form {
 
 
     fieldset {
         background: $colour-secondary-background;
+
         transition: 0.5s;
     }
 
     fieldset.running {
+        @extend .raise;
         background: $colour-system-background;
+        box-shadow: $common-shadow;
     }
 
 

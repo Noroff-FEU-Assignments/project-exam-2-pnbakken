@@ -37,6 +37,7 @@ function CreatePostForm({ url, edit = null, close }) {
     setRunning(true);
   }
   function stopRunning() {
+    setImageUrl("");
     setRunning(false);
   }
   const [disabled, setDisabled] = useState(false);
@@ -77,6 +78,7 @@ function CreatePostForm({ url, edit = null, close }) {
       console.log("refreshed : " + refresh);
     } catch (error) {
     } finally {
+      setImageUrl("");
       setDisabled(false);
       stopRunning();
 
@@ -162,7 +164,11 @@ function CreatePostForm({ url, edit = null, close }) {
                 )}
               </div>
               <div>
-                <BrandButton type="submit">Post</BrandButton>
+                {!disabled ? (
+                  <BrandButton type="submit">Post</BrandButton>
+                ) : (
+                  <>Posting</>
+                )}
               </div>
             </div>
           </div>
