@@ -14,9 +14,20 @@ The app will receive an object with a token which will authenticate all subseque
 
 ## Table of Contents
 
-[1. Just Post User Guide](#1) 2. Developer Guide 1. Codebase Structure 2. Components 1. Top-Level Components 2. Contexts 1. 3. Pages 1. 4. Page-Components 1. 5. Hooks
-.1 6. Utilities
-.1 3. Some notes on styling 4. 3. Something else 4.
+- [1 Just Post User Guide](#1)
+
+- [2 Developer Guide](#2)
+
+  - [2.1 Codebase Structure](#2.1)
+  - [2.2 App Components](#2.2)
+    - [2.2.1 Top-Level Components](#2.2.1)
+    - [2.2.2 Contexts](#2.2.2)
+    - [2.2.3 Hooks](2.2.3)
+    - [2.2.4 Pages](#2.2.4)
+    - [2.2.5 Page-Components](#2.2.5)
+    - [2.2.6 Utility Components](#2.2.6)
+
+- [3 Notes on Styling](#3)
 
 ## <a name="#1">1. Just Post User Guide</a>
 
