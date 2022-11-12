@@ -1,0 +1,20 @@
+@import "/src/style/partials/base/base";
+
+.post {
+    max-width: 560px;
+    background: $colour-light;
+    color: $colour-dark;
+
+    img {
+        max-width: 100%;
+    }
+
+    .post-main {
+        max-width: 400px;
+    }
+}
+
+.post.owner {
+    background: $colour-primary-gradient;
+    color: $colour-light;
+}

@@ -1,0 +1,10 @@
+.component-opacity>* {
+    opacity: 0;
+    transition: 0.5s;
+    scale: 0.8;
+}
+
+.component-opacity.show>* {
+    opacity: 1;
+    scale: 1;
+}

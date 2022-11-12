@@ -1,0 +1,16 @@
+@import "/src/style/partials/base/base";
+
+.brand-button {
+    height: 44px;
+    padding: 0 40px 0 40px;
+    background: $colour-primary;
+    border-radius: 20px;
+    border: none;
+    color: $colour-light;
+    transition: 0.5s;
+}
+
+.brand-button:hover {
+    background: $colour-primary-gradient;
+    transition: 0.5s;
+}
