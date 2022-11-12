@@ -1,4 +1,5 @@
 import React from "react";
+import NewReaction from "../new-reaction";
 
 function ReactionCount({ data }) {
   return (
@@ -9,6 +10,7 @@ function ReactionCount({ data }) {
         </span>
         <div className="caption">Reactions</div>
       </div>
+      <NewReaction postID={data.id} />
     </div>
   );
 }
