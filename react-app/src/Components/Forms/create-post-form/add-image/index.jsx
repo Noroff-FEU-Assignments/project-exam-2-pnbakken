@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import BootstrapForm from "../../bootstrap-form";
 import HistoryContext from "../../../../Context/history-context";
+import UserImageHistory from "./user-image-history";
 
 const schema = yup.object().shape({
   imageUrl: yup.string(),
@@ -52,12 +53,18 @@ function AddImage({ url, handleShow, setImageUrl }) {
   function clearImage() {
     const fileHandler = document.querySelector("#image-file");
     fileHandler.value = "";
-    const urlHandler = document.querySelecotr("#image-url");
+    const urlHandler = document.querySelector("#image-url");
     urlHandler.value = "";
     setImageUrl("");
     setImageString("");
     setImageFile(null);
     setFormImageUrl("");
+  }
+
+  function setImageFromHistory(e) {
+    console.log(e.target.dataset.src);
+    setImageUrl(e.target.dataset.src);
+    handleShow();
   }
 
   async function onSubmit(data) {
@@ -75,6 +82,13 @@ function AddImage({ url, handleShow, setImageUrl }) {
           if (response.status === 200) {
             setImageUrl(data.imageUrl);
             setFormImageUrl(data.imageUrl);
+            if (history && history.media) {
+              const images = history.media;
+              images.push(data.imageUrl);
+              setHistory({ media: images });
+            } else {
+              setHistory({ media: [data.imageUrl] });
+            }
           } else setFormError("Image must be publically available online");
         } catch (error) {
           setFormError("Image must be publically available online");
@@ -82,6 +96,13 @@ function AddImage({ url, handleShow, setImageUrl }) {
       } else if (imageFile) {
         const result = await doUpload(imageFile, setImageUrl);
         console.log(result);
+        if (history && history.media) {
+          const images = history.media;
+          images.push(result.data.url);
+          setHistory({ media: images });
+        } else {
+          setHistory({ media: [result.data.url] });
+        }
         handleShow();
       }
     } catch (error) {
@@ -144,6 +165,8 @@ function AddImage({ url, handleShow, setImageUrl }) {
             <img src={formImageUrl} />
           </div>
         )}
+
+        <UserImageHistory handler={setImageUrl} endAction={handleShow} />
       </BootstrapForm>
     </div>
   );
@@ -211,6 +234,7 @@ async function doUpload(file, handler) {
     console.log(response);
     if (response.status === 200) {
       handler(response.data.url);
+      return response;
     }
   } catch (error) {}
 }

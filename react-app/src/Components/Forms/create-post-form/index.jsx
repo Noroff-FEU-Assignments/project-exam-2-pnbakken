@@ -67,6 +67,7 @@ function CreatePostForm({ url, edit = null, close }) {
     try {
       let response = null;
       if (imageUrl) {
+        console.log(imageUrl);
         data.media = imageUrl;
       }
       if (edit) {
@@ -78,6 +79,7 @@ function CreatePostForm({ url, edit = null, close }) {
       setRefresh(!refresh);
       console.log("refreshed : " + refresh);
     } catch (error) {
+      console.error(error);
     } finally {
       setImageUrl("");
       setDisabled(false);

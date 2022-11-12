@@ -15,7 +15,7 @@ function GlobalNavBar() {
       <Navbar.Collapse id="global-nav-menu">
         <span className="ms-auto me-auto">SEARCH</span>
         <Nav className="ms-auto">
-          <NavLink className="nav-link" to="/" exact>
+          <NavLink className="nav-link" to="/" exact="true">
             Home
           </NavLink>
           <NavLink className="nav-link" to="/about">

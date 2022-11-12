@@ -18,7 +18,6 @@ function PostListItem({ data }) {
 
   return (
     <li
-      key={data.id}
       className={`post-list-item flex-column align-center full-width radius-sm `}
     >
       <Post data={data}>
