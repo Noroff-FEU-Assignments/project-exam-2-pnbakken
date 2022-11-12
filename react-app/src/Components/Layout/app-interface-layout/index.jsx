@@ -20,10 +20,14 @@ function AppInterfaceLayout({ children }) {
 
   return (
     <div className="app-interface grid full-width">
-      <AppSidebar />
-      <CentralColumn>
-        <RefreshProvider>{children}</RefreshProvider>
-      </CentralColumn>
+      {auth && (
+        <>
+          <AppSidebar />
+          <CentralColumn>
+            <RefreshProvider>{children}</RefreshProvider>
+          </CentralColumn>
+        </>
+      )}
     </div>
   );
 }
