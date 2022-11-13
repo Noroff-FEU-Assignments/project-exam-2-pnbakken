@@ -17,7 +17,7 @@ const schema = yup.object().shape({
   imageFile: yup.mixed(),
 });
 
-function AddImage({ url, handleShow, setImageUrl }) {
+function AddImage({ url, handleShow, setImageUrl, className = "" }) {
   const {
     handleSubmit,
     register,
@@ -145,7 +145,7 @@ function AddImage({ url, handleShow, setImageUrl }) {
           </button>
         </Form.Group>
         <div className="flex-row wrap"></div>
-        <div className="form-menu flex-row full-width justify-between">
+        <div className="form-menu flex-row wrap-reverse full-width justify-between">
           <button onClick={handleShow}>Cancel</button>
           {!disabled ? (
             <button type="submit">Add Image</button>

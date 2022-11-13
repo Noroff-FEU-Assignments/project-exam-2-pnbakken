@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
-function ComponentOpacity({ condition, children }) {
+function ComponentOpacity({ condition, children, className = "" }) {
   return (
-    <div className={`component-opacity ${condition ? "show" : ""}`}>
+    <div
+      className={`component-opacity ${condition ? "show" : ""} ${className}`}
+    >
       {children}
     </div>
   );

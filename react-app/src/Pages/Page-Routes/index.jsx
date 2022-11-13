@@ -7,6 +7,7 @@ import Home from "../home";
 import Login from "../login";
 import Register from "../register";
 import UserPage from "../User-Page";
+import UserSettings from "../user-settings";
 
 function PageRoutes() {
   return (
@@ -17,6 +18,7 @@ function PageRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user/:name" element={<UserPage />} />
+        <Route path="/user/:name/settings" element={<UserSettings />} />
         <Route path="/users" element={<AllUsers />} />
       </Routes>
     </ScrollToTop>
