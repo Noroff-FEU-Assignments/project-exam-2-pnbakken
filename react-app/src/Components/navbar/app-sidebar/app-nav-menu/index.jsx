@@ -9,7 +9,7 @@ function AppNavMenu() {
     <div className="app-navmenu flex-column align-center">
       <Link to="/home">Home</Link>
       <Link to="/users">Users</Link>
-      <Link to={`/users/${auth.name}/settings`}>Account Settings</Link>
+      <Link to={`/user/${auth.name}/settings`}>Account Settings</Link>
     </div>
   );
 }
