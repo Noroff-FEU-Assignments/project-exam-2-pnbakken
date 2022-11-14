@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 import { Form } from "react-bootstrap";
-import createAxios from "../../../../Functions/create-axios";
+import createAxios from "../../../Functions/create-axios";
 import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import BootstrapForm from "../../bootstrap-form";
-import HistoryContext from "../../../../Context/history-context";
+import BootstrapForm from "../bootstrap-form";
+import HistoryContext from "../../../Context/history-context";
 import UserImageHistory from "./user-image-history";
 
 const schema = yup.object().shape({
@@ -17,7 +17,7 @@ const schema = yup.object().shape({
   imageFile: yup.mixed(),
 });
 
-function AddImage({ url, handleShow, setImageUrl, className = "" }) {
+function AddImageForm({ url, handleShow, setImageUrl, className = "" }) {
   const {
     handleSubmit,
     register,
@@ -172,13 +172,13 @@ function AddImage({ url, handleShow, setImageUrl, className = "" }) {
   );
 }
 
-AddImage.propTypes = {
+AddImageForm.propTypes = {
   url: PropTypes.string,
   handleShow: PropTypes.func.isRequired,
   setImageUrl: PropTypes.func.isRequired,
 };
 
-export default AddImage;
+export default AddImageForm;
 
 async function testUrl(url) {
   const client = createAxios();

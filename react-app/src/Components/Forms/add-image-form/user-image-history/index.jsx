@@ -2,10 +2,10 @@ import React from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { USER_URL } from "../../../../../Constants";
-import AuthContext from "../../../../../Context/auth-context";
-import HistoryContext from "../../../../../Context/history-context";
-import useGet from "../../../../../Hooks/use-get";
+import { USER_URL } from "../../../../Constants";
+import AuthContext from "../../../../Context/auth-context";
+import HistoryContext from "../../../../Context/history-context";
+import useGet from "../../../../Hooks/use-get";
 
 import "./index.style.scss";
 

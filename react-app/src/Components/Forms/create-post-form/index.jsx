@@ -9,7 +9,7 @@ import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
 import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
-import AddImage from "./add-image";
+import AddImageForm from "../add-image-form";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
@@ -95,7 +95,7 @@ function CreatePostForm({ url, edit = null, close }) {
     <>
       {showAddImage && (
         <HistoryProvider>
-          <AddImage
+          <AddImageForm
             url={edit && edit.media ? edit.media : ""}
             handleShow={handleShowAddImage}
             setImageUrl={setImageUrl}
