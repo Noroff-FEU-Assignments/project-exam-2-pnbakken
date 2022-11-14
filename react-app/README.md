@@ -40,3 +40,7 @@ In order to access the app you must register a user with the following propertie
 - **Password** must be at least `8` characters.
 
 The app will receive an object with a token which will authenticate all subsequent API calls. Until the user logs out.
+
+## <a name="2">2. Developer Guide
+
+### <a name="2.1"> 2. 1 Codebase Structure
