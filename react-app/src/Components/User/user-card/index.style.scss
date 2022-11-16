@@ -2,10 +2,11 @@
 
 .user-card {
     min-height: 300px;
+    background: $colour-primary;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background: $colour-primary;
+
 
     .user-info {
         background: $colour-secondary-background-transparent;

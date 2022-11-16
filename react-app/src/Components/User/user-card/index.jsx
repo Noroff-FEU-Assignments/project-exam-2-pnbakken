@@ -23,7 +23,7 @@ function UserCard({ user }) {
   return (
     <div
       className="user-card full-width flex-column justify-end"
-      style={{ backgroundImage: user.banner ? user.banner : "" }}
+      style={{ backgroundImage: `url(${user.banner ? user.banner : ""})` }}
     >
       <div className="user-info full-width flex-column align-center">
         <div className="full-width standard-component-width flex-row wrap justify-evenly align-end">
