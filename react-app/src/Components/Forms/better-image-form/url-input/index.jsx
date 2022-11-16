@@ -19,9 +19,7 @@ function UrlInput({ resultHandler, edit = "" }) {
         defaultValue={edit ? edit : ""}
         onChange={handleChange}
       />
-      <div>
-        <img src={imagePreview} />
-      </div>
+      <div>{imagePreview && <img src={imagePreview} />}</div>
     </Form.Group>
   );
 }

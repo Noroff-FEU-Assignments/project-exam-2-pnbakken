@@ -18,9 +18,6 @@ import { cloneElement } from "react";
  */
 function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
   const [imageUrl, setImageUrl] = useState("");
-  useEffect(() => {
-    console.log(imageUrl);
-  }, [imageUrl]);
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState(null);
 
@@ -32,43 +29,53 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
     const fileInput = document.querySelector("#file-input");
 
     try {
-      if (urlInput.value) {
+      if (fileInput.files[0]) {
+        const url = await doUpload(fileInput.files[0]);
+        if (url) {
+          setImageUrl(url);
+        }
+      } else if (urlInput.value) {
         const url = urlInput.value;
         if (await validateImageUrl(url)) {
           setImageUrl(url);
         }
-      } else if (fileInput.files[0]) {
-        const url = await doUpload(fileInput.files[0]);
-        if (url) {
-            setImageUrl(url);
-        }
       }
     } catch (error) {
+      console.error(error);
     } finally {
-
-        try {
-            
-        }
       setLoading(false);
+
+      if (imageUrl) {
+        console.log("Has image url");
+        imageUrlHandler(imageUrl);
+        handleShow();
+        console.log("Image handled");
+      }
     }
   }
 
   return (
-    <BootstrapForm onSubmit={handleImage}>
-      <fieldset disabled={loading}>
-        <div className="inputs">
-          <UrlInput resultHandler={setImageUrl} edit={edit ? edit : ""} />
-          <FileInput resultHandler={setImageUrl} />
-        </div>
-        <div className="menu flex-row full-width wrap justify-between">
-          <button type="button" onClick={handleShow}>
-            Cancel
-          </button>
-          <BrandButton type="submit">Submit</BrandButton>
-        </div>
-        {imageUrl && <SelectedImageDisplay image={imageUrl} />}
-      </fieldset>
-    </BootstrapForm>
+    <div className="better-add-image full-width flex-column p-3">
+      <BootstrapForm onSubmit={handleImage}>
+        <fieldset disabled={loading}>
+          <div className="inputs">
+            <UrlInput resultHandler={setImageUrl} edit={edit ? edit : ""} />
+            <FileInput resultHandler={setImageUrl} />
+          </div>
+          <div className="menu flex-row full-width wrap justify-between">
+            <button type="button" onClick={handleShow}>
+              Cancel
+            </button>
+            {!loading ? (
+              <BrandButton type="submit">Confirm</BrandButton>
+            ) : (
+              <>Checking image</>
+            )}
+          </div>
+          {/*imageUrl && <SelectedImageDisplay image={imageUrl} />*/}
+        </fieldset>
+      </BootstrapForm>
+    </div>
   );
 }
 
