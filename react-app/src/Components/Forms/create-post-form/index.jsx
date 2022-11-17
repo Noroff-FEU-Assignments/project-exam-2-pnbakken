@@ -15,6 +15,7 @@ import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
 import RefreshContext from "../../../Context/refresh-context";
 import { HistoryProvider } from "../../../Context/history-context";
+import CustomTextArea from "../custom-textarea";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -134,11 +135,11 @@ function CreatePostForm({ url, edit = null, close }) {
               {/* <Form.Label>Content</Form.Label> */}
             </ComponentOpacity>
 
-            <Form.Control
-              as="textarea"
+            <CustomTextArea
               placeholder={running ? "" : randomEncourage}
               id="new-post-body"
-              {...register("body")}
+              register={register}
+              name="body"
               defaultValue={edit ? edit.body : ""}
             />
           </Form.Group>

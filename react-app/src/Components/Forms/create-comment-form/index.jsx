@@ -10,6 +10,7 @@ import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import BootstrapForm from "../bootstrap-form";
 import RefreshContext from "../../../Context/refresh-context";
+import CustomTextArea from "../custom-textarea";
 
 const schema = yup.object().shape({
   body: yup.string().required("Comments can't be emtpy"),
@@ -47,7 +48,7 @@ function CreateComment({ url, replyID = null }) {
   return (
     <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={disabled}>
-        <Form.Control
+        <CustomTextArea
           as="textarea"
           {...register("body")}
           placeholder="Leave a comment"
