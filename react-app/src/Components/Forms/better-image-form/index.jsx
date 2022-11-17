@@ -103,9 +103,13 @@ async function validateImageUrl(url) {
 async function doUpload(file) {
   const client = createAxios();
   const formData = new FormData();
-  formData.append("file", file);
-  formData.append("upload_preset", "rv4f402m");
+
+  const preset = "rv4f402m";
   const cloud = "dt8j2ptfq";
+
+  formData.append("file", file);
+  formData.append("upload_preset", preset);
+
   try {
     const response = await client.post(
       `https://api.cloudinary.com/v1_1/${cloud}/image/upload`,
