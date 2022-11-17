@@ -50,7 +50,9 @@ function CreateComment({ url, replyID = null }) {
       <fieldset disabled={disabled}>
         <CustomTextArea
           as="textarea"
-          {...register("body")}
+          id="comment-body"
+          register={register}
+          name="body"
           placeholder="Leave a comment"
         />
         <Button type="submit">Comment</Button>

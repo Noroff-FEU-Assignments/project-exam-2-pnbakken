@@ -6,7 +6,7 @@ import { Form } from "react-bootstrap";
 import "./index.style.scss";
 
 function CustomTextArea({
-  id = "",
+  id = "textareaResize",
   className = "",
   register,
   name = "",
@@ -23,17 +23,17 @@ function CustomTextArea({
   }, [textareaRef, value]);
 
   function handleChange(e) {
+    console.log("Set value: " + e.target.value);
     setValue(e.target.value);
   }
   return (
     <>
       <Form.Control
+        onChange={handleChange}
         as="textarea"
         id={id}
         className={`textarea-resize ${className}`}
         rows={1}
-        onChange={handleChange}
-        {...register(name)}
         {...rest}
       />
     </>

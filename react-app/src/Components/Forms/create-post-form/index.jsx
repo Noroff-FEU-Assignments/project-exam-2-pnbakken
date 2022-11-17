@@ -141,9 +141,9 @@ function CreatePostForm({ url, edit = null, close }) {
             <CustomTextArea
               placeholder={running ? "" : randomEncourage}
               id="new-post-body"
-              register={register}
               name="body"
               defaultValue={edit ? edit.body : ""}
+              {...register("body")}
             />
           </Form.Group>
           {imageUrl && (
