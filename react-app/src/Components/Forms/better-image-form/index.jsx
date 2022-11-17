@@ -31,24 +31,27 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
     try {
       if (fileInput.files[0]) {
         const url = await doUpload(fileInput.files[0]);
+        console.log(url);
         if (url) {
           setImageUrl(url);
+          imageUrlHandler(url);
+          handleShow();
         }
       } else if (urlInput.value) {
         const url = urlInput.value;
         if (await validateImageUrl(url)) {
           setImageUrl(url);
+          imageUrlHandler(url);
+          handleShow();
         }
       }
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
-
       if (imageUrl) {
         console.log("Has image url");
-        imageUrlHandler(imageUrl);
-        handleShow();
+
         console.log("Image handled");
       }
     }
@@ -116,7 +119,8 @@ async function doUpload(file) {
       formData
     );
     console.log(response);
-    if (response.status === 200) {
+    if (response.data.url) {
+      console.log("Returning: " + response.data.url);
       return response.data.url;
     }
   } catch (error) {

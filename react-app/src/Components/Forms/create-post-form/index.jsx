@@ -16,6 +16,7 @@ import ComponentOpacity from "../../Utility-Components/component-opacity";
 import RefreshContext from "../../../Context/refresh-context";
 import { HistoryProvider } from "../../../Context/history-context";
 import CustomTextArea from "../custom-textarea";
+import BetterImageForm from "../better-image-form";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -44,7 +45,9 @@ function CreatePostForm({ url, edit = null, close }) {
   }
   const [disabled, setDisabled] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(
+    edit && edit.media ? edit.media : ""
+  );
   const [showAddImage, setShowAddImage] = useState(false);
   function handleShowAddImage() {
     setShowAddImage(!showAddImage);
@@ -96,10 +99,10 @@ function CreatePostForm({ url, edit = null, close }) {
     <>
       {showAddImage && (
         <HistoryProvider>
-          <AddImageForm
-            url={edit && edit.media ? edit.media : ""}
+          <BetterImageForm
+            edit={edit && edit.media ? edit.media : ""}
             handleShow={handleShowAddImage}
-            setImageUrl={setImageUrl}
+            imageUrlHandler={setImageUrl}
           />
         </HistoryProvider>
       )}

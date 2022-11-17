@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function UrlInput({ resultHandler, edit = "" }) {
   const [imagePreview, setImagePreview] = useState(edit);
-
+  console.log(edit);
   function handleChange(e) {
     setImagePreview(e.target.value);
     resultHandler(e.target.value);
