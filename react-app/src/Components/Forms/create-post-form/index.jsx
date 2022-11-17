@@ -65,7 +65,7 @@ function CreatePostForm({ url, edit = null, close }) {
   async function onSubmit(data) {
     setDisabled(true);
     console.log(data);
-
+    const postBody = document.querySelector("#new-post-body").value;
     const client = createAxios(auth);
 
     try {
@@ -73,6 +73,9 @@ function CreatePostForm({ url, edit = null, close }) {
       if (imageUrl) {
         console.log(imageUrl);
         data.media = imageUrl;
+      }
+      if (postBody) {
+        data.body = postBody;
       }
       if (edit) {
         response = await client.put(url, data);
@@ -143,7 +146,6 @@ function CreatePostForm({ url, edit = null, close }) {
               id="new-post-body"
               name="body"
               defaultValue={edit ? edit.body : ""}
-              {...register("body")}
             />
           </Form.Group>
           {imageUrl && (
