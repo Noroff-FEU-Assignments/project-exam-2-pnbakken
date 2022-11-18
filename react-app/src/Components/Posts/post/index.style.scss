@@ -2,8 +2,8 @@
 
 .post {
     max-width: 560px;
-    background: $colour-light;
-    color: $colour-dark;
+    background: $colour-eerie-black;
+    color: $colour-light;
 
     img {
         max-width: 100%;
@@ -15,6 +15,5 @@
 }
 
 .post.owner {
-    background: $colour-primary-gradient;
-    color: $colour-light;
+    background: $colour-system-background;
 }
