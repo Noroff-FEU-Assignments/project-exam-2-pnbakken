@@ -5,9 +5,6 @@ import { useContext } from "react";
 import AuthContext from "../../../../../Context/auth-context";
 //import DeleteComment from "../delete-comment"; Pending API functionality
 import ReplyToComment from "../reply-to-comment";
-import createAxios from "../../../../../Functions/create-axios";
-import { ALL_POSTS_URL } from "../../../../../Constants";
-import { useState } from "react";
 
 function DisplayComment({ commentData, postID }) {
   return (

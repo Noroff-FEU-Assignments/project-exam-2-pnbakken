@@ -1,13 +1,18 @@
 import React from "react";
 import NewReaction from "../new-reaction";
 
+import icon from "../../../../../assets/icons/icon-thumbsup.svg";
+
 function ReactionCount({ data }) {
   return (
     <div className="interact-count reactions-count flex-column align-center show-interact">
       <div className="count">
-        <span className="number">
-          {data._count.reactions ? data._count.reactions : " "}
-        </span>
+        <div className="flex-row">
+          <img src={icon} alt="reaction" />
+          <span className="number">
+            {data._count.reactions ? data._count.reactions : ""}
+          </span>
+        </div>
         <div className="caption">Reactions</div>
       </div>
       <NewReaction postID={data.id} />
