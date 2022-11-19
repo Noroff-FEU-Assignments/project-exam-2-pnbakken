@@ -12,46 +12,50 @@ import BootstrapForm from "../bootstrap-form";
 import RefreshContext from "../../../Context/refresh-context";
 import CustomTextArea from "../custom-textarea";
 
-const schema = yup.object().shape({
-  body: yup.string().required("Comments can't be emtpy"),
-  replyToId: yup.number(),
-});
-
 function CreateComment({ url, replyID = null }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [refresh, setRefresh] = useContext(RefreshContext);
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  const [formError, setFormError] = useState(null);
+
   const [disabled, setDisabled] = useState(false);
   const client = createAxios(auth);
 
-  async function onSubmit(data) {
+  async function onSubmit(e) {
+    e.preventDefault();
+    console.log(e);
     setDisabled(true);
-    console.log(data);
-    if (replyID) {
-      data.replyToId = replyID;
-    }
+    const commentBody = document.querySelector("#comment-body").value.trim("");
+
     try {
-      const response = await client.post(url, data);
-      console.log(response);
-      setRefresh(!refresh);
+      if (commentBody) {
+        const data = {
+          body: commentBody,
+          ...(replyID && { replyToId: replyID }),
+        };
+
+        try {
+          const response = await client.post(url, data);
+          console.log(response);
+          setRefresh(!refresh);
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        setFormError("You can't leave an empty comment");
+      }
     } catch (error) {
+      console.error(error);
+      setFormError(error.toString());
     } finally {
       setDisabled(false);
     }
   }
   return (
-    <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
+    <BootstrapForm onSubmit={onSubmit}>
       <fieldset disabled={disabled}>
         <CustomTextArea
           as="textarea"
           id="comment-body"
-          register={register}
           name="body"
           placeholder="Leave a comment"
         />
