@@ -16,20 +16,18 @@ function PostContent({ data }) {
           <Link to={`/user/${data.author.name}`} className="post-author-name">
             <span className="author-name">{data.author.name}</span>
           </Link>
-        </div>
-      </div>
-      <div className="post-main flex-column align-self-center full-width gap-xs">
-        <div>
-          <div className="post-title align-self-start">{data.title}</div>
-          <div className="flex-row gap-xxs">
-            <span className="post-date">
+          <div className="post-created flex-row gap-xxs">
+            <span className="post-time">
               {new Date(data.created).toLocaleTimeString()}
             </span>
-            <span className="post-time">
+            <span className="post-date">
               {new Date(data.created).toLocaleDateString()}
             </span>
           </div>
         </div>
+      </div>
+      <div className="post-main flex-column align-self-center full-width gap-xs">
+        <div className="post-title align-self-start">{data.title}</div>
         <div className="post-body flex-column align-center full-width gap-md">
           <p>{data.body}</p>
           {data.media && (

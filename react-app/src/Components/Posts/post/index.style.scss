@@ -12,6 +12,30 @@
     .post-main {
         max-width: 400px;
     }
+
+    .post-author-name {
+        color: $colour-light;
+        text-decoration: none;
+        font-family: $font-brand;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .post-title {
+        font-family: $font-brand;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .post-created {
+        font-weight: 200;
+        font-size: 14px;
+        opacity: 0.85;
+
+        .post-time {
+            font-weight: 300;
+        }
+    }
 }
 
 .post.owner {
