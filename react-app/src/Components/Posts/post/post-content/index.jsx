@@ -7,14 +7,21 @@ function PostContent({ data }) {
   return (
     <div className="post-content p-2 flex-column gap-sm">
       <div className="post-header flex-row wrap full-width align-center gap-xs">
-        <Link to="#">
+        <Link to={`user/${data.author.name}`}>
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
         </Link>
         <div className="flex-column align-between ">
-          <Link to={`/user/${data.author.name}`}>
+          <Link to={`/user/${data.author.name}`} className="post-author-name">
             <span className="author-name">{data.author.name}</span>
           </Link>
-          <span className="post-date">{data.created}</span>
+          <div className="flex-row gap-xxs">
+            <span className="post-date">
+              {new Date(data.created).toLocaleTimeString()}
+            </span>
+            <span className="post-time">
+              {new Date(data.created).toLocaleDateString()}
+            </span>
+          </div>
         </div>
       </div>
       <div className="post-main flex-column align-self-center full-width gap-xs">
