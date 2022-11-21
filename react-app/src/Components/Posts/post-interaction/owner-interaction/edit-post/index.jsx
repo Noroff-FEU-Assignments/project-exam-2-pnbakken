@@ -15,7 +15,7 @@ function EditPost({ post, auth }) {
     <>
       <button onClick={showEdit}>Edit</button>
       {show && (
-        <div className="flex-column align-center full-width">
+        <div className="flex-col align-center full-width">
           <Modal
             show={show}
             onHide={showEdit}

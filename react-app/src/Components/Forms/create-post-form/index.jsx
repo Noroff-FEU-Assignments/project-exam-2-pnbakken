@@ -15,7 +15,7 @@ import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
 import RefreshContext from "../../../Context/refresh-context";
 import { HistoryProvider } from "../../../Context/history-context";
-import CustomTextArea from "../custom-textarea";
+import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
 
 const schema = yup.object().shape({
@@ -61,6 +61,17 @@ function CreatePostForm({ url, edit = null, close }) {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  function onClose() {
+    const form = document.querySelector("#new-post-form");
+    form.querySelector("#new-post-title").value = "";
+    form.querySelector("#new-post-body").value = "";
+    console.log(form.querySelector("#new-post-body"));
+    stopRunning();
+    if (close) {
+      close();
+    }
+  }
 
   async function onSubmit(data) {
     setDisabled(true);
@@ -112,7 +123,7 @@ function CreatePostForm({ url, edit = null, close }) {
       <BootstrapForm
         id="new-post-form"
         onSubmit={handleSubmit(onSubmit)}
-        className="flex-column align-center full-width"
+        className="flex-col align-center full-width"
       >
         <fieldset
           disabled={disabled}
@@ -168,7 +179,7 @@ function CreatePostForm({ url, edit = null, close }) {
                   </button>
                 ) : (
                   <ComponentOpacity condition={running}>
-                    <button type="button" onClick={stopRunning}>
+                    <button type="button" onClick={onClose}>
                       Cancel
                     </button>
                   </ComponentOpacity>

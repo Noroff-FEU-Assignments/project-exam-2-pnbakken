@@ -13,7 +13,7 @@ function UserList({ users }) {
   return (
     <div className="user-list-container full-width">
       {data && (
-        <ul className="user-list flex-column full-width gap-lg">
+        <ul className="user-list flex-col full-width gap-lg">
           {data.map((user) => {
             return <UserListItem user={user} />;
           })}

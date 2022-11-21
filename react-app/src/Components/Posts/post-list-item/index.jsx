@@ -18,7 +18,7 @@ function PostListItem({ data }) {
 
   return (
     <li
-      className={`post-list-item flex-column align-center full-width radius-sm `}
+      className={`post-list-item flex-col align-center full-width radius-sm `}
     >
       <Post data={data}>
         <PostContent data={data} hasModal={true} />

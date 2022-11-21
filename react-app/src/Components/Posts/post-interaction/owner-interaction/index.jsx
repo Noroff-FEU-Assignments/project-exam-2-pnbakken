@@ -5,7 +5,7 @@ import AuthContext from "../../../../Context/auth-context";
 import DeletePost from "./delete-post";
 import EditPost from "./edit-post";
 
-import menuIcon from "../../../../assets/icons/icon-ellipsis.svg";
+import menuIcon from "../../../../assets/icon/icon-ellipsis.svg";
 
 function OwnerInteraction({ post }) {
   const [show, setShow] = useState(false);

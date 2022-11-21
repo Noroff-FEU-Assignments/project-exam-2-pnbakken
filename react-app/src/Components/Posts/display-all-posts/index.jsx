@@ -10,10 +10,10 @@ function DisplayAllPosts({ settings }) {
   const { data, loading, error } = useGet(settings);
 
   return (
-    <div id="posts-display" className="flex-column align-center full-width">
+    <div id="posts-display" className="flex-col align-center full-width">
       {loading && <>Loading</>}
       {data && (
-        <ul className="post-list flex-column align-center gap-lg full-width p-2">
+        <ul className="post-list flex-col align-center gap-lg full-width p-2">
           {data.map((post) => {
             return <PostListItem data={post} key={post.id} />;
           })}

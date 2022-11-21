@@ -1,11 +1,11 @@
 import React from "react";
 import NewReaction from "../new-reaction";
 
-import icon from "../../../../../assets/icons/icon-thumbsup.svg";
+import icon from "../../../../../assets/icon/icon-thumbsup.svg";
 
 function ReactionCount({ data }) {
   return (
-    <div className="interact-count reactions-count flex-column align-center show-interact">
+    <div className="interact-count reactions-count flex-col align-center show-interact">
       <div className="count">
         <div className="flex-row full-width align-between justify-center gap-xxs">
           <img src={icon} alt="reaction" />

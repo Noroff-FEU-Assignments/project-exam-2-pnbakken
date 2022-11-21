@@ -10,7 +10,7 @@ import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import BootstrapForm from "../bootstrap-form";
 import RefreshContext from "../../../Context/refresh-context";
-import CustomTextArea from "../custom-textarea";
+import CustomTextArea from "../Form-Components/custom-textarea";
 
 function CreateComment({ url, replyID = null }) {
   const [auth, setAuth] = useContext(AuthContext);

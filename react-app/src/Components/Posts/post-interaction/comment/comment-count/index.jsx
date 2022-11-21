@@ -1,11 +1,11 @@
 import React from "react";
 
-import icon from "../../../../../assets/icons/icon-comment.svg";
+import icon from "../../../../../assets/icon/icon-comment.svg";
 
 function CommentCount({ data }) {
   return (
-    <div className="interact-count comments-count flex-column align-center show-interact full-height">
-      <div className="count flex-column full-height">
+    <div className="interact-count comments-count flex-col align-center show-interact full-height">
+      <div className="count flex-col full-height">
         <div className="flex-row full-width align-between justify-center gap-xxs">
           <img src={icon} alt="comments" />
           <span className="number">

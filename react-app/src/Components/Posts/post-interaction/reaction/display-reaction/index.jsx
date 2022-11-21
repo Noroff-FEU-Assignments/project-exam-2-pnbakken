@@ -25,7 +25,7 @@ export default DisplayReaction;
 
 function Reaction({ data }) {
   return (
-    <div className="reaction flex-column align-center">
+    <div className="reaction flex-col align-center">
       <span className="symbol">{data.symbol}</span>
       <span className="count">{data.count}</span>
     </div>

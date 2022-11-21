@@ -1,0 +1,26 @@
+@import "/src/style/partials/base/base";
+
+.app-nav-menu {
+
+
+
+    @media(max-width: 991px) {
+
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    a {
+        color: $colour-light;
+        text-decoration: none;
+        padding: 8px 16px;
+        transition: 0.5s;
+        border-radius: 0.12rem;
+    }
+
+    a:hover {
+        background: rgb($colour-system-background, 0.3);
+        opacity: 0.8;
+    }
+}

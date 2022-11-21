@@ -8,7 +8,7 @@ function FrontPageCTA() {
     <section className="flex-row full-width full-height wrap justify-center">
       <div>
         <DecorativeText size={120}>Catchy call to action!</DecorativeText>
-        <div className="flex-column">
+        <div className="flex-col">
           <span>Some more text</span>
           <Link to="/register">Register</Link>
         </div>

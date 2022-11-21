@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useRef } from "react";
 import { Form } from "react-bootstrap";
 
 import "./index.style.scss";
@@ -8,7 +7,6 @@ import "./index.style.scss";
 function CustomTextArea({
   id = "textareaResize",
   className = "",
-  register,
   name = "",
   ...rest
 }) {
@@ -33,7 +31,7 @@ function CustomTextArea({
         as="textarea"
         id={id}
         className={`textarea-resize ${className}`}
-        rows={1}
+        rows={2}
         {...rest}
       />
     </>

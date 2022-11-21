@@ -114,9 +114,9 @@ function AddImageForm({ url, handleShow, setImageUrl, className = "" }) {
   }
 
   return (
-    <div className="add-image full-width standard-component-width flex-column align-start raise absolute p-3">
+    <div className="add-image full-width standard-component-width flex-col align-start raise absolute p-3">
       <BootstrapForm
-        className="full-width height-fit flex-column gap-xs"
+        className="full-width height-fit flex-col gap-xs"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Form.Group>
