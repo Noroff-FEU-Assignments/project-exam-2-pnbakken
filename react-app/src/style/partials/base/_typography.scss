@@ -17,3 +17,10 @@ $font-body: "Albert Sans", sans-serif;
 
     // https://cssgradient.io/blog/css-gradient-text/
 }
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $font-brand;
+}
