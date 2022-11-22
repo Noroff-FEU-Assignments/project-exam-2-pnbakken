@@ -17,6 +17,7 @@ import RefreshContext from "../../../Context/refresh-context";
 import { HistoryProvider } from "../../../Context/history-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
+import TagInput from "../Form-Components/tag-input";
 
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
@@ -159,12 +160,18 @@ function CreatePostForm({ url, edit = null, close }) {
               defaultValue={edit ? edit.body : ""}
             />
           </Form.Group>
+          <ComponentOpacity condition={running}>
+            <Form.Group className="mb-5">
+              <Form.Label>Tags (separate with ",")</Form.Label>
+              <TagInput />
+            </Form.Group>
+          </ComponentOpacity>
           {imageUrl && (
             <div>
               <img src={imageUrl} />
             </div>
           )}
-          <div className="new-post-menu flex-row justify-between align-center">
+          <div className="new-post-menu flex-row wrap justify-between align-center">
             <ComponentOpacity condition={running}>
               <Button onClick={running ? handleShowAddImage : undefined}>
                 Add Image

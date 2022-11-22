@@ -9,6 +9,7 @@ import PostContent from "../post/post-content";
 import PostFooter from "../post/post-footer";
 import ClickableWrapper from "../../Utility-Components/clickable-wrapper";
 import Post from "../post";
+import InteractionPanel from "../post-interaction/interaction-panel";
 
 function PostListItem({ data }) {
   const [auth, setAuth] = useContext(AuthContext);
@@ -30,14 +31,8 @@ function PostListItem({ data }) {
             setShow={showDetail}
           />
         </ClickableWrapper>
+        {showPostDetail && <InteractionPanel data={data} />}
       </Post>
-      {showPostDetail && (
-        <PostDetailModal
-          postID={data.id}
-          show={showPostDetail}
-          setShow={setShowPostDetail}
-        />
-      )}
     </li>
   );
 }

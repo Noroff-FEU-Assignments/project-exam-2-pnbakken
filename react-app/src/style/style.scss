@@ -11,4 +11,8 @@ img {
     max-width: 100%;
 }
 
+ul {
+    list-style-type: none !important;
+}
+
 @import "./custom-bootstrap/custom-bootstrap";
