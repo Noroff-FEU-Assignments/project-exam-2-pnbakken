@@ -3,24 +3,32 @@
 .app-nav-menu {
 
 
+    .app-nav-links {
+        @media(max-width: 991px) {
 
-    @media(max-width: 991px) {
+            flex-direction: row !important;
+            justify-content: space-evenly;
+            gap: 8px !important;
 
-        flex-direction: row !important;
-        justify-content: center;
-        gap: 16px;
+            a {
+                padding: 4px 8px;
+            }
+        }
+
+        a {
+            color: $colour-light;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: 0.5s;
+            border-radius: 0.12rem;
+            text-align: center;
+        }
+
+        a:hover {
+            background: $colour-system-background;
+            opacity: 0.75;
+        }
     }
 
-    a {
-        color: $colour-light;
-        text-decoration: none;
-        padding: 8px 16px;
-        transition: 0.5s;
-        border-radius: 0.12rem;
-    }
 
-    a:hover {
-        background: rgb($colour-system-background, 0.3);
-        opacity: 0.8;
-    }
 }

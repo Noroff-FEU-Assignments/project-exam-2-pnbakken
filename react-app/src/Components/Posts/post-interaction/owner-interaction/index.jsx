@@ -15,9 +15,9 @@ function OwnerInteraction({ post }) {
     setShow(!show);
   }
   return (
-    <div className="owner-interaction p-3 full-width flex-row justify-end gap-md">
+    <div className="owner-interaction p-3 full-width flex--row justify-end gap-md">
       {show && (
-        <div className="owner-interaction-menu flex-row full-width justify-between">
+        <div className="owner-interaction-menu flex--row full-width justify-between">
           <EditPost post={post} auth={auth} />
           <DeletePost id={post.id} auth={auth} />
         </div>

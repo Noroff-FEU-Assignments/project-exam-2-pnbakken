@@ -7,6 +7,7 @@ import CentralColumn from "../../Design-Components/center-column";
 import "./index.style.scss";
 import AppSidebar from "../../navbar/app-sidebar";
 import { RefreshProvider } from "../../../Context/refresh-context";
+import { Container } from "react-bootstrap";
 
 function AppInterfaceLayout({ children }) {
   const navigate = useNavigate();
@@ -19,14 +20,14 @@ function AppInterfaceLayout({ children }) {
   });
 
   return (
-    <div className="app-interface grid full-width">
+    <div className="">
       {auth && (
-        <>
+        <div className="app-interface grid full-width">
           <AppSidebar />
           <CentralColumn>
             <RefreshProvider>{children}</RefreshProvider>
           </CentralColumn>
-        </>
+        </div>
       )}
     </div>
   );

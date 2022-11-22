@@ -46,6 +46,8 @@ function CreatePostForm({ url, edit = null, close }) {
   }
   const [disabled, setDisabled] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
+
+  const [tags, setTags] = useState([]);
   const [imageUrl, setImageUrl] = useState(
     edit && edit.media ? edit.media : ""
   );
@@ -88,6 +90,9 @@ function CreatePostForm({ url, edit = null, close }) {
       }
       if (postBody) {
         data.body = postBody;
+      }
+      if (tags) {
+        data.tags = tags;
       }
       if (edit) {
         response = await client.put(url, data);
@@ -157,13 +162,16 @@ function CreatePostForm({ url, edit = null, close }) {
               placeholder={running ? "" : randomEncourage}
               id="new-post-body"
               name="body"
-              defaultValue={edit ? edit.body : ""}
+              defaultValue={edit && edit.body ? edit.body : ""}
             />
           </Form.Group>
           <ComponentOpacity condition={running}>
             <Form.Group className="mb-5">
               <Form.Label>Tags (separate with ",")</Form.Label>
-              <TagInput />
+              <TagInput
+                tagHandler={setTags}
+                edit={edit && edit.tags ? edit.tags : []}
+              />
             </Form.Group>
           </ComponentOpacity>
           {imageUrl && (
@@ -171,14 +179,14 @@ function CreatePostForm({ url, edit = null, close }) {
               <img src={imageUrl} />
             </div>
           )}
-          <div className="new-post-menu flex-row wrap justify-between align-center">
+          <div className="new-post-menu flex--row wrap justify-between align-center">
             <ComponentOpacity condition={running}>
               <Button onClick={running ? handleShowAddImage : undefined}>
                 Add Image
               </Button>
             </ComponentOpacity>
 
-            <div className="flex-row gap-md align-center">
+            <div className="flex--row gap-md align-center">
               <div>
                 {edit ? (
                   <button type="button" onClick={close}>

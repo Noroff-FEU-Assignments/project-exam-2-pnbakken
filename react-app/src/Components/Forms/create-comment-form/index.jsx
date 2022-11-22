@@ -24,10 +24,11 @@ function CreateComment({ url, replyID = null }) {
     e.preventDefault();
     console.log(e);
     setDisabled(true);
-    const commentBody = document.querySelector("#comment-body").value.trim("");
-
+    const commentBody = document.querySelector("#comment-body").value;
+    console.log(commentBody);
     try {
       if (commentBody) {
+        console.log(commentBody);
         const data = {
           body: commentBody,
           ...(replyID && { replyToId: replyID }),

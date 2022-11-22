@@ -26,7 +26,7 @@ function UserCard({ user }) {
       style={{ backgroundImage: `url(${user.banner ? user.banner : ""})` }}
     >
       <div className="user-info full-width flex-col align-center">
-        <div className="full-width standard-component-width flex-row wrap justify-evenly align-end">
+        <div className="full-width standard-component-width flex--row wrap justify-evenly align-end">
           <div
             className="flex-col align-center"
             onMouseEnter={handleShowMenu}
@@ -35,7 +35,7 @@ function UserCard({ user }) {
             <ProfileImage src={user.avatar} />
             <div>{user.name}</div>
           </div>
-          <div className="flex-row gap-sm">
+          <div className="flex--row gap-sm">
             <div className="flex-col align-center">
               <div>{user._count.followers}</div>
               <div>Followers</div>

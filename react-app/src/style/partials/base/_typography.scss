@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@200;300;400;700&family=Jost:wght@300;400;500;700;800&display=swap');
 
 $font-brand: "Jost", sans-serif;
-$font-body: "Albert Sans", sans-serif;
+$font-main: "Albert Sans", sans-serif;
+
+
+a {
+    color: $colour-light !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
 
 .decorative-text {
 
@@ -23,4 +32,15 @@ h2,
 h3,
 h4 {
     font-family: $font-brand;
+}
+
+.small-text {
+    font-weight: 200;
+    font-size: 14px;
+    opacity: 0.85;
+    font-family: $font-brand;
+}
+
+button {
+    font-family: $font-brand !important;
 }
