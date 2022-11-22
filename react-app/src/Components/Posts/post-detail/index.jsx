@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { Modal } from "react-bootstrap";
 import { ALL_POSTS_URL } from "../../../Constants";
 import { useEffect } from "react";
-import DetailContent from "./detail-content";
 import useGet from "../../../Hooks/use-get";
 import Post from "../post";
 import PostFooter from "../post/post-footer";
-import DetailInteraction from "./detail-interaction";
+import InteractionPanel from "../post-interaction/interaction-panel";
 
-function PostDetailModal({ postID, show, setShow }) {
+// This was a genuine modal in the beginning but it was a pain to style so I've changed rendering methods in the parent component instead
+function PostDetail({ postID, setShow, setLastShown }) {
   console.log(postID);
   const settings = {
     url:
@@ -18,28 +18,27 @@ function PostDetailModal({ postID, show, setShow }) {
 
   const { data, loading, error } = useGet(settings);
 
-  useEffect(() => {
-    console.log("LOGGING MODAL DATA");
-    console.log(data);
-  }, [data]);
+  function closePost() {
+    setShow(null);
+    setLastShown(postID);
+  }
 
   return (
-    <Modal show={show} onHide={setShow} className="radius-sm full-width">
+    <>
       {loading && <>Loading</>}
       {data && (
-        <Post data={data}>
-          <DetailContent data={data} />
-          <DetailInteraction data={data} />
+        <Post data={data} close={closePost}>
+          <InteractionPanel data={data} />
         </Post>
       )}
-    </Modal>
+    </>
   );
 }
 
-PostDetailModal.propTypes = {
+PostDetail.propTypes = {
   postID: PropTypes.number.isRequired,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
 };
 
-export default PostDetailModal;
+export default PostDetail;

@@ -5,10 +5,6 @@
     background: $colour-eerie-black;
     color: $colour-light;
 
-    img {
-        max-width: 100%;
-    }
-
     .post-main {
         max-width: 400px;
     }
@@ -28,9 +24,7 @@
     }
 
     .post-created {
-        font-weight: 200;
-        font-size: 12px;
-        opacity: 0.85;
+
 
         .post-time {
             font-weight: 300;

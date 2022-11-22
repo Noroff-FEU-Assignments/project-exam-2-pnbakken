@@ -21,7 +21,6 @@ function CustomTextArea({
   }, [textareaRef, value]);
 
   function handleChange(e) {
-    console.log("Set value: " + e.target.value);
     setValue(e.target.value);
   }
   return (
@@ -31,7 +30,7 @@ function CustomTextArea({
         as="textarea"
         id={id}
         className={`textarea-resize ${className}`}
-        rows={2}
+        rows={1}
         {...rest}
       />
     </>

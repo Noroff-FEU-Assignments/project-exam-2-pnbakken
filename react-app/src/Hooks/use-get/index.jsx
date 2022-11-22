@@ -23,7 +23,7 @@ function useGet(settings) {
             setData(response.data);
           }
         } catch (error) {
-          setError(error);
+          setError(error.response.errors);
           console.error(error);
         } finally {
           setLoading(false);

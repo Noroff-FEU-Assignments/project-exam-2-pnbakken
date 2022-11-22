@@ -1,14 +1,16 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
 function BootstrapForm({ children, onSubmit, className = "", id = "" }) {
   return (
-    <Form onSubmit={onSubmit} className={`system-form ${className}`} id={id}>
-      {children}
-    </Form>
+    <Container>
+      <Form onSubmit={onSubmit} className={`system-form ${className}`} id={id}>
+        {children}
+      </Form>
+    </Container>
   );
 }
 

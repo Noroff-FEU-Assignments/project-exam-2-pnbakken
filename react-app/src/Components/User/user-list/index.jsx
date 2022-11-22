@@ -27,8 +27,8 @@ export default UserList;
 
 function UserListItem({ user }) {
   return (
-    <li className="user-list-item full-width standard-component-width flex-row align-center justify-between">
-      <div className="flex-row gap-sm align-center">
+    <li className="user-list-item full-width standard-component-width flex--row align-center justify-between">
+      <div className="flex--row gap-sm align-center">
         <ProfileImage src={user.avatar ? user.avatar : ""} />
         <Link to={`/user/${user.name}`}>{user.name}</Link>
       </div>
