@@ -44,7 +44,7 @@ function PostContent({ data }) {
           <p>{data.body}</p>
           {data.media && (
             <div className="post-image">
-              <img src={validMedia ? data.media : imageError} loading="lazy" />
+              <img src={validMedia ? data.media : imageError} />
             </div>
           )}
 
