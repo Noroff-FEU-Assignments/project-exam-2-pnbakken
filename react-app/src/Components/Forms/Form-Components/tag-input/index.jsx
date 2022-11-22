@@ -14,7 +14,13 @@ function TagInput({ tagHandler, edit }) {
     return check;
   };
   function checkTags(e) {
-    if (e.key === ",") {
+    if (
+      e.key === "," ||
+      e.keyCode === 229 ||
+      e.keyCode === 188 ||
+      e.keyCode === 110
+    ) {
+      //keycodes mainly to support Chrome on Android
       const tag = e.target.value
         .trim()
         .split(",")[0]

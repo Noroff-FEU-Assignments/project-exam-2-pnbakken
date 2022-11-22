@@ -7,6 +7,8 @@ import useCheckImageUrl from "../../../../Hooks/use-check-image-url";
 import "./index.style.scss";
 import Message from "../../../Message/message";
 
+import imageError from "../../../../assets/image/image-error.png";
+
 function PostContent({ data }) {
   const dateCreated = new Date(data.created);
   const validMedia = useCheckImageUrl(data.media);
@@ -31,9 +33,7 @@ function PostContent({ data }) {
                 </span>
               </>
             ) : (
-              <Message type="error" className="small-text">
-                Invalid Date
-              </Message>
+              <Message type="error">Invalid Date</Message>
             )}
           </div>
         </div>
@@ -42,9 +42,9 @@ function PostContent({ data }) {
         <div className="post-title align-self-start">{data.title}</div>
         <div className="post-body flex-col align-center full-width gap-sm">
           <p>{data.body}</p>
-          {data.media && validMedia && (
+          {data.media && (
             <div className="post-image">
-              <img src={data.media} />
+              <img src={validMedia ? data.media : imageError} loading="lazy" />
             </div>
           )}
 
