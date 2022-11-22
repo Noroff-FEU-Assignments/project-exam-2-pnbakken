@@ -7,7 +7,7 @@ function CentralColumn({ children }) {
   return (
     <div
       id="central-column"
-      className="flex-col align-center align-self-center justify-self-center gap-lg p-2 full-width"
+      className="flex-c align-center align-self-center justify-self-center gap-lg p-2 full-width"
     >
       {children}
     </div>

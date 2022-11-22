@@ -22,25 +22,25 @@ function UserCard({ user }) {
   }
   return (
     <div
-      className="user-card full-width flex-col justify-end"
+      className="user-card full-width flex-c justify-end"
       style={{ backgroundImage: `url(${user.banner ? user.banner : ""})` }}
     >
-      <div className="user-info full-width flex-col align-center">
-        <div className="full-width standard-component-width flex--row wrap justify-evenly align-end">
+      <div className="user-info full-width flex-c align-center">
+        <div className="full-width standard-component-width flex-row wrap justify-evenly align-end">
           <div
-            className="flex-col align-center"
+            className="flex-c align-center"
             onMouseEnter={handleShowMenu}
             onMouseLeave={handleShowMenu}
           >
             <ProfileImage src={user.avatar} />
             <div>{user.name}</div>
           </div>
-          <div className="flex--row gap-sm">
-            <div className="flex-col align-center">
+          <div className="flex-row gap-sm">
+            <div className="flex-c align-center">
               <div>{user._count.followers}</div>
               <div>Followers</div>
             </div>
-            <div className="flex-col align-center">
+            <div className="flex-c align-center">
               <div>{user._count.following}</div>
               <div>Following</div>
             </div>

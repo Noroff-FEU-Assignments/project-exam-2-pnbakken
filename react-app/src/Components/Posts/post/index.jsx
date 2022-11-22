@@ -14,7 +14,7 @@ function Post({ children, data, close }) {
   const isOwner = auth && auth.name === data.author.name ? "owner" : "";
 
   return (
-    <div className={`post full-width ${isOwner} radius-sm flex-column gap-md`}>
+    <div className={`post full-width ${isOwner} radius-sm flex-c gap-md`}>
       {isOwner && <OwnerInteraction post={data} />}
       {close && (
         <button type="button" className="discrete" onClick={close}>

@@ -12,7 +12,7 @@ function ReactionForm({ postID }) {
   return (
     <BootstrapForm>
       <fieldset>
-        <div className="symbols flex--row wrap gap-sm align-center"></div>
+        <div className="symbols flex-row wrap gap-sm align-center"></div>
       </fieldset>
     </BootstrapForm>
   );

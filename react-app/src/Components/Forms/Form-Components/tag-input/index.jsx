@@ -14,12 +14,7 @@ function TagInput({ tagHandler, edit }) {
     return check;
   };
   function checkTags(e) {
-    if (
-      e.key === "," ||
-      e.keyCode === 229 ||
-      e.keyCode === 188 ||
-      e.keyCode === 110
-    ) {
+    if (e.key === ",") {
       //keycodes mainly to support Chrome on Android
       const tag = e.target.value
         .trim()
@@ -55,7 +50,7 @@ function TagInput({ tagHandler, edit }) {
   useEffect(() => {
     if (tags) {
       setDisplayTags(
-        <ul className="tag-list no-list-style flex--row wrap mb-3">
+        <ul className="tag-list no-list-style flex-row wrap mb-3 gap-sm">
           {tags.map((tag) => {
             return <Tag tag={tag} removeThis={deleteTag} key={tag} />;
           })}
@@ -64,7 +59,7 @@ function TagInput({ tagHandler, edit }) {
     }
   }, [tags]);
   return (
-    <div className="tag-menu flex-column gap-sm">
+    <div className="tag-menu flex-c gap-sm">
       {tags && DisplayTags}
       <Form.Control type="text" onKeyUp={checkTags}></Form.Control>
     </div>
@@ -83,7 +78,7 @@ function Tag({ tag, removeThis }) {
     removeThis(tag);
   }
   return (
-    <li className="tag flex--row gap-sm small-text">
+    <li className="tag flex-row gap-xxs small-text">
       {tag}
       <button type="button" className="discrete" onClick={deleteTag}>
         x

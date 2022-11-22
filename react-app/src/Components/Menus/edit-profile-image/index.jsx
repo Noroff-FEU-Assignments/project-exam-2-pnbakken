@@ -31,7 +31,7 @@ function EditProfileImage({ handleShow, property, current = "" }) {
   }
 
   return (
-    <div className="flex-col full-width">
+    <div className="flex-c full-width">
       {showImageForm && (
         <div>
           <HistoryProvider>

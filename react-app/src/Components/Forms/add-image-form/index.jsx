@@ -114,9 +114,9 @@ function AddImageForm({ url, handleShow, setImageUrl, className = "" }) {
   }
 
   return (
-    <div className="add-image full-width standard-component-width flex-col align-start raise absolute p-3">
+    <div className="add-image full-width standard-component-width flex-c align-start raise absolute p-3">
       <BootstrapForm
-        className="full-width height-fit flex-col gap-xs"
+        className="full-width height-fit flex-c gap-xs"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Form.Group>
@@ -144,8 +144,8 @@ function AddImageForm({ url, handleShow, setImageUrl, className = "" }) {
             clear image
           </button>
         </Form.Group>
-        <div className="flex--row wrap"></div>
-        <div className="form-menu flex--row wrap-reverse full-width justify-between">
+        <div className="flex-row wrap"></div>
+        <div className="form-menu flex-row wrap-reverse full-width justify-between">
           <button onClick={handleShow}>Cancel</button>
           {!disabled ? (
             <button type="submit">Add Image</button>

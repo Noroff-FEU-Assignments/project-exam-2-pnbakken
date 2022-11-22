@@ -25,7 +25,7 @@ function DisplayAllPosts({ settings }) {
     }
   }, [lastSelected]);
   return (
-    <div id="posts-display" className="flex-col align-center full-width">
+    <div id="posts-display" className="flex-c align-center full-width">
       {loading && <>Loading</>}
       {error && <Message type="error">{error.toString()}</Message>}
       {data &&
@@ -36,7 +36,7 @@ function DisplayAllPosts({ settings }) {
             setLastShown={setLastSelected}
           />
         ) : (
-          <ul className="post-list flex-col align-center gap-lg full-width p-2">
+          <ul className="post-list flex-c align-center gap-lg full-width p-2">
             {data.map((post) => {
               return (
                 <PostListItem

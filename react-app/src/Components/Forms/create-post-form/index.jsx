@@ -129,7 +129,7 @@ function CreatePostForm({ url, edit = null, close }) {
       <BootstrapForm
         id="new-post-form"
         onSubmit={handleSubmit(onSubmit)}
-        className="flex-col align-center full-width"
+        className="flex-c align-center full-width"
       >
         <fieldset
           disabled={disabled}
@@ -179,14 +179,14 @@ function CreatePostForm({ url, edit = null, close }) {
               <img src={imageUrl} />
             </div>
           )}
-          <div className="new-post-menu flex--row wrap justify-between align-center">
+          <div className="new-post-menu flex-row wrap justify-between align-center">
             <ComponentOpacity condition={running}>
               <Button onClick={running ? handleShowAddImage : undefined}>
                 Add Image
               </Button>
             </ComponentOpacity>
 
-            <div className="flex--row gap-md align-center">
+            <div className="flex-row gap-md align-center">
               <div>
                 {edit ? (
                   <button type="button" onClick={close}>

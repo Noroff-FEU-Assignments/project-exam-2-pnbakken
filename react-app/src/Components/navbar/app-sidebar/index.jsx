@@ -6,7 +6,7 @@ import "./index.style.scss";
 
 function AppSidebar() {
   return (
-    <div className="app-sidebar flex-col justify-start">
+    <div className="app-sidebar flex-c justify-start">
       <SidebarUser />
       <AppNavMenu />
     </div>

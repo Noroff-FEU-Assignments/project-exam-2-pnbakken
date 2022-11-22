@@ -8,7 +8,7 @@ import ReplyToComment from "../reply-to-comment";
 
 function DisplayComment({ commentData, postID }) {
   return (
-    <div className="comment-display flex-col full-width">
+    <div className="comment-display flex-c full-width">
       <NewComment postID={postID} />
       {commentData &&
         commentData.map((comment) => {
@@ -55,7 +55,7 @@ function Comment({ comment, allComments, postID }) {
         </div>
       )}
       <div className="comment-body">{comment.body}</div>
-      <div className="flex-col align-end">
+      <div className="flex-c align-end">
         <ReplyToComment replyToId={comment.id} postID={postID} />
       </div>
     </div>

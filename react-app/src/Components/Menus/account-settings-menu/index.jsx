@@ -14,7 +14,7 @@ function AccountSettingsMenu({ user }) {
 
   return (
     <div className="account-settings-menu full-width">
-      <ul className="flex-col full-width standard-component-width gap-md no-list-style">
+      <ul className="flex-c full-width standard-component-width gap-md no-list-style">
         <li className="menu-item full-width">
           <button className="discrete" onClick={handleShowEditProfileAvatar}>
             Edit Profile Image

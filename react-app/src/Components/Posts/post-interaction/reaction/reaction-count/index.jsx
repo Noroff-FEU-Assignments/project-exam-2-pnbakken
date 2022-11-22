@@ -5,9 +5,9 @@ import icon from "../../../../../assets/icon/icon-thumbsup.svg";
 
 function ReactionCount({ data }) {
   return (
-    <div className="interact-count reactions-count flex-col align-center show-interact">
+    <div className="interact-count reactions-count flex-c align-center show-interact">
       <div className="count">
-        <div className="flex--row full-width align-between justify-center gap-xxs">
+        <div className="flex-row full-width align-between justify-center gap-xxs">
           <img src={icon} alt="reaction" />
           <span className="number">
             {data._count.reactions ? data._count.reactions : ""}

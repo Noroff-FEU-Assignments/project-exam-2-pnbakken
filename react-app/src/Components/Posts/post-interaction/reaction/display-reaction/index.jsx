@@ -7,7 +7,7 @@ function DisplayReaction({ reactionData }) {
   return (
     <>
       {reactionData && (
-        <div className="reaction-display flex--row wrap full-width p-2 gap-xs">
+        <div className="reaction-display flex-row wrap full-width p-2 gap-xs">
           {reactionData.map((reaction) => {
             return <Reaction data={reaction} />;
           })}
@@ -25,7 +25,7 @@ export default DisplayReaction;
 
 function Reaction({ data }) {
   return (
-    <div className="reaction flex-col align-center">
+    <div className="reaction flex-c align-center">
       <span className="symbol">{data.symbol}</span>
       <span className="count">{data.count}</span>
     </div>
