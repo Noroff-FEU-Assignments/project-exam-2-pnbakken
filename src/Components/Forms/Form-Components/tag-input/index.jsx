@@ -21,7 +21,7 @@ function TagInput({ tagHandler, edit }) {
         .split(",")[0]
         .split(" ")[0]
         .trim(/[" "]/)
-        .replace(/[^a-åA-Å0-9]/g, "");
+        .replace(/[^a-åA-Å0-9-]/g, "");
       console.log(tag);
       let newTags = [];
       if (tags) {
