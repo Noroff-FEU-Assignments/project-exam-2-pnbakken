@@ -1,6 +1,6 @@
 {
   "name": "project-exam-2_just-post",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
