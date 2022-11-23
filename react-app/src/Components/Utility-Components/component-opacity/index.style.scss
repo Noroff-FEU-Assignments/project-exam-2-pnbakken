@@ -1,0 +1,8 @@
+.component-opacity>* {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.component-opacity.show>* {
+    opacity: 1;
+}

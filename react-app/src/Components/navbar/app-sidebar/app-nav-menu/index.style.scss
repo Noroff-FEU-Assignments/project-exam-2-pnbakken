@@ -1,0 +1,34 @@
+@import "/src/style/partials/base/base";
+
+.app-nav-menu {
+
+
+    .app-nav-links {
+        @media(max-width: 991px) {
+
+            flex-direction: row !important;
+            justify-content: space-evenly;
+            gap: 8px !important;
+
+            a {
+                padding: 4px 8px;
+            }
+        }
+
+        a {
+            color: $colour-light;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: 0.5s;
+            border-radius: 0.12rem;
+            text-align: center;
+        }
+
+        a:hover {
+            background: $colour-system-background;
+            opacity: 0.75;
+        }
+    }
+
+
+}

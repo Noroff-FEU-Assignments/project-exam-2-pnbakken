@@ -1,0 +1,10 @@
+@import "/src/style/partials/base/base";
+
+#central-column {
+    max-width: 800px;
+
+    @media (max-width: 991px) {
+        height: fit-content;
+    }
+
+}

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@200;300;400;700&family=Jost:wght@300;400;500;700;800&display=swap');
+
+$font-brand: "Jost", sans-serif;
+$font-main: "Albert Sans", sans-serif;
+
+
+a {
+    color: $colour-light !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.decorative-text {
+
+    max-width: 800px;
+    width: 100%;
+    font-family: $font-brand;
+    font-weight: 800;
+    background: $colour-primary-gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+
+    // https://cssgradient.io/blog/css-gradient-text/
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $font-brand;
+}
+
+.small-text {
+    font-weight: 200;
+    font-size: 14px;
+    opacity: 0.85;
+    font-family: $font-brand;
+}
+
+button {
+    font-family: $font-brand !important;
+}

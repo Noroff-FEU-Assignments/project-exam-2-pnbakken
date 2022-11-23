@@ -1,0 +1,21 @@
+@import "/src/style/partials/base/base";
+
+.app-interface {
+
+    background: $colour-secondary-background;
+
+
+    grid-template-columns: auto 1fr;
+    min-height: 100vh;
+    max-width: 100vw;
+
+    @media(max-width: 991px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+
+    }
+
+
+
+
+}

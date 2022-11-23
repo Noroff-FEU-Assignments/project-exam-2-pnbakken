@@ -1,0 +1,15 @@
+@import "/src/style/partials/base/base";
+
+.logout-button {
+
+    width: fit-content;
+    background: none;
+    border: none;
+    color: $colour-primary;
+}
+
+.logout-button:focus,
+.logout-button:active {
+    background: none;
+    box-shadow: none;
+}

@@ -1,0 +1,10 @@
+@import "/src/style/partials/base/base";
+
+.app-sidebar {
+
+
+    @media(max-width: 991px) {
+        background: $colour-secondary-background;
+
+    }
+}

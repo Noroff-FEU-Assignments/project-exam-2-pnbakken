@@ -1,0 +1,11 @@
+$bs-modal-width: 560px;
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+@import "~bootstrap/scss/bootstrap";
