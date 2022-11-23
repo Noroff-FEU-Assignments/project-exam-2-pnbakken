@@ -21,7 +21,12 @@ function EditPost({ post, auth }) {
             onHide={showEdit}
             className="full-width standard-component-width p-3"
           >
-            <CreatePostForm url={url} edit={post} close={showEdit} />
+            <CreatePostForm
+              url={url}
+              edit={post}
+              close={showEdit}
+              postBodyId="edit-post-body"
+            />
           </Modal>
         </div>
       )}

@@ -34,7 +34,12 @@ const schema = yup.object().shape({
  * @returns <Form>
  */
 
-function CreatePostForm({ url, edit = null, close }) {
+function CreatePostForm({
+  url,
+  edit = null,
+  close,
+  postBodyId = "new-post-body",
+}) {
   const [running, setRunning] = useState(edit ? true : false);
   const [refresh, setRefresh] = useContext(RefreshContext);
   function startRunning() {
@@ -68,7 +73,7 @@ function CreatePostForm({ url, edit = null, close }) {
   function onClose() {
     const form = document.querySelector("#new-post-form");
     form.querySelector("#new-post-title").value = "";
-    form.querySelector("#new-post-body").value = "";
+    form.querySelector(`#${postBodyId}`).value = "";
     console.log(form.querySelector("#new-post-body"));
     stopRunning();
     if (close) {
@@ -79,7 +84,7 @@ function CreatePostForm({ url, edit = null, close }) {
   async function onSubmit(data) {
     setDisabled(true);
     console.log(data);
-    const postBody = document.querySelector("#new-post-body").value;
+    const postBody = document.querySelector(`#${postBodyId}`).value;
     const client = createAxios(auth);
 
     try {
@@ -160,7 +165,7 @@ function CreatePostForm({ url, edit = null, close }) {
 
             <CustomTextArea
               placeholder={running ? "" : randomEncourage}
-              id="new-post-body"
+              id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
             />

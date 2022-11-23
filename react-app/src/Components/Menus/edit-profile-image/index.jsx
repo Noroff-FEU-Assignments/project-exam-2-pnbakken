@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { useEffect } from "react";
 import { USER_URL } from "../../../Constants";
 import AuthContext from "../../../Context/auth-context";
 import { HistoryProvider } from "../../../Context/history-context";
 import RefreshContext from "../../../Context/refresh-context";
 import createAxios from "../../../Functions/create-axios";
-import AddImageForm from "../../Forms/add-image-form";
 import BetterImageForm from "../../Forms/better-image-form";
 
 import "./index.style.scss";
@@ -19,6 +17,7 @@ function EditProfileImage({ handleShow, property, current = "" }) {
   const [imageUrl, setImageUrl] = useState(current);
   const [showImageForm, setShowImageForm] = useState(true);
   const handleShowImageForm = () => setShowImageForm(!showImageForm);
+
   async function updateImage() {
     const client = createAxios(auth);
 
