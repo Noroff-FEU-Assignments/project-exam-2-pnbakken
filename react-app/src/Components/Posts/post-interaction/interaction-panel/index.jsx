@@ -2,6 +2,7 @@ import React from "react";
 import CommentCount from "../comment/comment-count";
 import DisplayComment from "../comment/display-comment";
 import DisplayReaction from "../reaction/display-reaction";
+import NewReaction from "../reaction/new-reaction";
 import ReactionCount from "../reaction/reaction-count";
 
 function InteractionPanel({ data }) {
@@ -12,6 +13,7 @@ function InteractionPanel({ data }) {
         <ReactionCount data={data} />
       </div>
       <DisplayReaction reactionData={data.reactions} />
+      <NewReaction postID={data.id} />
       <DisplayComment commentData={data.comments} postID={data.id} />
     </div>
   );

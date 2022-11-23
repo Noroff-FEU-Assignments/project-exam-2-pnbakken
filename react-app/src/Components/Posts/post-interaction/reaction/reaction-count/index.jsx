@@ -15,7 +15,6 @@ function ReactionCount({ data }) {
         </div>
         <div className="caption">Reactions</div>
       </div>
-      <NewReaction postID={data.id} />
     </div>
   );
 }
