@@ -1,9 +1,6 @@
-> Written with [StackEdit](https://stackedit.io/).
-
 # Project Exam 2 - Just Post social media front-end
 
-This is my submission for Project Exam 2 for December 22. The app is a front-end for the [Noroff API social endpoints](https://noroff-api-docs.netlify.app/) .
-It is hosted [here](here)
+This is my submission for Project Exam 2 for December 22. The app is a front-end for the [Noroff API social endpoints](https://noroff-api-docs.netlify.app/). It is hosted [here](here).
 In order to access the app you must register a user with the following requirements:
 
 - **Email:** must be unique and in the form of `anything@stud.noroff.no`.
@@ -14,33 +11,35 @@ The app will receive an object with a token which will authenticate all subseque
 
 ## Table of Contents
 
+- [0 Update Notes](#0)
+
 - [1 Just Post User Guide](#1)
 
 - [2 Developer Guide](#2)
 
-  - [2.1 Codebase Structure](#2.1)
-  - [2.2 App Components](#2.2)
-    - [2.2.1 Top-Level Components](#2.2.1)
-    - [2.2.2 Contexts](#2.2.2)
-    - [2.2.3 Hooks](2.2.3)
-    - [2.2.4 Pages](#2.2.4)
-    - [2.2.5 Page-Components](#2.2.5)
-    - [2.2.6 Utility Components](#2.2.6)
-
 - [3 Notes on Styling](#3)
 
-## <a name="#1">1. Just Post User Guide</a>
+## <a name="#0">0. Update Notes</a>
 
-### Access
+### v0.5.0
 
-In order to access the app you must register a user with the following properties:
+Functional version of the app that includes a basic version of pretty much every user story.
 
-- **Email:** must be unique and in the form of `anything@stud.noroff.no`.
-- **Username** must be unique and in the form of `a-z, 0-9, _`.
-- **Password** must be at least `8` characters.
+#### Issues
 
-The app will receive an object with a token which will authenticate all subsequent API calls. Until the user logs out.
+- Replying to a comment doesn't work. I changed the input component and need to re-attach it
+- Adding tags do a post does work, but not on Chrome browsers on Android. I haven't tested iPhones or Safari yet. Although the display component doesn't update the tags get collected and will be displayed on the sendt post.
 
-## <a name="2">2. Developer Guide
+#### Things left to do
 
-### <a name="2.1"> 2. 1 Codebase Structure
+- Basically do-over everything but better.
+- Need to add pagination to fetched lists
+- Should add a user search function
+- Fix scroll position when switching from post detail display
+- Improve UI flow
+- Make it look better
+- Add dream features like displaying following feed, image carousel, most commented/reacted posts etc
+
+### v0.5.0.1
+
+Move app to project root, update README
