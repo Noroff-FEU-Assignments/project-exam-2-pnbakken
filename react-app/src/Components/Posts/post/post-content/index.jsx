@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProfileImage from "../../../User/profile-image";
-import useCheckImageUrl from "../../../../Hooks/use-check-image-url";
+import validImageUrl from "../../../../Functions/valid-image-url";
 
 import "./index.style.scss";
 import Message from "../../../Message/message";
 
 import imageError from "../../../../assets/image/image-error.png";
+import { useEffect } from "react";
 
 function PostContent({ data }) {
   const dateCreated = new Date(data.created);
-  const validMedia = useCheckImageUrl(data.media);
+  const [validMedia, setValidMedia] = useState(true);
+  useEffect(() => {
+    async function checkMedia() {
+      if (data.media) {
+        setValidMedia(await validImageUrl(data.media));
+      }
+    }
+    checkMedia();
+  }, []);
+
   return (
     <div className="post-content p-3 flex-c gap-sm">
       <div className="post-header flex-row wrap full-width align-center gap-xs">
