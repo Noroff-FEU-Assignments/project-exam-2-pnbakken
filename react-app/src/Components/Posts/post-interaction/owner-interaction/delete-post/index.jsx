@@ -4,7 +4,7 @@ import { ALL_POSTS_URL } from "../../../../../Constants";
 import createAxios from "../../../../../Functions/create-axios";
 import RefreshContext from "../../../../../Context/refresh-context";
 
-function DeletePost({ id, auth }) {
+function DeletePost({ id, auth, close }) {
   const [refresh, setRefresh] = useContext(RefreshContext);
   async function doDelete() {
     try {
@@ -12,7 +12,10 @@ function DeletePost({ id, auth }) {
       const client = createAxios(auth);
       const response = await client.delete(url);
       setRefresh(!refresh);
-    } catch (error) {}
+      close();
+    } catch (error) {
+      console.error(error);
+    }
   }
   return <button onClick={doDelete}>delete post</button>;
 }

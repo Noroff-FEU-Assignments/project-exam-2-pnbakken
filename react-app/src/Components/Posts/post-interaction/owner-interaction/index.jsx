@@ -7,7 +7,7 @@ import EditPost from "./edit-post";
 
 import menuIcon from "../../../../assets/icon/icon-ellipsis.svg";
 
-function OwnerInteraction({ post }) {
+function OwnerInteraction({ post, close = () => {} }) {
   const [show, setShow] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
 
@@ -19,7 +19,7 @@ function OwnerInteraction({ post }) {
       {show && (
         <div className="owner-interaction-menu flex-row full-width justify-between">
           <EditPost post={post} auth={auth} />
-          <DeletePost id={post.id} auth={auth} />
+          <DeletePost id={post.id} auth={auth} close={close} />
         </div>
       )}
       <div className="">

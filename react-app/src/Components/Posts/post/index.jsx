@@ -8,6 +8,7 @@ import OwnerInteraction from "../post-interaction/owner-interaction";
 import PostContent from "./post-content";
 import ClickableWrapper from "../../Utility-Components/clickable-wrapper";
 import PostFooter from "./post-footer";
+import { RefreshProvider } from "../../../Context/refresh-context";
 
 function Post({ children, data, close }) {
   const [auth, setAuth] = useContext(AuthContext);
@@ -15,7 +16,7 @@ function Post({ children, data, close }) {
 
   return (
     <div className={`post full-width ${isOwner} radius-sm flex-c gap-md`}>
-      {isOwner && <OwnerInteraction post={data} />}
+      {isOwner && <OwnerInteraction post={data} close={close} />}
       {close && (
         <button type="button" className="discrete" onClick={close}>
           Close
