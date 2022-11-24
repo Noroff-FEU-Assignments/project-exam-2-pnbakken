@@ -5,6 +5,7 @@ import { useState } from "react";
 import { USER_URL } from "../../../../Constants";
 import AuthContext from "../../../../Context/auth-context";
 import HistoryContext from "../../../../Context/history-context";
+import validImageUrl from "../../../../Functions/valid-image-url";
 import useGet from "../../../../Hooks/use-get";
 
 import "./index.style.scss";
@@ -12,18 +13,20 @@ import "./index.style.scss";
 function UserImageHistory({ handler, endAction }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [history, setHistory] = useContext(HistoryContext);
-  const getSettings = {
+  const getUserHistorySettings = {
     url: USER_URL + `/${auth.name}/posts`,
   };
   const [images, setImages] = useState([]);
-  const { data, loading, error } = useGet(getSettings);
+  const { data, loading, error } = useGet(getUserHistorySettings);
 
   useEffect(() => {
     async function getImages() {
       let imageHistory = [];
       if (history && history.media) {
-        history.media.forEach((media) => {
-          if (imageHistory) {
+        history.media.forEach(async (media) => {
+          const valid = await validImageUrl(media);
+          if (!valid) {
+          } else if (imageHistory) {
             const has = imageHistory.includes(media) ? true : false;
             if (!has) {
               imageHistory.push(media);

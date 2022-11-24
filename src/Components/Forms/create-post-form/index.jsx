@@ -9,7 +9,6 @@ import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
 import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
-import AddImageForm from "../add-image-form";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
 import ComponentOpacity from "../../Utility-Components/component-opacity";
@@ -122,15 +121,6 @@ function CreatePostForm({
 
   return (
     <>
-      {showAddImage && (
-        <HistoryProvider>
-          <BetterImageForm
-            edit={edit && edit.media ? edit.media : ""}
-            handleShow={handleShowAddImage}
-            imageUrlHandler={setImageUrl}
-          />
-        </HistoryProvider>
-      )}
       <BootstrapForm
         id="new-post-form"
         onSubmit={handleSubmit(onSubmit)}
@@ -216,6 +206,15 @@ function CreatePostForm({
           </div>
         </fieldset>
       </BootstrapForm>
+      {showAddImage && (
+        <HistoryProvider>
+          <BetterImageForm
+            edit={edit && edit.media ? edit.media : ""}
+            handleShow={handleShowAddImage}
+            imageUrlHandler={setImageUrl}
+          />
+        </HistoryProvider>
+      )}
     </>
   );
 }

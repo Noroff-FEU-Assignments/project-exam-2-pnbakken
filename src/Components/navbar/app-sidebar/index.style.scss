@@ -1,10 +1,11 @@
 @import "/src/style/partials/base/base";
 
 .app-sidebar {
-
+    position: sticky;
+    top: 0;
 
     @media(max-width: 991px) {
         background: $colour-secondary-background;
-
+        z-index: 3;
     }
 }
