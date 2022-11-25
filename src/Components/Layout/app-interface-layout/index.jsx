@@ -8,6 +8,7 @@ import "./index.style.scss";
 import AppSidebar from "../../navbar/app-sidebar";
 import { RefreshProvider } from "../../../Context/refresh-context";
 import { Container } from "react-bootstrap";
+import { ShowNewPostContextProvider } from "../../../Context/show-new-post-context";
 
 function AppInterfaceLayout({ children }) {
   const navigate = useNavigate();
@@ -23,10 +24,12 @@ function AppInterfaceLayout({ children }) {
     <div className="">
       {auth && (
         <div className="app-interface grid full-width">
-          <AppSidebar />
-          <CentralColumn>
-            <RefreshProvider>{children}</RefreshProvider>
-          </CentralColumn>
+          <ShowNewPostContextProvider>
+            <AppSidebar />
+            <CentralColumn>
+              <RefreshProvider>{children}</RefreshProvider>
+            </CentralColumn>
+          </ShowNewPostContextProvider>
         </div>
       )}
     </div>

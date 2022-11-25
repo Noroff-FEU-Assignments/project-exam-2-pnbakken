@@ -7,7 +7,7 @@ import FileInput from "./file-input";
 import BrandButton from "../../Buttons/brand-button";
 import UrlInput from "./url-input";
 import createAxios from "../../../Functions/create-axios";
-import { cloneElement } from "react";
+import UserImageHistory from "./user-image-history";
 
 /**
  * Uploads selected image file or checks typed image url and passes string to callback handler.
@@ -58,7 +58,7 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
   }
 
   return (
-    <div className="better-add-image full-width flex-c p-3">
+    <div className="better-add-image full-width flex-c">
       <BootstrapForm onSubmit={handleImage}>
         <fieldset disabled={loading}>
           <div className="inputs">
@@ -76,6 +76,7 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
             )}
           </div>
           {/*imageUrl && <SelectedImageDisplay image={imageUrl} />*/}
+          <UserImageHistory handler={imageUrlHandler} endAction={handleShow} />
         </fieldset>
       </BootstrapForm>
     </div>

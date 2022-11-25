@@ -43,3 +43,11 @@ Functional version of the app that includes a basic version of pretty much every
 ### v0.5.0.1
 
 Move app to project root, update README
+
+### v0.5.1
+
+Improvements to posting interface.
+
+#### Issues
+
+Still can't get that blessed tag display to update. I'm confident I'll find a solution or worst case just ask, so I'll come back to it later

@@ -12,7 +12,7 @@ import { RefreshProvider } from "../../../Context/refresh-context";
 
 function Post({ children, data, close }) {
   const [auth, setAuth] = useContext(AuthContext);
-  const isOwner = auth && auth.name === data.author.name ? "owner" : "";
+  const isOwner = auth && auth.email === data.author.email ? "owner" : "";
 
   return (
     <div className={`post full-width ${isOwner} radius-sm flex-c gap-md`}>
