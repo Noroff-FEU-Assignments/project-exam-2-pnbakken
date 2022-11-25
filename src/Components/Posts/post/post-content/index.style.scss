@@ -1,5 +1,12 @@
 .post-content {
 
+    .post-body {
+        p {
+            overflow-wrap: anywhere;
+            hyphens: auto;
+        }
+    }
+
     img {
         border-radius: 0.25rem;
     }
