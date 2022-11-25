@@ -133,53 +133,45 @@ function CreatePostForm({
           }`}
           onFocus={startRunning}
         >
-          <ComponentOpacity condition={running}>
-            <Form.Group>
-              {/* <Form.Label>Title</Form.Label> */}
-              <Form.Control
-                type="text"
-                id="new-post-title"
-                className="mb-2"
-                {...register("title")}
-                placeholder="Post Title"
-                defaultValue={edit ? edit.title : ""}
-              />
-              {errors.title ? <>{errors.title.message}</> : <div> </div>}
-            </Form.Group>
-          </ComponentOpacity>
+          <Form.Group className="mb-3">
+            {/* <Form.Label>Title</Form.Label> */}
+            <Form.Control
+              type="text"
+              id="new-post-title"
+              className="mb-2"
+              {...register("title")}
+              placeholder="Post Title *required"
+              defaultValue={edit ? edit.title : ""}
+            />
+            {errors.title ? <>{errors.title.message}</> : <div> </div>}
+          </Form.Group>
 
-          <Form.Group className="mb-5">
-            <ComponentOpacity condition={running}>
-              {/* <Form.Label>Content</Form.Label> */}
-            </ComponentOpacity>
-
+          <Form.Group className="mb-3">
             <CustomTextArea
-              placeholder={running ? "" : randomEncourage}
+              placeholder="Post Body"
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
             />
           </Form.Group>
-          <ComponentOpacity condition={running}>
-            <Form.Group className="mb-5">
-              <Form.Label>Tags (separate with ",")</Form.Label>
-              <TagInput
-                tagHandler={setTags}
-                edit={edit && edit.tags ? edit.tags : []}
-              />
-            </Form.Group>
-          </ComponentOpacity>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Tags (separate with ",")</Form.Label>
+            <TagInput
+              tagHandler={setTags}
+              edit={edit && edit.tags ? edit.tags : []}
+            />
+          </Form.Group>
+
           {imageUrl && (
             <div>
               <img src={imageUrl} />
             </div>
           )}
           <div className="new-post-menu flex-row wrap justify-between align-center">
-            <ComponentOpacity condition={running}>
-              <Button onClick={running ? handleShowAddImage : undefined}>
-                Add Image
-              </Button>
-            </ComponentOpacity>
+            <Button onClick={running ? handleShowAddImage : undefined}>
+              Add Image
+            </Button>
 
             <div className="flex-row gap-md align-center">
               <div>
@@ -188,11 +180,9 @@ function CreatePostForm({
                     Cancel
                   </button>
                 ) : (
-                  <ComponentOpacity condition={running}>
-                    <button type="button" onClick={onClose}>
-                      Cancel
-                    </button>
-                  </ComponentOpacity>
+                  <button type="button" onClick={onClose}>
+                    Cancel
+                  </button>
                 )}
               </div>
               <div>

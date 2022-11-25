@@ -58,7 +58,7 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
   }
 
   return (
-    <div className="better-add-image full-width flex-c p-3">
+    <div className="better-add-image full-width flex-c">
       <BootstrapForm onSubmit={handleImage}>
         <fieldset disabled={loading}>
           <div className="inputs">

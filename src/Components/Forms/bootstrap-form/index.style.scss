@@ -3,24 +3,25 @@
 
 .system-form {
 
+    color: $colour-light;
 
     fieldset {
-        background: $colour-secondary-background;
+        background: $colour-system-background;
 
         transition: 0.5s;
     }
 
-    fieldset.running {
-        @extend .raise;
-        background: $colour-system-background;
-        box-shadow: $common-shadow;
-    }
+    // fieldset.running {
+    //     @extend .raise;
+    //     background: $colour-system-background;
+    //     box-shadow: $common-shadow;
+    // }
 
 
 
     input,
     textarea {
-        background: none;
+        background: $colour-secondary-background;
         border: none;
         border-bottom: 2px solid $colour-light;
         color: $colour-light;
@@ -40,5 +41,6 @@
     input::placeholder,
     textarea::placeholder {
         color: $colour-light;
+        @extend .small-text;
     }
 }

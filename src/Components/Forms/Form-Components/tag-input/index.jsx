@@ -1,21 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 
 function TagInput({ tagHandler, edit }) {
   const [tags, setTags] = useState(edit ? edit : []);
-  const [DisplayTags, setDisplayTags] = useState("");
+  const [tagDisplay, setTagDisplay] = useState(
+    tags ? (
+      <ul className="tag-list no-list-style flex-row wrap">
+        {tags.map((tag) => {
+          return <Tag tag={tag} removeThis={deleteTag} />;
+        })}
+      </ul>
+    ) : (
+      <></>
+    )
+  );
+  function displayTags() {
+    setTagDisplay(
+      <ul className="tag-list no-list-style flex-row wrap">
+        {tags.map((tag) => {
+          return <Tag tag={tag} removeThis={deleteTag} />;
+        })}
+      </ul>
+    );
+  }
+
+  useEffect(() => {
+    if (tags) {
+      displayTags();
+    }
+  }, [tags]);
 
   const hasTag = (tag) => {
     let check = false;
     tags.forEach((t) => (t === tag ? (check = true) : undefined));
     return check;
   };
-  function checkTags(e) {
+  function checkInput(e) {
+    // key === "," doesn't work in Chrome on Android. I don't know about iPhones. Firefox on Android is ok.
     if (e.key === ",") {
-      //keycodes mainly to support Chrome on Android
       const tag = e.target.value
         .trim()
         .split(",")[0]
@@ -23,18 +47,20 @@ function TagInput({ tagHandler, edit }) {
         .trim(/[" "]/)
         .replace(/[^a-åA-Å0-9-]/g, "");
       console.log(tag);
-      let newTags = [];
-      if (tags) {
-        newTags = tags;
-        if (!hasTag(tag)) {
+      if (tag) {
+        let newTags = [];
+        if (tags) {
+          newTags = tags;
+          if (!hasTag(tag)) {
+            newTags.push(tag);
+          }
+        } else {
           newTags.push(tag);
         }
-      } else {
-        newTags.push(tag);
+        setTags(newTags);
+        e.target.value = "";
+        tagHandler(tags);
       }
-      setTags(newTags);
-      e.target.value = "";
-      tagHandler(tags);
     }
     console.log(tags);
   }
@@ -47,21 +73,10 @@ function TagInput({ tagHandler, edit }) {
     }
   }
 
-  useEffect(() => {
-    if (tags) {
-      setDisplayTags(
-        <ul className="tag-list no-list-style flex-row wrap mb-3 gap-sm">
-          {tags.map((tag) => {
-            return <Tag tag={tag} removeThis={deleteTag} key={tag} />;
-          })}
-        </ul>
-      );
-    }
-  }, [tags]);
   return (
     <div className="tag-menu flex-c gap-sm">
-      {tags && DisplayTags}
-      <Form.Control type="text" onKeyUp={checkTags}></Form.Control>
+      {tagDisplay && <>tagDisplay</>}
+      <Form.Control type="text" onKeyUp={checkInput}></Form.Control>
     </div>
   );
 }

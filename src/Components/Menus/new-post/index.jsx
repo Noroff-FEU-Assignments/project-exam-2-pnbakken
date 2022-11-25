@@ -4,6 +4,8 @@ import { ALL_POSTS_URL } from "../../../Constants";
 import ShowNewPostContext from "../../../Context/show-new-post-context";
 import CreatePostForm from "../../Forms/create-post-form";
 
+import "./index.style.scss";
+
 function NewPost() {
   const [showNewPost, setShowNewPost] = useContext(ShowNewPostContext);
   function closeNewPost() {
