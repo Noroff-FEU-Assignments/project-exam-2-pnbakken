@@ -44,9 +44,9 @@ Functional version of the app that includes a basic version of pretty much every
 
 Move app to project root, update README
 
-### v0.5.1
+### v0.5.5
 
-Improvements to posting interface.
+Improvements to posting interface. General style revision and improvements.
 
 #### Issues
 
