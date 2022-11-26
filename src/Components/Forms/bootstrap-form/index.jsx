@@ -6,11 +6,13 @@ import "./index.style.scss";
 
 function BootstrapForm({ children, onSubmit, className = "", id = "" }) {
   return (
-    <Container>
-      <Form onSubmit={onSubmit} className={`system-form ${className}`} id={id}>
-        {children}
-      </Form>
-    </Container>
+    <Form
+      onSubmit={onSubmit}
+      className={`system-form full-width standard-component-width${className}`}
+      id={id}
+    >
+      {children}
+    </Form>
   );
 }
 
