@@ -23,7 +23,7 @@ function PostContent({ data }) {
   }, []);
 
   return (
-    <div className="post-content p-3 flex-c gap-sm">
+    <div className={`post-content p-3 flex-c gap-sm`}>
       <div className="post-header flex-row wrap full-width align-center gap-xs">
         <Link to={`/user/${data.author.name}`}>
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
@@ -48,12 +48,12 @@ function PostContent({ data }) {
           </div>
         </div>
       </div>
-      <div className="post-main flex-c align-self-center full-width gap-sm">
+      <div className="post-main flex-c align-self-center full-width smaller-component-width gap-xs">
         <div className="post-title align-self-start">{data.title}</div>
-        <div className="post-body flex-c align-center full-width gap-sm">
+        <div className="post-body flex-c full-width gap-sm">
           <p>{data.body}</p>
           {data.media && (
-            <div className="post-image">
+            <div className="post-image full-width">
               <img src={validMedia ? data.media : imageError} />
             </div>
           )}
