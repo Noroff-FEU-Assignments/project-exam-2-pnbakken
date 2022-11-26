@@ -1,13 +1,13 @@
 @import "/src/style/partials/base/base";
 
 .post {
-    max-width: 560px;
+
     background: $colour-light;
     color: $colour-dark;
     box-shadow: $common-shadow;
 
-    .post-main {
-        max-width: 400px;
+    .close-button {
+        color: $colour-dark;
     }
 
     .post-author-name {
@@ -39,6 +39,10 @@
     color: $colour-light;
 
     .post-author-name {
+        color: $colour-light;
+    }
+
+    .close-button {
         color: $colour-light;
     }
 }
