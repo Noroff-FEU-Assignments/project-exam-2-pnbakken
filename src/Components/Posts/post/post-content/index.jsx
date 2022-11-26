@@ -24,7 +24,7 @@ function PostContent({ data }) {
 
   return (
     <div className={`post-content p-3 flex-c gap-sm`}>
-      <div className="post-header flex-row wrap full-width align-center gap-xs">
+      <div className="post-header flex-r wrap full-width align-center gap-xs">
         <Link to={`/user/${data.author.name}`}>
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
         </Link>
@@ -32,7 +32,7 @@ function PostContent({ data }) {
           <Link to={`/user/${data.author.name}`} className="post-author-name">
             <span className="author-name">{data.author.name}</span>
           </Link>
-          <div className="post-created flex-row gap-xxs small-text">
+          <div className="post-created flex-r gap-xxs small-text">
             {dateCreated ? (
               <>
                 <span className="post-time">
@@ -60,7 +60,7 @@ function PostContent({ data }) {
 
           {data.tags && (
             <div className="flex-c full-width justify-end">
-              <ul className="post-tags flex-row wrap full-width small-text justify-end gap-xxs">
+              <ul className="post-tags flex-r wrap full-width small-text justify-end gap-xxs">
                 {data.tags.map((tag) => {
                   return (
                     <li className="post-tag" key={tag}>

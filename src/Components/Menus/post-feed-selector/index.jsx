@@ -2,7 +2,7 @@ import React from "react";
 
 function PostFeedSelector({ getChoice }) {
   return (
-    <div className="post-feed-selector flex-row justify-center gap-md">
+    <div className="post-feed-selector flex-r justify-center gap-md">
       <button type="button" className="discrete">
         Following
       </button>

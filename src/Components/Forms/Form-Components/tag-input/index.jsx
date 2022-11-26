@@ -7,7 +7,7 @@ function TagInput({ tagHandler, edit }) {
   const [tags, setTags] = useState(edit ? edit : []);
   const [tagDisplay, setTagDisplay] = useState(
     tags ? (
-      <ul className="tag-list no-list-style flex-row wrap">
+      <ul className="tag-list no-list-style flex-r wrap">
         {tags.map((tag) => {
           return <Tag tag={tag} removeThis={deleteTag} />;
         })}
@@ -18,7 +18,7 @@ function TagInput({ tagHandler, edit }) {
   );
   function displayTags() {
     setTagDisplay(
-      <ul className="tag-list no-list-style flex-row wrap">
+      <ul className="tag-list no-list-style flex-r wrap">
         {tags.map((tag) => {
           return <Tag tag={tag} removeThis={deleteTag} />;
         })}
@@ -93,7 +93,7 @@ function Tag({ tag, removeThis }) {
     removeThis(tag);
   }
   return (
-    <li className="tag flex-row gap-xxs small-text">
+    <li className="tag flex-r gap-xxs small-text">
       {tag}
       <button type="button" className="discrete" onClick={deleteTag}>
         x

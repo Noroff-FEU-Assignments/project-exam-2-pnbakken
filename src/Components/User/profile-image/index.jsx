@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
-function ProfileImage({ src, children }) {
+function ProfileImage({ src, size, children }) {
   const style = {
     ...(src && { backgroundImage: `url(${src})` }),
+    ...(size && { width: `${size}px`, height: `${size}px` }),
   };
 
   return (
@@ -17,6 +18,7 @@ function ProfileImage({ src, children }) {
 
 ProfileImage.propTypes = {
   src: PropTypes.string,
+  size: PropTypes.number,
   children: PropTypes.node,
 };
 
