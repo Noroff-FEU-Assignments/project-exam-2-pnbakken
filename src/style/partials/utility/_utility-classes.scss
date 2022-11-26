@@ -15,16 +15,16 @@
     flex-direction: column;
 }
 
-.flex-row {
+.flex-r {
     display: flex;
     flex-direction: row;
 }
 
-.flex-row.wrap {
+.flex-r.wrap {
     flex-wrap: wrap !important;
 }
 
-.flex-row.wrap-reverse {
+.flex-r.wrap-reverse {
     flex-wrap: wrap-reverse !important;
 }
 

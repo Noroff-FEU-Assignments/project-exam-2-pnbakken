@@ -42,3 +42,15 @@ h4 {
 button {
     font-family: $font-brand !important;
 }
+
+.light-text {
+    color: $colour-light;
+}
+
+.user-name {
+
+    text-decoration: none;
+    font-family: $font-brand;
+    font-size: 20px;
+    font-weight: 500;
+}

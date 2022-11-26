@@ -65,7 +65,7 @@ function UserImageHistory({ handler, endAction }) {
     <div className="image-history full-width">
       Media History
       {images && (
-        <div className="flex-row wrap gap-sm">
+        <div className="flex-r wrap gap-sm">
           {images.map((img) => {
             console.log("IMAGES: " + img);
             return (

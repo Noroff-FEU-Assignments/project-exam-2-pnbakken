@@ -168,12 +168,12 @@ function CreatePostForm({
               <img src={imageUrl} />
             </div>
           )}
-          <div className="new-post-menu flex-row wrap justify-between align-center">
+          <div className="new-post-menu flex-r wrap justify-between align-center">
             <Button onClick={running ? handleShowAddImage : undefined}>
               Add Image
             </Button>
 
-            <div className="flex-row gap-md align-center">
+            <div className="flex-r gap-md align-center">
               <div>
                 {edit ? (
                   <button type="button" onClick={close}>

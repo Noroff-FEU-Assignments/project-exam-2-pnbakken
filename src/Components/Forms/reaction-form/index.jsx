@@ -31,7 +31,7 @@ function ReactionForm({ postID }) {
   return (
     <BootstrapForm>
       <fieldset disabled={disabled}>
-        <div className="symbols flex-row wrap gap-sm align-center">
+        <div className="symbols flex-r wrap gap-sm align-center">
           {reactionsCollection.map((reaction) => {
             return (
               <button

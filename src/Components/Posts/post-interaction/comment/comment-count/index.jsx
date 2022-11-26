@@ -6,7 +6,7 @@ function CommentCount({ data }) {
   return (
     <div className="interact-count comments-count flex-c align-center show-interact full-height">
       <div className="count flex-c full-height">
-        <div className="flex-row full-width align-between justify-center gap-xxs">
+        <div className="flex-r full-width align-between justify-center gap-xxs">
           <img src={icon} alt="comments" />
           <span className="number">
             {data._count.comments ? data._count.comments : ""}

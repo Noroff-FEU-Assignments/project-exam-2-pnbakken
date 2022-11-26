@@ -21,18 +21,18 @@ function AppInterfaceLayout({ children }) {
   });
 
   return (
-    <div className="">
+    <>
       {auth && (
-        <div className="app-interface grid full-width">
-          <ShowNewPostContextProvider>
+        <ShowNewPostContextProvider>
+          <div className="app-interface flex-r align-start full-width full-height top-level-indent">
             <AppSidebar />
             <CentralColumn>
               <RefreshProvider>{children}</RefreshProvider>
             </CentralColumn>
-          </ShowNewPostContextProvider>
-        </div>
+          </div>
+        </ShowNewPostContextProvider>
       )}
-    </div>
+    </>
   );
 }
 
