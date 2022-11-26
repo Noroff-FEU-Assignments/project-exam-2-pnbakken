@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
+import NewPost from "../../Components/Menus/new-post";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import UserCard from "../../Components/User/user-card";
 import { USER_URL } from "../../Constants";
@@ -29,6 +30,7 @@ function UserPage() {
   return (
     <MainLayout>
       <AppInterfaceLayout>
+        <NewPost />
         {user && <UserCard user={user} />}
         {user && <DisplayAllPosts settings={getPostsSettings} />}
       </AppInterfaceLayout>

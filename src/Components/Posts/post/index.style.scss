@@ -2,19 +2,21 @@
 
 .post {
     max-width: 560px;
-    background: $colour-eerie-black;
-    color: $colour-light;
+    background: $colour-light;
+    color: $colour-dark;
+    box-shadow: $common-shadow;
 
     .post-main {
         max-width: 400px;
     }
 
     .post-author-name {
-        color: $colour-light;
+
         text-decoration: none;
         font-family: $font-brand;
         font-size: 20px;
         font-weight: 500;
+        color: $colour-dark;
     }
 
     .post-title {
@@ -33,5 +35,10 @@
 }
 
 .post.owner {
-    background: $colour-system-background;
+    background: $colour-eerie-black;
+    color: $colour-light;
+
+    .post-author-name {
+        color: $colour-light;
+    }
 }

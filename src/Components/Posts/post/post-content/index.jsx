@@ -25,7 +25,7 @@ function PostContent({ data }) {
   return (
     <div className="post-content p-3 flex-c gap-sm">
       <div className="post-header flex-row wrap full-width align-center gap-xs">
-        <Link to={`user/${data.author.name}`}>
+        <Link to={`/user/${data.author.name}`}>
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
         </Link>
         <div className="flex-c align-between ">

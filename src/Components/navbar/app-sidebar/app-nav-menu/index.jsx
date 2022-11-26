@@ -9,9 +9,13 @@ import "./index.style.scss";
 import homeIcon from "../../../../assets/icon/icon-home.svg";
 import editIcon from "../../../../assets/icon/icon-edit.svg";
 import usersIcon from "../../../../assets/icon/icon-users.svg";
+import ShowNewPostContext from "../../../../Context/show-new-post-context";
+import NewPostButton from "../../../Buttons/new-post-button";
 
 function AppNavMenu() {
   const [auth, setAuth] = useContext(AuthContext);
+  const [showNewPost, setShowNewPost] = useContext(ShowNewPostContext);
+
   return (
     <div className="app-nav-menu flex-c full-width align-center p-3 gap-sm">
       <div className="app-nav-links flex-c full-width gap-xs">
@@ -32,7 +36,7 @@ function AppNavMenu() {
         </Link>
       </div>
       <div>
-        <BrandButton>Post</BrandButton>
+        <NewPostButton />
       </div>
     </div>
   );

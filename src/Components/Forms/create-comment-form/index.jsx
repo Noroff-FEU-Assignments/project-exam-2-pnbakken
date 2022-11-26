@@ -20,11 +20,11 @@ function CreateComment({ url, replyID = null }) {
   const [disabled, setDisabled] = useState(false);
   const client = createAxios(auth);
 
+  const inputId = replyID ? "reply-body" : "comment-body";
   async function onSubmit(e) {
     e.preventDefault();
-    console.log(e);
     setDisabled(true);
-    const commentBody = document.querySelector("#comment-body").value;
+    const commentBody = document.querySelector(`#${inputId}`).value;
     console.log(commentBody);
     try {
       if (commentBody) {
@@ -56,7 +56,7 @@ function CreateComment({ url, replyID = null }) {
       <fieldset disabled={disabled}>
         <CustomTextArea
           as="textarea"
-          id="comment-body"
+          id={inputId}
           name="body"
           placeholder="Leave a comment"
         />
