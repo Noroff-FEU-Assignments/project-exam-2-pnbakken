@@ -29,17 +29,19 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
     const fileInput = document.querySelector("#file-input");
 
     try {
-      if (fileInput.files[0]) {
-        const url = await doUpload(fileInput.files[0]);
-        console.log(url);
-        if (url) {
+      if (urlInput.value) {
+        console.log("Prioritise url");
+        const url = urlInput.value;
+        if (await validateImageUrl(url)) {
+          console.log("Entered image url is valid");
           setImageUrl(url);
           imageUrlHandler(url);
           handleShow();
         }
-      } else if (urlInput.value) {
-        const url = urlInput.value;
-        if (await validateImageUrl(url)) {
+      } else if (fileInput.files[0]) {
+        const url = await doUpload(fileInput.files[0]);
+        console.log(url);
+        if (url) {
           setImageUrl(url);
           imageUrlHandler(url);
           handleShow();

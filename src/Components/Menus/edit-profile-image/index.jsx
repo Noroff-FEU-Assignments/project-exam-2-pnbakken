@@ -24,6 +24,19 @@ function EditProfileImage({ handleShow, property, current = "" }) {
     try {
       const response = await client.put(mediaUrl, { [property]: imageUrl });
       console.log(response);
+
+      setRefresh(!refresh);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function removeImage() {
+    const client = createAxios(auth);
+
+    try {
+      const response = await client.put(mediaUrl, { [property]: "" });
+      setRefresh(!refresh);
     } catch (error) {
       console.error(error);
     }
@@ -41,14 +54,17 @@ function EditProfileImage({ handleShow, property, current = "" }) {
           </HistoryProvider>
         </div>
       )}
-      <div>
+      <div className="flex-row justify-between">
         {imageUrl && imageUrl !== current ? (
           <button type="button" onClick={updateImage}>
             Update
           </button>
         ) : (
-          ""
+          <span></span>
         )}
+        <button type="button" onClick={removeImage}>
+          Remove {property} image
+        </button>
       </div>
     </div>
   );

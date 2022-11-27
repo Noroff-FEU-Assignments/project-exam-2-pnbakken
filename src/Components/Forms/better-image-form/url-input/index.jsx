@@ -8,6 +8,7 @@ function UrlInput({ resultHandler, edit = "" }) {
   function handleChange(e) {
     setImagePreview(e.target.value);
     resultHandler(e.target.value);
+    console.log(e.target.value);
   }
   return (
     <Form.Group>
