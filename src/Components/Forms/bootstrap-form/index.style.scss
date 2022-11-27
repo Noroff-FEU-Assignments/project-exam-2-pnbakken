@@ -6,7 +6,7 @@
     color: $colour-light;
 
     fieldset {
-        background: $colour-system-background;
+        background: $colour-secondary-background;
 
         transition: 0.5s;
     }
@@ -21,7 +21,7 @@
 
     input,
     textarea {
-        background: $colour-secondary-background;
+        background: none;
         border: none;
         border-bottom: 2px solid $colour-light;
         color: $colour-light;
@@ -32,7 +32,7 @@
     input:focus,
     textarea:active,
     textarea:focus {
-        background: none;
+        background: $colour-system-background;
         border-color: $colour-primary;
         box-shadow: none;
         color: $colour-light;
