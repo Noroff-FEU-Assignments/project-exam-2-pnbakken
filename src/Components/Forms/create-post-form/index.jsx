@@ -18,9 +18,13 @@ import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
 import TagInput from "../Form-Components/tag-input";
 
+const BODY_LIMIT = 280;
+
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
-  body: yup.string(),
+  body: yup
+    .string()
+    .max(BODY_LIMIT, "Post body cannot be more than 280 characters"),
   media: yup.string(),
   tags: yup.array(),
 });
@@ -59,6 +63,20 @@ function CreatePostForm({
   function handleShowAddImage() {
     setShowAddImage(!showAddImage);
   }
+
+  const [currentBodyLength, setCurrentBodyLength] = useState(0);
+  const updateCurrentBodyLength = (e) => {
+    const length = e.target.value.length;
+    console.log(length);
+    setCurrentBodyLength(length);
+  };
+  const [currentTitleLength, setCurrentTitleLength] = useState(0);
+  const updateCurrentTitleLength = (e) => {
+    const length = e.target.value.length;
+    console.log(length);
+    setCurrentTitleLength(length);
+  };
+
   const randomEncourage = getRandomEncouragement();
 
   const {
@@ -142,7 +160,17 @@ function CreatePostForm({
               {...register("title")}
               placeholder="Post Title *required"
               defaultValue={edit ? edit.title : ""}
+              maxLength={BODY_LIMIT}
+              onChange={updateCurrentTitleLength}
             />
+            <div className="flex-r full-width justify-end align-end">
+              <span
+                className={currentTitleLength < BODY_LIMIT ? "small-text" : ""}
+              >
+                {currentTitleLength}
+              </span>
+              /{BODY_LIMIT}
+            </div>
             {errors.title ? <>{errors.title.message}</> : <div> </div>}
           </Form.Group>
 
@@ -152,7 +180,17 @@ function CreatePostForm({
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
+              maxlength={BODY_LIMIT}
+              onKeyUp={updateCurrentBodyLength}
             />
+            <div className="flex-r full-width justify-end align-end">
+              <span
+                className={currentBodyLength < BODY_LIMIT ? "small-text" : ""}
+              >
+                {currentBodyLength}
+              </span>
+              /{BODY_LIMIT}
+            </div>
           </Form.Group>
 
           <Form.Group className="mb-3">
