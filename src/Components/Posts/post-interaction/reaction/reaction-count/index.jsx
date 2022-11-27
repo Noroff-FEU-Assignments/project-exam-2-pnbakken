@@ -13,7 +13,7 @@ function ReactionCount({ data }) {
             {data._count.reactions ? data._count.reactions : ""}
           </span>
         </div>
-        <div className="caption">Reactions</div>
+        <div className="caption small-text">Reactions</div>
       </div>
     </div>
   );

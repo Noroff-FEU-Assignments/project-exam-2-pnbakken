@@ -28,18 +28,18 @@ function PostContent({ data }) {
         <Link to={`/user/${data.author.name}`}>
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
         </Link>
-        <div className="flex-c align-between ">
+        <div className="flex-c align-between gap-xxs">
           <Link to={`/user/${data.author.name}`} className="post-author-name">
             <span className="author-name">{data.author.name}</span>
           </Link>
           <div className="post-created flex-r gap-xxs small-text">
             {dateCreated ? (
               <>
-                <span className="post-time">
-                  {dateCreated.toLocaleTimeString("en-GB")}
-                </span>
                 <span className="post-date">
                   {dateCreated.toLocaleDateString("en-GB")}
+                </span>
+                <span className="post-time">
+                  {dateCreated.toLocaleTimeString("en-GB")}
                 </span>
               </>
             ) : (
@@ -54,7 +54,10 @@ function PostContent({ data }) {
           <p>{data.body}</p>
           {data.media && (
             <div className="post-image full-width">
-              <img src={validMedia ? data.media : imageError} />
+              <img
+                src={validMedia ? data.media : imageError}
+                alt={data.title}
+              />
             </div>
           )}
 

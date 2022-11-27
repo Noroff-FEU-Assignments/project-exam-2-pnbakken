@@ -12,7 +12,7 @@ function CommentCount({ data }) {
             {data._count.comments ? data._count.comments : ""}
           </span>
         </div>
-        <div className="caption">Comments</div>
+        <div className="caption small-text">Comments</div>
       </div>
     </div>
   );
