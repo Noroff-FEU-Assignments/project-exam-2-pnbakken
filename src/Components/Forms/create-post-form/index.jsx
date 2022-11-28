@@ -186,7 +186,8 @@ function CreatePostForm({
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Tags (separate with ",")</Form.Label>
+            {/* <Form.Label>Tags (separate with ",")</Form.Label> */}
+
             <TagInput
               tagHandler={setTags}
               edit={edit && edit.tags ? edit.tags : []}
