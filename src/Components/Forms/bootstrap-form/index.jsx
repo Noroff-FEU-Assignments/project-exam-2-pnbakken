@@ -4,12 +4,19 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
-function BootstrapForm({ children, onSubmit, className = "", id = "" }) {
+function BootstrapForm({
+  children,
+  onSubmit,
+  className = "",
+  id = "",
+  ...rest
+}) {
   return (
     <Form
       onSubmit={onSubmit}
       className={`system-form full-width standard-component-width${className}`}
       id={id}
+      {...rest}
     >
       {children}
     </Form>
