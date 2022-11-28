@@ -13,7 +13,9 @@ function ReplyToComment({ replyToId, postID }) {
   }
   return (
     <>
-      <button onClick={handleShow}>Reply</button>
+      <button onClick={handleShow} className="discrete">
+        Reply
+      </button>
       {show && <CreateComment url={url} replyID={replyToId} />}
     </>
   );
