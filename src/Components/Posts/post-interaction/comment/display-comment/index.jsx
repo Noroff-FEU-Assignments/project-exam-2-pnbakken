@@ -6,6 +6,8 @@ import AuthContext from "../../../../../Context/auth-context";
 //import DeleteComment from "../delete-comment"; Pending API functionality
 import ReplyToComment from "../reply-to-comment";
 
+import "./index.style.scss";
+
 function DisplayComment({ commentData, postID }) {
   return (
     <div className="comment-display flex-c full-width">
@@ -41,23 +43,23 @@ function Comment({ comment, allComments, postID }) {
   const reply = comment.replyToId
     ? allComments.filter((com) => com.id === comment.replyToId)
     : null;
-  console.log("Reply to: ");
-  console.log(reply);
   return (
-    <div className="comment" key={comment.id}>
+    <div className="comment p-2" key={comment.id}>
       <div className="comment-header">
         <span className="comment-author">{comment.owner}</span>
         <span className="comment-date">{comment.created}</span>
       </div>
       {reply && (
-        <div className="reply-to">
-          {reply[0].owner} posted: <p>{reply[0].body}</p>
+        <div className="reply-to ps-4 pe-4 pt-2 p b-2">
+          <span className="op">{reply[0].owner}</span> commented:{" "}
+          <p>{reply[0].body}</p>
         </div>
       )}
       <div className="comment-body">{comment.body}</div>
       <div className="flex-c align-end">
         <ReplyToComment replyToId={comment.id} postID={postID} />
       </div>
+      <div className="bottom-border"></div>
     </div>
   );
 }

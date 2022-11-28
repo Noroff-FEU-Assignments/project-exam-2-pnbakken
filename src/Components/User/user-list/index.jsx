@@ -11,9 +11,9 @@ function UserList({ users }) {
   };
   const { data, loading, error } = useGet(settings);
   return (
-    <div className="user-list-container full-width">
+    <div className="user-list-container full-width large-component-width align-center">
       {data && (
-        <ul className="user-list flex-c full-width gap-lg">
+        <ul className="user-list flex-r wrap full-width gap-lg">
           {data.map((user) => {
             return <UserListItem user={user} />;
           })}

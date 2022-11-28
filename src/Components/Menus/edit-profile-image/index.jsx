@@ -23,7 +23,6 @@ function EditProfileImage({ handleShow, property, current = "" }) {
 
     try {
       const response = await client.put(mediaUrl, { [property]: imageUrl });
-      console.log(response);
 
       setRefresh(!refresh);
     } catch (error) {

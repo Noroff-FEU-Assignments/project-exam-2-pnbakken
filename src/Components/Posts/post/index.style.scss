@@ -1,6 +1,10 @@
 @import "/src/style/partials/base/base";
 
 .post {
+    * {
+        overflow-wrap: anywhere;
+        hyphens: auto;
+    }
 
     background: $colour-light;
     color: $colour-dark;

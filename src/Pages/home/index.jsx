@@ -5,12 +5,12 @@ import MainLayout from "../../Components/Layout/main-layout";
 import NewPost from "../../Components/Menus/new-post";
 import PostFeedSelector from "../../Components/Menus/post-feed-selector";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
-import { ALL_POSTS_URL } from "../../Constants";
+import { POSTS_URL } from "../../Constants";
 
 function Home() {
   const [selectedFeed, setSelectedFeed] = useState("followers");
   const settings = {
-    url: ALL_POSTS_URL + "?_author=true",
+    url: POSTS_URL + "?_author=true",
   };
   return (
     <MainLayout>

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function DisplayResponseErrors({ data }) {
-  console.log(data);
   let key = 0;
   return (
     <ul className="error response-errors">

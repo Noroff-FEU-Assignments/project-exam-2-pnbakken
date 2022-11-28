@@ -66,13 +66,11 @@ function CreatePostForm({
   const [currentBodyLength, setCurrentBodyLength] = useState(0);
   const updateCurrentBodyLength = (e) => {
     const length = e.target.value.length;
-    console.log(length);
     setCurrentBodyLength(length);
   };
   const [currentTitleLength, setCurrentTitleLength] = useState(0);
   const updateCurrentTitleLength = (e) => {
     const length = e.target.value.length;
-    console.log(length);
     setCurrentTitleLength(length);
   };
 
@@ -90,7 +88,6 @@ function CreatePostForm({
     const form = document.querySelector("#new-post-form");
     form.querySelector("#new-post-title").value = "";
     form.querySelector(`#${postBodyId}`).value = "";
-    console.log(form.querySelector("#new-post-body"));
     stopRunning();
     if (close) {
       close();
@@ -99,14 +96,12 @@ function CreatePostForm({
 
   async function onSubmit(data) {
     setDisabled(true);
-    console.log(data);
     const postBody = document.querySelector(`#${postBodyId}`).value;
     const client = createAxios(auth);
 
     try {
       let response = null;
       if (imageUrl) {
-        console.log(imageUrl);
         data.media = imageUrl;
       }
       if (postBody) {
@@ -120,9 +115,7 @@ function CreatePostForm({
       } else {
         response = await client.post(url, data);
       }
-      console.log(response);
       setRefresh(!refresh);
-      console.log("refreshed : " + refresh);
     } catch (error) {
       console.error(error);
     } finally {
@@ -193,7 +186,8 @@ function CreatePostForm({
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Tags (separate with ",")</Form.Label>
+            {/* <Form.Label>Tags (separate with ",")</Form.Label> */}
+
             <TagInput
               tagHandler={setTags}
               edit={edit && edit.tags ? edit.tags : []}

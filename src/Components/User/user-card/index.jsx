@@ -12,7 +12,6 @@ function UserCard({ user }) {
   const [auth, isAuth] = useContext(AuthContext);
   const [refresh, setRefresh] = useContext(RefreshContext);
   const isOwner = auth ? auth.name === user.name : false;
-  console.log("Is owner: " + isOwner);
 
   const [showMenu, setShowMenu] = useState(false);
   const handleShowMenu = () => setShowMenu(!showMenu);

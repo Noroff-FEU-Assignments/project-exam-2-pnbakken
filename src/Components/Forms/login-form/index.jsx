@@ -35,13 +35,11 @@ function LoginForm() {
   });
 
   async function onSubmit(data) {
-    console.log(data);
     setDisabled(true);
 
     try {
       const client = createAxios();
       const response = await client.post(LOGIN_URL, data);
-      console.log(response);
       if (response.status === 200) {
         setAuth(response.data);
         navigate("/home");
