@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { ALL_POSTS_URL } from "../../../../../Constants";
+import { POSTS_URL } from "../../../../../Constants";
 import CreateComment from "../../../../Forms/create-comment-form";
 
 function ReplyToComment({ replyToId, postID }) {
   const [show, setShow] = useState(false);
 
-  const url = ALL_POSTS_URL + `/${postID}/comment`;
+  const url = POSTS_URL + `/${postID}/comment`;
 
   function handleShow() {
     setShow(!show);

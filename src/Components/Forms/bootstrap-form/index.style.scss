@@ -11,6 +11,10 @@
         transition: 0.5s;
     }
 
+    *>fieldset.disabled {
+        opacity: 0.5;
+    }
+
     // fieldset.running {
     //     @extend .raise;
     //     background: $colour-system-background;
@@ -42,5 +46,11 @@
     textarea::placeholder {
         color: $colour-light;
         @extend .small-text;
+    }
+
+    input:disabled,
+    textarea:disabled {
+        background-color: $colour-primary;
+        opacity: 0.5;
     }
 }

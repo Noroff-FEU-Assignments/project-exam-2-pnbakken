@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { ALL_POSTS_URL } from "../../../Constants";
+import { POSTS_URL } from "../../../Constants";
 import AuthContext from "../../../Context/auth-context";
 import RefreshContext from "../../../Context/refresh-context";
 import createAxios from "../../../Functions/create-axios";
 import BootstrapForm from "../bootstrap-form";
 
 function ReactionForm({ postID }) {
-  const url = `${ALL_POSTS_URL}/${postID}/react`;
+  const url = `${POSTS_URL}/${postID}/react`;
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
   const client = createAxios(auth);
