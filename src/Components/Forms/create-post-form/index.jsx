@@ -11,7 +11,6 @@ import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
-import ComponentOpacity from "../../Utility-Components/component-opacity";
 import RefreshContext from "../../../Context/refresh-context";
 import { HistoryProvider } from "../../../Context/history-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
@@ -145,7 +144,7 @@ function CreatePostForm({
         className="flex-c align-center full-width"
       >
         <fieldset
-          disabled={disabled}
+          disabled={disabled || showAddImage}
           className={`full-width standard-component-width p-4 radius-sm ${
             running ? "running" : ""
           }`}
@@ -207,9 +206,7 @@ function CreatePostForm({
             </div>
           )}
           <div className="new-post-menu flex-r wrap justify-between align-center">
-            <Button onClick={running ? handleShowAddImage : undefined}>
-              Add Image
-            </Button>
+            <Button onClick={handleShowAddImage}>Add Image</Button>
 
             <div className="flex-r gap-md align-center">
               <div>

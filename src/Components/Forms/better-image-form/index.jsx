@@ -9,6 +9,8 @@ import UrlInput from "./url-input";
 import createAxios from "../../../Functions/create-axios";
 import UserImageHistory from "./user-image-history";
 
+import "./index.style.scss";
+
 /**
  * Uploads selected image file or checks typed image url and passes string to callback handler.
  * @param {Function} imageUrlHandler: state handler to receive checked and validated image url,
@@ -29,17 +31,19 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
     const fileInput = document.querySelector("#file-input");
 
     try {
-      if (fileInput.files[0]) {
-        const url = await doUpload(fileInput.files[0]);
-        console.log(url);
-        if (url) {
+      if (urlInput.value) {
+        console.log("Prioritise url");
+        const url = urlInput.value;
+        if (await validateImageUrl(url)) {
+          console.log("Entered image url is valid");
           setImageUrl(url);
           imageUrlHandler(url);
           handleShow();
         }
-      } else if (urlInput.value) {
-        const url = urlInput.value;
-        if (await validateImageUrl(url)) {
+      } else if (fileInput.files[0]) {
+        const url = await doUpload(fileInput.files[0]);
+        console.log(url);
+        if (url) {
           setImageUrl(url);
           imageUrlHandler(url);
           handleShow();
@@ -58,28 +62,33 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
   }
 
   return (
-    <div className="better-add-image full-width flex-c">
-      <BootstrapForm onSubmit={handleImage}>
-        <fieldset disabled={loading}>
-          <div className="inputs">
-            <UrlInput resultHandler={setImageUrl} edit={edit ? edit : ""} />
-            <FileInput resultHandler={setImageUrl} />
-          </div>
-          <div className="menu flex-r full-width wrap justify-between">
-            <button type="button" onClick={handleShow}>
-              Cancel
-            </button>
-            {!loading ? (
-              <BrandButton type="submit">Confirm</BrandButton>
-            ) : (
-              <>Checking image</>
-            )}
-          </div>
-          {/*imageUrl && <SelectedImageDisplay image={imageUrl} />*/}
-          <UserImageHistory handler={imageUrlHandler} endAction={handleShow} />
-        </fieldset>
-      </BootstrapForm>
-    </div>
+    <BootstrapForm
+      onSubmit={handleImage}
+      className="better-add-image full-width flex-c"
+    >
+      <fieldset disabled={loading} className="p-4">
+        <div className="inputs mb-4">
+          <UrlInput
+            resultHandler={setImageUrl}
+            edit={edit ? edit : ""}
+            className="mb-3"
+          />
+          <FileInput resultHandler={setImageUrl} className="mb-3" />
+        </div>
+        <div className="menu flex-r full-width wrap justify-between">
+          <button type="button" onClick={handleShow}>
+            Cancel
+          </button>
+          {!loading ? (
+            <BrandButton type="submit">Confirm</BrandButton>
+          ) : (
+            <>Checking image</>
+          )}
+        </div>
+        {/*imageUrl && <SelectedImageDisplay image={imageUrl} />*/}
+        <UserImageHistory handler={imageUrlHandler} endAction={handleShow} />
+      </fieldset>
+    </BootstrapForm>
   );
 }
 
