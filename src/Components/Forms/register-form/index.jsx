@@ -39,10 +39,8 @@ function RegisterForm() {
   const navigate = useNavigate();
 
   async function onSubmit(data) {
-    console.log("submitting");
     setDisabled(true);
     setResponseError(null);
-    console.log(data);
     const userData = {
       name: data.username,
       email: data.email,
@@ -52,13 +50,11 @@ function RegisterForm() {
     try {
       const client = createAxios();
       const response = await client.post(REGISTER_URL, userData);
-      console.log(response);
       if (response.status === 201) {
         const loginResponse = await client.post(LOGIN_URL, {
           email: userData.email,
           password: userData.password,
         });
-        console.log(loginResponse);
         if (loginResponse.status === 200) {
           setAuth(loginResponse.data);
           navigate("/home");

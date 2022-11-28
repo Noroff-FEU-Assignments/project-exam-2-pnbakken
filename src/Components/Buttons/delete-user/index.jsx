@@ -13,7 +13,7 @@ function DeleteUser() {
 
     try {
       const response = await client.delete(USER_URL + `/${auth.name}`);
-      console.log(response);
+      //console.log(response);
     } catch (error) {}
   }
   return (

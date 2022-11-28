@@ -12,7 +12,6 @@ function DeleteComment({ postID, commentID }) {
     const client = createAxios(auth);
     try {
       const response = await client.delete(url);
-      console.log(response);
     } catch (error) {
       console.error(error.response);
     }

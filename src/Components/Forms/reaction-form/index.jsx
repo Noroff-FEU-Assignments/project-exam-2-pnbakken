@@ -19,7 +19,6 @@ function ReactionForm({ postID }) {
     const symbol = e.target.dataset.symbol;
     try {
       const response = await client.put(url + `/${symbol}`);
-      console.log(response);
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);

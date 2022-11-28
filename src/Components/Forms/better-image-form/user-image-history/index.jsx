@@ -39,7 +39,6 @@ function UserImageHistory({ handler, endAction }) {
           if (post.media) {
             if (imageHistory) {
               const has = imageHistory.includes(post.media) ? true : false;
-              console.log("Has image : " + has);
               if (!has) {
                 imageHistory.push(post.media);
               }
@@ -48,7 +47,6 @@ function UserImageHistory({ handler, endAction }) {
             }
           }
         });
-        console.log(history);
       }
       setImages(imageHistory);
     }
@@ -56,7 +54,6 @@ function UserImageHistory({ handler, endAction }) {
   }, [data]);
 
   function setImageFromHistory(e) {
-    console.log(e.target);
     handler(e.target.dataset.src.toString());
     endAction();
   }
@@ -67,7 +64,6 @@ function UserImageHistory({ handler, endAction }) {
       {images && (
         <div className="flex-r wrap gap-sm">
           {images.map((img) => {
-            console.log("IMAGES: " + img);
             return (
               <button type="button" key={img} onClick={setImageFromHistory}>
                 <div

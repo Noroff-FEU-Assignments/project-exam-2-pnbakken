@@ -9,6 +9,7 @@ import "./index.style.scss";
 
 function DisplayAllPosts({ settings }) {
   const { data, loading, error } = useGet(settings);
+  const [posts, setPosts] = useState(null);
 
   const [showSingle, setShowSingle] = useState(null);
   const [lastSelected, setLastSelected] = useState(null);

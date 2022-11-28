@@ -6,7 +6,6 @@ function NewPostButton() {
   const [showNewPost, setShowNewPost] = useContext(ShowNewPostContext);
 
   function openNewPost() {
-    console.log("Opening new post");
     setShowNewPost(true);
   }
   return <BrandButton onClick={openNewPost}>Post</BrandButton>;

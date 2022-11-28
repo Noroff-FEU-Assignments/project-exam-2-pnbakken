@@ -8,7 +8,6 @@ function FileInput({ resultHandler, className = "" }) {
       toDataUrl(e.target.files[0], setImagePreview);
       resultHandler(imagePreview);
     } else setImagePreview("");
-    console.log(imagePreview);
   };
   return (
     <Form.Group className={`file-input ${className}`}>
@@ -30,7 +29,6 @@ function toDataUrl(file, handler) {
   const reader = new FileReader();
 
   reader.onloadend = () => {
-    console.log(reader.result);
     handler(reader.result);
   };
   reader.readAsDataURL(file);

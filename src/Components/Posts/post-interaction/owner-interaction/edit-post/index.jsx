@@ -7,7 +7,6 @@ import CreatePostForm from "../../../../Forms/create-post-form";
 function EditPost({ post, auth }) {
   const [show, setShow] = useState(false);
   const url = POSTS_URL + `/${post.id}`;
-  console.log(post);
   function showEdit() {
     setShow(!show);
   }

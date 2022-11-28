@@ -41,8 +41,6 @@ function Comment({ comment, allComments, postID }) {
   const reply = comment.replyToId
     ? allComments.filter((com) => com.id === comment.replyToId)
     : null;
-  console.log("Reply to: ");
-  console.log(reply);
   return (
     <div className="comment" key={comment.id}>
       <div className="comment-header">

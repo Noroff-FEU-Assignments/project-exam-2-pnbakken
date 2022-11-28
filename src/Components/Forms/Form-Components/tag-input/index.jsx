@@ -46,7 +46,6 @@ function TagInput({ tagHandler, edit }) {
         .split(" ")[0]
         .trim(/[" "]/)
         .replace(/[^a-åA-Å0-9-]/g, "");
-      console.log(tag);
       if (tag) {
         let newTags = [];
         if (tags) {
@@ -62,7 +61,6 @@ function TagInput({ tagHandler, edit }) {
         tagHandler(tags);
       }
     }
-    console.log(tags);
   }
 
   function deleteTag(tag) {

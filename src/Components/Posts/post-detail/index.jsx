@@ -10,7 +10,6 @@ import InteractionPanel from "../post-interaction/interaction-panel";
 
 // This was a genuine modal in the beginning but it was a pain to style so I've changed rendering methods in the parent component instead
 function PostDetail({ postID, setShow, setLastShown }) {
-  console.log(postID);
   const settings = {
     url: POSTS_URL + `/${postID}?_author=true&_comments=true&_reactions=true`,
   };
