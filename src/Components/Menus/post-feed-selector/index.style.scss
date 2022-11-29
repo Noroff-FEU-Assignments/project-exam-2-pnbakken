@@ -1,0 +1,14 @@
+@import "/src/style/partials/base/base";
+
+.post-feed-selector {
+    background: $colour-system-background;
+
+    button {
+        font-size: 14px;
+    }
+
+    button.current {
+        font-weight: 500;
+        border-bottom: 1px solid $colour-primary;
+    }
+}

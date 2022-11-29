@@ -1,9 +1,17 @@
 @import "/src/style/partials/base/base";
 
+
+.app-frame {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .app-interface {
 
-    background: $colour-secondary-background;
 
+    background: rgb($colour-secondary-background, 0.9);
 
     // grid-template-columns: auto 1fr;
     // grid-template-rows: auto;
