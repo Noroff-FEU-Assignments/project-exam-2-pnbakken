@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 function DisplayComment({ commentData, postID }) {
   return (
-    <div className="comment-display flex-c full-width">
+    <div className="comment-display flex-c full-width gap-sm">
       <NewComment postID={postID} />
       {commentData &&
         commentData.map((comment) => {
@@ -72,7 +72,7 @@ function Comment({ comment, allComments, postID }) {
       {reply && (
         <div className="reply-to ps-4 pe-4 pt-2 pb-2 radius-sm">
           <HashLink to={`${location}#${postID}/${reply[0].id}`}>
-            <span className="op">{reply[0].owner}</span> felt like this was so
+            <span className="op">{reply[0].owner}</span> felt this was so
             important it had to be said:{" "}
           </HashLink>
           <p>{reply[0].body}</p>
