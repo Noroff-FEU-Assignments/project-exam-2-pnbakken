@@ -18,6 +18,7 @@ function useGet(settings) {
         try {
           setLoading(true);
           const response = await client.get(settings.url);
+          console.log(response);
           if (response.status === 200) {
             setData(response.data);
           }

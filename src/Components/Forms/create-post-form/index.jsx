@@ -74,7 +74,7 @@ function CreatePostForm({
     setCurrentTitleLength(length);
   };
 
-  const randomEncourage = getRandomEncouragement();
+  const encouragement = getRandomEncouragement();
 
   const {
     register,
@@ -141,7 +141,7 @@ function CreatePostForm({
           className={`full-width standard-component-width p-4 radius-sm ${
             running ? "running" : ""
           }`}
-          onFocus={startRunning}
+          //onFocus={startRunning}
         >
           <Form.Group className="mb-3">
             {/* <Form.Label>Title</Form.Label> */}
@@ -168,11 +168,11 @@ function CreatePostForm({
 
           <Form.Group className="mb-3">
             <CustomTextArea
-              placeholder="Post Body"
+              placeholder={encouragement}
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
-              maxlength={BODY_LIMIT}
+              maxLength={BODY_LIMIT}
               onKeyUp={updateCurrentBodyLength}
             />
             <div className="flex-r full-width justify-end align-end">

@@ -7,7 +7,7 @@ import ReactionCount from "../reaction/reaction-count";
 
 function InteractionPanel({ data }) {
   return (
-    <div className="interaction-panel post-footer">
+    <div className="interaction-panel post-footer p-3">
       <div className="counts flex-r full-width justify-evenly">
         <CommentCount data={data} />
         <ReactionCount data={data} />
