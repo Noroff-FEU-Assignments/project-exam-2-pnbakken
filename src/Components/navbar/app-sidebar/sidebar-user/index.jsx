@@ -15,10 +15,6 @@ function SidebarUser() {
 
   const windowSize = useWindowSize();
 
-  const settings = {
-    url: `${USER_URL}/${auth.name}`,
-  };
-  const { data, error, loading } = useGet(settings);
   return (
     <div className="sidebar-user ">
       {auth && (
@@ -27,8 +23,8 @@ function SidebarUser() {
             to={`/user/${auth.name}`}
             className="user-name light-text flex-c align-center full-width gap-xxs"
           >
-            {data && windowSize.innerWidth > 991 && (
-              <ProfileImage src={data.avatar} size={76} />
+            {windowSize.innerWidth > 991 && (
+              <ProfileImage src={auth.avatar} size={76} />
             )}
             {auth.name}
           </Link>

@@ -11,6 +11,7 @@ function useGet(settings) {
   const [auth, setAuth] = useContext(AuthContext);
   const [refresh, setRefresh] = useContext(RefreshContext);
   const client = createAxios(auth);
+  console.log(settings.url);
   useEffect(() => {
     async function getData() {
       if (auth) {
@@ -21,7 +22,7 @@ function useGet(settings) {
             setData(response.data);
           }
         } catch (error) {
-          setError(error.response.errors);
+          //setError(error.response.errors);
           console.error(error);
         } finally {
           setLoading(false);

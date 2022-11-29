@@ -29,6 +29,9 @@
         font-weight: 600;
     }
 
+    .discrete {
+        color: $colour-dark;
+    }
 
 }
 
@@ -42,6 +45,10 @@
     }
 
     .close-button {
+        color: $colour-light;
+    }
+
+    .discrete {
         color: $colour-light;
     }
 }
