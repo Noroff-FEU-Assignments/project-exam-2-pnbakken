@@ -6,9 +6,13 @@
     color: $colour-light;
 
     fieldset {
-        background: $colour-system-background;
+        background: $colour-secondary-background;
 
         transition: 0.5s;
+    }
+
+    *>fieldset.disabled {
+        opacity: 0.5;
     }
 
     // fieldset.running {
@@ -21,7 +25,7 @@
 
     input,
     textarea {
-        background: $colour-secondary-background;
+        background: none;
         border: none;
         border-bottom: 2px solid $colour-light;
         color: $colour-light;
@@ -32,7 +36,7 @@
     input:focus,
     textarea:active,
     textarea:focus {
-        background: none;
+        background: $colour-system-background;
         border-color: $colour-primary;
         box-shadow: none;
         color: $colour-light;
@@ -42,5 +46,11 @@
     textarea::placeholder {
         color: $colour-light;
         @extend .small-text;
+    }
+
+    input:disabled,
+    textarea:disabled {
+        background-color: $colour-primary;
+        opacity: 0.5;
     }
 }

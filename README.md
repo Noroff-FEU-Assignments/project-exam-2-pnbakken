@@ -51,3 +51,15 @@ Improvements to posting interface. General style revision and improvements.
 #### Issues
 
 Still can't get that blessed tag display to update. I'm confident I'll find a solution or worst case just ask, so I'll come back to it later
+
+### v0.6
+
+General styling improvements and fixes.
+
+#### New features
+
+Post feed selector. See all posts or posts from followed users.
+
+#### Issues
+
+The flipping tag selector is still acting screwy. It adds and displays tags, that persist through an edit, but deleting more than one tag causes mayhem

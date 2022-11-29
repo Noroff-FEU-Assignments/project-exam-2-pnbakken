@@ -11,16 +11,19 @@ import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
-import ComponentOpacity from "../../Utility-Components/component-opacity";
 import RefreshContext from "../../../Context/refresh-context";
 import { HistoryProvider } from "../../../Context/history-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
 import TagInput from "../Form-Components/tag-input";
 
+const BODY_LIMIT = 280;
+
 const schema = yup.object().shape({
   title: yup.string().required("Your post must have a title"),
-  body: yup.string(),
+  body: yup
+    .string()
+    .max(BODY_LIMIT, "Post body cannot be more than 280 characters"),
   media: yup.string(),
   tags: yup.array(),
 });
@@ -59,6 +62,18 @@ function CreatePostForm({
   function handleShowAddImage() {
     setShowAddImage(!showAddImage);
   }
+
+  const [currentBodyLength, setCurrentBodyLength] = useState(0);
+  const updateCurrentBodyLength = (e) => {
+    const length = e.target.value.length;
+    setCurrentBodyLength(length);
+  };
+  const [currentTitleLength, setCurrentTitleLength] = useState(0);
+  const updateCurrentTitleLength = (e) => {
+    const length = e.target.value.length;
+    setCurrentTitleLength(length);
+  };
+
   const randomEncourage = getRandomEncouragement();
 
   const {
@@ -73,7 +88,6 @@ function CreatePostForm({
     const form = document.querySelector("#new-post-form");
     form.querySelector("#new-post-title").value = "";
     form.querySelector(`#${postBodyId}`).value = "";
-    console.log(form.querySelector("#new-post-body"));
     stopRunning();
     if (close) {
       close();
@@ -82,14 +96,12 @@ function CreatePostForm({
 
   async function onSubmit(data) {
     setDisabled(true);
-    console.log(data);
     const postBody = document.querySelector(`#${postBodyId}`).value;
     const client = createAxios(auth);
 
     try {
       let response = null;
       if (imageUrl) {
-        console.log(imageUrl);
         data.media = imageUrl;
       }
       if (postBody) {
@@ -103,9 +115,7 @@ function CreatePostForm({
       } else {
         response = await client.post(url, data);
       }
-      console.log(response);
       setRefresh(!refresh);
-      console.log("refreshed : " + refresh);
     } catch (error) {
       console.error(error);
     } finally {
@@ -127,7 +137,7 @@ function CreatePostForm({
         className="flex-c align-center full-width"
       >
         <fieldset
-          disabled={disabled}
+          disabled={disabled || showAddImage}
           className={`full-width standard-component-width p-4 radius-sm ${
             running ? "running" : ""
           }`}
@@ -142,7 +152,17 @@ function CreatePostForm({
               {...register("title")}
               placeholder="Post Title *required"
               defaultValue={edit ? edit.title : ""}
+              maxLength={BODY_LIMIT}
+              onChange={updateCurrentTitleLength}
             />
+            <div className="flex-r full-width justify-end align-end">
+              <span
+                className={currentTitleLength < BODY_LIMIT ? "small-text" : ""}
+              >
+                {currentTitleLength}
+              </span>
+              /{BODY_LIMIT}
+            </div>
             {errors.title ? <>{errors.title.message}</> : <div> </div>}
           </Form.Group>
 
@@ -152,11 +172,22 @@ function CreatePostForm({
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
+              maxlength={BODY_LIMIT}
+              onKeyUp={updateCurrentBodyLength}
             />
+            <div className="flex-r full-width justify-end align-end">
+              <span
+                className={currentBodyLength < BODY_LIMIT ? "small-text" : ""}
+              >
+                {currentBodyLength}
+              </span>
+              /{BODY_LIMIT}
+            </div>
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Tags (separate with ",")</Form.Label>
+            {/* <Form.Label>Tags (separate with ",")</Form.Label> */}
+
             <TagInput
               tagHandler={setTags}
               edit={edit && edit.tags ? edit.tags : []}
@@ -168,12 +199,10 @@ function CreatePostForm({
               <img src={imageUrl} />
             </div>
           )}
-          <div className="new-post-menu flex-row wrap justify-between align-center">
-            <Button onClick={running ? handleShowAddImage : undefined}>
-              Add Image
-            </Button>
+          <div className="new-post-menu flex-r wrap justify-between align-center">
+            <Button onClick={handleShowAddImage}>Add Image</Button>
 
-            <div className="flex-row gap-md align-center">
+            <div className="flex-r gap-md align-center">
               <div>
                 {edit ? (
                   <button type="button" onClick={close}>

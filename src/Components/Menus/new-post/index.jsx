@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Modal } from "react-bootstrap";
-import { ALL_POSTS_URL } from "../../../Constants";
+import { POSTS_URL } from "../../../Constants";
 import ShowNewPostContext from "../../../Context/show-new-post-context";
 import CreatePostForm from "../../Forms/create-post-form";
 
@@ -17,7 +17,7 @@ function NewPost() {
       show={showNewPost}
       onHide={closeNewPost}
     >
-      <CreatePostForm url={ALL_POSTS_URL} close={closeNewPost} />
+      <CreatePostForm url={POSTS_URL} close={closeNewPost} />
     </Modal>
   );
 }

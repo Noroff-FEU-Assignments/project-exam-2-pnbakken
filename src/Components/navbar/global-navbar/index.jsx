@@ -3,6 +3,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../../../Context/auth-context";
 import LogoutButton from "../../Buttons/logout-button";
+import SearchMenu from "../../Menus/search-menu";
 
 function GlobalNavBar() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -13,9 +14,11 @@ function GlobalNavBar() {
       </NavLink>
       <Navbar.Toggle aria-controls="global-nav-menu" />
       <Navbar.Collapse id="global-nav-menu">
-        <span className="ms-auto me-auto">SEARCH</span>
+        {/* <div>
+          <SearchMenu />
+        </div> */}
         <Nav className="ms-auto">
-          <NavLink className="nav-link" to="/" exact="true">
+          <NavLink className="nav-link" to={auth ? "/home" : "/"} end>
             Home
           </NavLink>
           <NavLink className="nav-link" to="/about">

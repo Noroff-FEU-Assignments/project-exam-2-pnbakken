@@ -13,7 +13,7 @@ function BrandButton({ children, onClick, type }) {
 
 BrandButton.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.node,
+  onClick: PropTypes.func,
   type: PropTypes.string,
 };
 

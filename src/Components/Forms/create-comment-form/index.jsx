@@ -25,10 +25,8 @@ function CreateComment({ url, replyID = null }) {
     e.preventDefault();
     setDisabled(true);
     const commentBody = document.querySelector(`#${inputId}`).value;
-    console.log(commentBody);
     try {
       if (commentBody) {
-        console.log(commentBody);
         const data = {
           body: commentBody,
           ...(replyID && { replyToId: replyID }),
@@ -36,7 +34,6 @@ function CreateComment({ url, replyID = null }) {
 
         try {
           const response = await client.post(url, data);
-          console.log(response);
           setRefresh(!refresh);
         } catch (error) {
           console.error(error);

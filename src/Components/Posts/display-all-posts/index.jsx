@@ -9,6 +9,7 @@ import "./index.style.scss";
 
 function DisplayAllPosts({ settings }) {
   const { data, loading, error } = useGet(settings);
+  const [posts, setPosts] = useState(null);
 
   const [showSingle, setShowSingle] = useState(null);
   const [lastSelected, setLastSelected] = useState(null);
@@ -25,10 +26,14 @@ function DisplayAllPosts({ settings }) {
     }
   }, [lastSelected]);
   return (
-    <div id="posts-display" className="flex-c align-center full-width">
+    <div
+      id="posts-display"
+      className="flex-c align-center full-width full-height justify-start"
+    >
       {loading && <>Loading</>}
       {error && <Message type="error">{error.toString()}</Message>}
       {data &&
+        !loading &&
         (showSingle && showSingle.id ? (
           <PostDetail
             postID={showSingle.id}

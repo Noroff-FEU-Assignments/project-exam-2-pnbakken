@@ -23,23 +23,23 @@ function PostContent({ data }) {
   }, []);
 
   return (
-    <div className="post-content p-3 flex-c gap-sm">
-      <div className="post-header flex-row wrap full-width align-center gap-xs">
+    <div className={`post-content p-3 flex-c gap-sm`}>
+      <div className="post-header flex-r wrap full-width align-center gap-xs">
         <Link to={`/user/${data.author.name}`}>
           <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
         </Link>
-        <div className="flex-c align-between ">
+        <div className="flex-c align-between gap-xxs">
           <Link to={`/user/${data.author.name}`} className="post-author-name">
             <span className="author-name">{data.author.name}</span>
           </Link>
-          <div className="post-created flex-row gap-xxs small-text">
+          <div className="post-created flex-r gap-xxs small-text">
             {dateCreated ? (
               <>
-                <span className="post-time">
-                  {dateCreated.toLocaleTimeString("en-GB")}
-                </span>
                 <span className="post-date">
                   {dateCreated.toLocaleDateString("en-GB")}
+                </span>
+                <span className="post-time">
+                  {dateCreated.toLocaleTimeString("en-GB")}
                 </span>
               </>
             ) : (
@@ -48,19 +48,22 @@ function PostContent({ data }) {
           </div>
         </div>
       </div>
-      <div className="post-main flex-c align-self-center full-width gap-sm">
+      <div className="post-main flex-c align-self-center full-width smaller-component-width gap-xs">
         <div className="post-title align-self-start">{data.title}</div>
-        <div className="post-body flex-c align-center full-width gap-sm">
+        <div className="post-body flex-c full-width gap-sm">
           <p>{data.body}</p>
           {data.media && (
-            <div className="post-image">
-              <img src={validMedia ? data.media : imageError} />
+            <div className="post-image full-width">
+              <img
+                src={validMedia ? data.media : imageError}
+                alt={data.title}
+              />
             </div>
           )}
 
           {data.tags && (
             <div className="flex-c full-width justify-end">
-              <ul className="post-tags flex-row wrap full-width small-text justify-end gap-xxs">
+              <ul className="post-tags flex-r wrap full-width small-text justify-end gap-xxs">
                 {data.tags.map((tag) => {
                   return (
                     <li className="post-tag" key={tag}>

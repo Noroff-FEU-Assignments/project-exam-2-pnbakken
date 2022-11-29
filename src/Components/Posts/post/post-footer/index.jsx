@@ -7,7 +7,7 @@ import ReactionCount from "../../post-interaction/reaction/reaction-count";
 
 function PostFooter({ data }) {
   return (
-    <div className="post-footer p-2 flex-row justify-evenly full-width">
+    <div className="post-footer p-2 flex-r justify-evenly full-width">
       <CommentCount data={data} />
       <ReactionCount data={data} />
     </div>

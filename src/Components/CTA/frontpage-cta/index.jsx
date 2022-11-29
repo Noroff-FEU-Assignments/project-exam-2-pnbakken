@@ -5,7 +5,7 @@ import splashImage from "../../../assets/image/splash-image.png";
 
 function FrontPageCTA() {
   return (
-    <section className="flex-row full-width full-height wrap justify-center">
+    <section className="flex-r full-width full-height wrap justify-center">
       <div className="standard-component-width">
         <DecorativeText size={100}>Catchy call to action!</DecorativeText>
         <div className="flex-c">

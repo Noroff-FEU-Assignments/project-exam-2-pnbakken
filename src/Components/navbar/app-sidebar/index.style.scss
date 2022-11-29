@@ -2,10 +2,16 @@
 
 .app-sidebar {
     position: sticky;
-    top: 0;
+    top: 80px;
+    margin-top: 80px;
 
     @media(max-width: 991px) {
         background: $colour-secondary-background;
+        top: 0;
+        width: 100%;
         z-index: 3;
+        margin-top: 32px;
+        gap: 24px !important;
+        align-items: flex-start !important;
     }
 }
