@@ -62,4 +62,8 @@ Post feed selector. See all posts or posts from followed users.
 
 #### Issues
 
-The flipping tag input is still acting screwy. It adds and displays tags, that persist through an edit, but deleting more than one tag causes mayhem
+The flippin tag input is still acting screwy. It adds and displays tags, that persist through an edit, but deleting more than one tag causes mayhem
+
+### v0.6.6
+
+Change app sidebar layout on mobile. Need to implement hide/show function

@@ -9,7 +9,7 @@ import { Container } from "react-bootstrap";
 import { ShowNewPostContextProvider } from "../../../Context/show-new-post-context";
 
 import "./index.style.scss";
-import bgImg from "../../../assets/image/app-bg-2.jpg";
+import bgImg from "../../../assets/image/app-bg-3.jpg";
 
 function AppInterfaceLayout({ children }) {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function AppInterfaceLayout({ children }) {
             className="app-frame full-height"
             style={{ backgroundImage: `url(${bgImg})` }}
           >
-            <div className="app-interface flex-r align-start full-width full-height top-level-indent">
+            <div className="app-interface flex-r align-start justify-start full-width full-height top-level-indent">
               <AppSidebar />
               <CentralColumn>
                 <RefreshProvider>{children}</RefreshProvider>
