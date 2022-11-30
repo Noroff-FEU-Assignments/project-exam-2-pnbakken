@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import ImageCarousel from "../../Components/Design-Components/image-carousel";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
 import NewPost from "../../Components/Menus/new-post";
@@ -36,6 +37,7 @@ function Home() {
           currentSelection={selectedFeed}
         />
         <DisplayAllPosts settings={urlSettings} />
+        <ImageCarousel />
       </AppInterfaceLayout>
     </MainLayout>
   );

@@ -16,7 +16,7 @@ function SidebarUser() {
   const windowSize = useWindowSize();
 
   return (
-    <div className="sidebar-user ">
+    <div className="sidebar-user flex-c align-center ">
       {auth && (
         <>
           <Link

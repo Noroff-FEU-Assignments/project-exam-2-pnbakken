@@ -7,18 +7,19 @@ import BrandButton from "../../../Buttons/brand-button";
 import "./index.style.scss";
 
 import homeIcon from "../../../../assets/icon/icon-home.svg";
-import editIcon from "../../../../assets/icon/icon-edit.svg";
+
 import usersIcon from "../../../../assets/icon/icon-users.svg";
 import ShowNewPostContext from "../../../../Context/show-new-post-context";
 import NewPostButton from "../../../Buttons/new-post-button";
+import useWindowSize from "../../../../Hooks/use-window-size";
 
 function AppNavMenu() {
   const [auth, setAuth] = useContext(AuthContext);
   const [showNewPost, setShowNewPost] = useContext(ShowNewPostContext);
-
+  const windowSize = useWindowSize();
   return (
-    <div className="app-nav-menu flex-c full-width align-center p-3 gap-sm">
-      <div className="app-nav-links flex-c full-width gap-xs">
+    <div className="app-nav-menu flex-c full-width align-center gap-sm">
+      <div className="app-nav-links flex-c align-center full-width gap-xs">
         <Link to="/home" className="flex-c align-center small-text full-width">
           <img src={homeIcon} alt="home" />
           <span>Home</span>
@@ -27,16 +28,10 @@ function AppNavMenu() {
           <img src={usersIcon} alt="users" />
           <span>Users</span>
         </Link>
-        <Link
-          to={`/user/${auth.name}/settings`}
-          className="flex-c align-center small-text full-width"
-        >
-          <img src={editIcon} alt="edit profile images" />
-          <span>Profile Images</span>
-        </Link>
-      </div>
-      <div>
-        <NewPostButton />
+        <div className="flex-c align-center small-text">
+          <NewPostButton />
+          {windowSize.innerWidth <= 991 && <span>Post</span>}
+        </div>
       </div>
     </div>
   );

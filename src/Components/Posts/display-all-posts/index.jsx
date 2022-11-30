@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import useGet from "../../../Hooks/use-get";
+import ImageCarousel from "../../Design-Components/image-carousel";
 import Message from "../../Message/message";
 import PostDetail from "../post-detail";
 import PostListItem from "../post-list-item";
@@ -41,18 +42,23 @@ function DisplayAllPosts({ settings }) {
             setLastShown={setLastSelected}
           />
         ) : (
-          <ul className="post-list flex-c align-center gap-lg full-width p-2">
-            {data.map((post) => {
-              return (
-                <PostListItem
-                  data={post}
-                  id={post.id}
-                  key={post.id}
-                  showSingle={setShowSingle}
-                />
-              );
-            })}
-          </ul>
+          <div className="flex-r wrap justify-center full-width">
+            <div className="flex-r justify-end full-width smaller-component-width">
+              <ImageCarousel posts={data} />
+            </div>
+            <ul className="post-list flex-c align-center gap-lg full-width standard-component-width">
+              {data.map((post) => {
+                return (
+                  <PostListItem
+                    data={post}
+                    id={post.id}
+                    key={post.id}
+                    showSingle={setShowSingle}
+                  />
+                );
+              })}
+            </ul>
+          </div>
         ))}
     </div>
   );
