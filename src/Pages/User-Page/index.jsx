@@ -37,7 +37,7 @@ function UserPage() {
         <NewPost />
         {user && <UserCard user={user} />}
         <Link
-          to={`/user/${auth.name}/settings`}
+          to={`/user/${auth && auth.name}/settings`}
           className="flex-c align-center small-text full-width"
         >
           <img src={editIcon} alt="edit profile images" />

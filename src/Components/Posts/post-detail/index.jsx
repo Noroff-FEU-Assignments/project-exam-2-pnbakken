@@ -25,9 +25,14 @@ function PostDetail({ postID, setShow, setLastShown }) {
     <>
       {loading && <>Loading</>}
       {data && (
-        <Post data={data} close={closePost}>
-          <InteractionPanel data={data} />
-        </Post>
+        <>
+          <Post data={data} close={closePost}>
+            <InteractionPanel data={data} />
+          </Post>
+          <button className="mt-2 discrete" onClick={closePost}>
+            Close
+          </button>
+        </>
       )}
     </>
   );

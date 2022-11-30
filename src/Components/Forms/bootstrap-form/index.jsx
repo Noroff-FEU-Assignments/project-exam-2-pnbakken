@@ -14,7 +14,7 @@ function BootstrapForm({
   return (
     <Form
       onSubmit={onSubmit}
-      className={`system-form full-width standard-component-width${className}`}
+      className={`system-form full-width standard-component-width ${className}`}
       id={id}
       {...rest}
     >
