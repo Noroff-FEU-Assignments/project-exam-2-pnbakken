@@ -63,11 +63,15 @@ function PostContent({ data }) {
 
           {data.tags && (
             <div className="flex-c full-width justify-end">
-              <ul className="post-tags flex-r wrap full-width small-text justify-end gap-xxs">
+              <ul className="post-tags flex-r wrap full-width small-text justify-end gap-xs">
                 {data.tags.map((tag) => {
                   return (
                     <li className="post-tag" key={tag}>
-                      {tag && <Link to={`/home?tag=${tag}`}>{tag}</Link>}
+                      {tag && (
+                        <>
+                          #<Link to={`/home?tag=${tag}`}>{tag}</Link>
+                        </>
+                      )}
                     </li>
                   );
                 })}
