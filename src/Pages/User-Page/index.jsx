@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useParams, useSearchParams } from "react-router-dom";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
@@ -9,8 +8,6 @@ import UserCard from "../../Components/User/user-card";
 import { USER_URL } from "../../Constants";
 import AuthContext from "../../Context/auth-context";
 import useGet from "../../Hooks/use-get";
-
-import editIcon from "../../assets/icon/icon-edit.svg";
 
 function UserPage() {
   const { name } = useParams();
@@ -36,13 +33,7 @@ function UserPage() {
       <AppInterfaceLayout>
         <NewPost />
         {user && <UserCard user={user} />}
-        <Link
-          to={`/user/${auth && auth.name}/settings`}
-          className="flex-c align-center small-text full-width"
-        >
-          <img src={editIcon} alt="edit profile images" />
-          <span>Profile Images</span>
-        </Link>
+
         {user && <DisplayAllPosts settings={getPostsSettings} />}
       </AppInterfaceLayout>
     </MainLayout>

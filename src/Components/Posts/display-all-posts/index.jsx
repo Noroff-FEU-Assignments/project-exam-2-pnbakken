@@ -12,7 +12,7 @@ function DisplayAllPosts({ settings }) {
   const { data, loading, error } = useGet(settings);
   const [posts, setPosts] = useState(null);
 
-  const [showSingle, setShowSingle] = useState(null);
+  const [showSingle, setShowSingle] = useState(false);
   const [lastSelected, setLastSelected] = useState(null);
 
   useEffect(() => {

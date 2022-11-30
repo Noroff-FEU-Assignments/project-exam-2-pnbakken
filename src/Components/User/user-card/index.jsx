@@ -7,6 +7,9 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 import RefreshContext from "../../../Context/refresh-context";
+import { Link } from "react-router-dom";
+
+import editIcon from "../../../assets/icon/icon-edit.svg";
 
 function UserCard({ user }) {
   const [auth, isAuth] = useContext(AuthContext);
@@ -43,7 +46,17 @@ function UserCard({ user }) {
               <div>{user._count.following}</div>
               <div>Following</div>
             </div>
-            {!isOwner && <Follow user={user} />}
+            {!isOwner ? (
+              <Follow user={user} />
+            ) : (
+              <Link
+                to={`/user/${auth && auth.name}/settings`}
+                className="flex-c align-center small-text full-width"
+              >
+                <img src={editIcon} alt="edit profile images" />
+                <span>Profile Images</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>
