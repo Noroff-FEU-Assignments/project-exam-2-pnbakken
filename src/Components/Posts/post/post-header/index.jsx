@@ -41,7 +41,7 @@ export default PostHeader;
 function HeaderInfo({ data }) {
   const dateCreated = new Date(data.created);
   return (
-    <div className="header-info flex-row gap-xs">
+    <div className="header-info flex-r full-width gap-xs">
       <Link to={`/user/${data.author.name}`}>
         <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
       </Link>
