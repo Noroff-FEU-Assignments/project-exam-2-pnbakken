@@ -13,7 +13,7 @@ function PostHeader({ data, isOwner }) {
 
   return (
     <div
-      className="post-header flex-row full-width justify-between"
+      className="post-header flex-r full-width justify-between"
       style={{ height: "64px" }}
     >
       {!showOwnerInteraction ? (
