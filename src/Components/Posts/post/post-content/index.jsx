@@ -5,14 +5,17 @@ import ProfileImage from "../../../User/profile-image";
 import validImageUrl from "../../../../Functions/valid-image-url";
 
 import "./index.style.scss";
+
 import Message from "../../../Message/message";
 
 import imageError from "../../../../assets/image/image-error.png";
 import { useEffect } from "react";
+import OwnerInteraction from "../../post-interaction/owner-interaction";
+import PostHeader from "../post-header";
 
-function PostContent({ data }) {
-  const dateCreated = new Date(data.created);
+function PostContent({ data, isOwner }) {
   const [validMedia, setValidMedia] = useState(true);
+
   useEffect(() => {
     async function checkMedia() {
       if (data.media) {
@@ -24,34 +27,11 @@ function PostContent({ data }) {
 
   return (
     <div className={`post-content p-3 flex-c gap-sm`}>
-      <div className="post-header flex-r wrap full-width align-center gap-xs">
-        <Link to={`/user/${data.author.name}`}>
-          <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
-        </Link>
-        <div className="flex-c align-between gap-xxs">
-          <Link to={`/user/${data.author.name}`} className="post-author-name">
-            <span className="author-name">{data.author.name}</span>
-          </Link>
-          <div className="post-created flex-r gap-xxs small-text">
-            {dateCreated ? (
-              <>
-                <span className="post-date">
-                  {dateCreated.toLocaleDateString("en-GB")}
-                </span>
-                <span className="post-time">
-                  {dateCreated.toLocaleTimeString("en-GB")}
-                </span>
-              </>
-            ) : (
-              <Message type="error">Invalid Date</Message>
-            )}
-          </div>
-        </div>
-      </div>
+      <PostHeader data={data} isOwner={isOwner} />
       <div className="post-main flex-c align-self-center full-width smaller-component-width gap-xs">
         <div className="post-title align-self-start">{data.title}</div>
         <div className="post-body flex-c full-width gap-sm">
-          <p>{data.body}</p>
+          {data.body && <p>{data.body}</p>}
           {data.media && (
             <div className="post-image flex-c align-center full-width">
               <img

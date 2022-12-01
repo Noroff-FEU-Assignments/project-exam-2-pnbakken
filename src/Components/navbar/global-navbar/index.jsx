@@ -3,7 +3,6 @@ import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../../../Context/auth-context";
 import LogoutButton from "../../Buttons/logout-button";
-import SearchMenu from "../../Menus/search-menu";
 
 function GlobalNavBar() {
   const [auth, setAuth] = useContext(AuthContext);

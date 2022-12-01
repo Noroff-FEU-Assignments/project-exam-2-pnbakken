@@ -20,6 +20,7 @@ function PageRoutes() {
         <Route path="/user/:name" element={<UserPage />} />
         <Route path="/user/:name/settings" element={<UserSettings />} />
         <Route path="/users" element={<AllUsers />} />
+        <Route path="/users:limit" element={<AllUsers />} />
       </Routes>
     </ScrollToTop>
   );

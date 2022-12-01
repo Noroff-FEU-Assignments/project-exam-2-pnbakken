@@ -1,0 +1,69 @@
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import ProfileImage from "../../../User/profile-image";
+import Message from "../../../Message/message";
+import menuIcon from "../../../../assets/icon/icon-ellipsis.svg";
+import OwnerInteraction from "../../post-interaction/owner-interaction";
+
+function PostHeader({ data, isOwner }) {
+  const [showOwnerInteraction, setShowOwnerInteraction] = useState(false);
+  const handleShowOwnerInteraction = () =>
+    setShowOwnerInteraction(!showOwnerInteraction);
+
+  return (
+    <div
+      className="post-header flex-row full-width justify-between"
+      style={{ height: "64px" }}
+    >
+      {!showOwnerInteraction ? (
+        <HeaderInfo data={data} />
+      ) : (
+        <OwnerInteraction post={data} close={handleShowOwnerInteraction} />
+      )}
+      {isOwner && (
+        <div className="">
+          <button onClick={handleShowOwnerInteraction} className="discrete">
+            <img src={menuIcon} alt="menu" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+PostHeader.propTypes = {
+  data: PropTypes.object.isRequired,
+  isOwner: PropTypes.bool.isRequired,
+};
+export default PostHeader;
+
+function HeaderInfo({ data }) {
+  const dateCreated = new Date(data.created);
+  return (
+    <div className="header-info flex-row gap-xs">
+      <Link to={`/user/${data.author.name}`}>
+        <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
+      </Link>
+      <div className="flex-c align-between gap-xxs">
+        <Link to={`/user/${data.author.name}`} className="post-author-name">
+          <span className="author-name">{data.author.name}</span>
+        </Link>
+        <div className="post-created flex-r gap-xxs small-text">
+          {dateCreated ? (
+            <>
+              <span className="post-date">
+                {dateCreated.toLocaleDateString("en-GB")}
+              </span>
+              <span className="post-time">
+                {dateCreated.toLocaleTimeString("en-GB")}
+              </span>
+            </>
+          ) : (
+            <Message type="error">Invalid Date</Message>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -15,17 +15,10 @@ function OwnerInteraction({ post, close = () => {} }) {
     setShow(!show);
   }
   return (
-    <div className="owner-interaction p-3 full-width flex-r justify-end gap-md">
-      {show && (
-        <div className="owner-interaction-menu flex-r full-width justify-between">
-          <EditPost post={post} auth={auth} />
-          <DeletePost id={post.id} auth={auth} close={close} />
-        </div>
-      )}
-      <div className="">
-        <button onClick={handleSetShow} className="discrete">
-          <img src={menuIcon} alt="menu" />
-        </button>
+    <div className="owner-interaction p-3 full-width flex-r gap-md">
+      <div className="owner-interaction-menu flex-r full-width justify-between">
+        <DeletePost id={post.id} auth={auth} close={close} />
+        <EditPost post={post} auth={auth} />
       </div>
     </div>
   );
