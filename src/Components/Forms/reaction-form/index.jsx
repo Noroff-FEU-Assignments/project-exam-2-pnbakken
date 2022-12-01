@@ -132,4 +132,9 @@ const reactionsCollection = [
     symbol: "👁️",
     name: "eye",
   },
+  {
+    code: "...",
+    symbol: "🎅",
+    name: "father christmas",
+  },
 ];

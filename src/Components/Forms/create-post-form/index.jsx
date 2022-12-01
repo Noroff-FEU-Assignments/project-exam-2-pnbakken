@@ -63,18 +63,22 @@ function CreatePostForm({
     setShowAddImage(!showAddImage);
   }
 
-  const [currentBodyLength, setCurrentBodyLength] = useState(0);
+  const [currentBodyLength, setCurrentBodyLength] = useState(
+    edit && edit.body ? edit.body.length : 0
+  );
   const updateCurrentBodyLength = (e) => {
     const length = e.target.value.length;
     setCurrentBodyLength(length);
   };
-  const [currentTitleLength, setCurrentTitleLength] = useState(0);
+  const [currentTitleLength, setCurrentTitleLength] = useState(
+    edit && edit.title ? edit.title.length : 0
+  );
   const updateCurrentTitleLength = (e) => {
     const length = e.target.value.length;
     setCurrentTitleLength(length);
   };
 
-  const randomEncourage = getRandomEncouragement();
+  const encouragement = getRandomEncouragement();
 
   const {
     register,
@@ -141,7 +145,7 @@ function CreatePostForm({
           className={`full-width standard-component-width p-4 radius-sm ${
             running ? "running" : ""
           }`}
-          onFocus={startRunning}
+          //onFocus={startRunning}
         >
           <Form.Group className="mb-3">
             {/* <Form.Label>Title</Form.Label> */}
@@ -153,7 +157,7 @@ function CreatePostForm({
               placeholder="Post Title *required"
               defaultValue={edit ? edit.title : ""}
               maxLength={BODY_LIMIT}
-              onChange={updateCurrentTitleLength}
+              onKeyUp={updateCurrentTitleLength}
             />
             <div className="flex-r full-width justify-end align-end">
               <span
@@ -168,11 +172,11 @@ function CreatePostForm({
 
           <Form.Group className="mb-3">
             <CustomTextArea
-              placeholder="Post Body"
+              placeholder={encouragement}
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
-              maxlength={BODY_LIMIT}
+              maxLength={BODY_LIMIT}
               onKeyUp={updateCurrentBodyLength}
             />
             <div className="flex-r full-width justify-end align-end">

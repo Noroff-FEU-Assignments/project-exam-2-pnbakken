@@ -9,9 +9,11 @@
             flex-direction: row !important;
             justify-content: space-evenly;
             gap: 8px !important;
+            padding: 0 !important;
 
             a {
                 padding: 4px 8px;
+                width: auto;
 
                 img {
                     width: 40px;
@@ -29,7 +31,7 @@
         }
 
         a:hover {
-            background: $colour-system-background;
+            background: $colour-secondary-background;
             opacity: 0.75;
         }
     }

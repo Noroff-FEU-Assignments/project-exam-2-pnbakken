@@ -54,7 +54,7 @@ Still can't get that blessed tag display to update. I'm confident I'll find a so
 
 ### v0.6
 
-General styling improvements and fixes.
+General styling improvements and fixes. Added feed selector. Added app background image. Styled post comment section
 
 #### New features
 
@@ -62,4 +62,8 @@ Post feed selector. See all posts or posts from followed users.
 
 #### Issues
 
-The flipping tag selector is still acting screwy. It adds and displays tags, that persist through an edit, but deleting more than one tag causes mayhem
+The flippin tag input is still acting screwy. It adds and displays tags, that persist through an edit, but deleting more than one tag causes mayhem
+
+### v0.6.6
+
+Change app sidebar layout on mobile. Need to implement hide/show function

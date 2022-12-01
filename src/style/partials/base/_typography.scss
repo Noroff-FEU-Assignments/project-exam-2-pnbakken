@@ -4,10 +4,13 @@ $font-brand: "Jost", sans-serif;
 $font-main: "Albert Sans", sans-serif;
 
 
-a {}
+a {
+
+    text-decoration: none !important;
+}
 
 a:hover {
-    text-decoration: none;
+    text-decoration: underline !important;
 }
 
 .decorative-text {
@@ -47,6 +50,14 @@ button {
     color: $colour-light;
 }
 
+.light-text:hover {
+    color: $colour-light !important;
+}
+
+.brand-text {
+    font-family: $font-brand;
+}
+
 .dark-text {
     color: $colour-dark;
 }
@@ -57,4 +68,10 @@ button {
     font-family: $font-brand;
     font-size: 20px;
     font-weight: 500;
+}
+
+//Font-size
+
+text-md {
+    font-size: 24px;
 }

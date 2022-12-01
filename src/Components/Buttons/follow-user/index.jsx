@@ -10,9 +10,11 @@ function Follow({ user }) {
 
   const isFollowing = () => {
     let follow = false;
-    user.followers.forEach((f) =>
-      f.name === auth.name ? (follow = true) : ""
-    );
+    if (user.followers) {
+      user.followers.forEach((f) =>
+        f.name === auth.name ? (follow = true) : ""
+      );
+    }
     return follow;
   };
   const [following, setFollowing] = useState(isFollowing());

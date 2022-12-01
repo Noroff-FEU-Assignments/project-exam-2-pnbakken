@@ -11,7 +11,7 @@
 .app-interface {
 
 
-    background: rgb($colour-secondary-background, 0.9);
+    background: rgb($colour-secondary-background, 0.8);
 
     // grid-template-columns: auto 1fr;
     // grid-template-rows: auto;
@@ -19,7 +19,8 @@
     // justify-content: flex-start;
 
     @media(max-width: 991px) {
-        flex-direction: column !important;
+        flex-direction: column-reverse !important;
+        align-items: flex-start;
 
     }
 
