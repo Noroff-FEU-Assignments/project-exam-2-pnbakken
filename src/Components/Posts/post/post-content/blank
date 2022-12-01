@@ -1,0 +1,4 @@
+<div className="post-header flex-r full-width justify-between">
+              <OwnerInteraction post={data} />
+              
+            </div>

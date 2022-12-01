@@ -65,7 +65,7 @@ function CreateComment({ url, replyID = null }) {
 
 CreateComment.propTypes = {
   url: PropTypes.string.isRequired,
-  reply: PropTypes.bool,
+  replyID: PropTypes.number,
 };
 
 export default CreateComment;

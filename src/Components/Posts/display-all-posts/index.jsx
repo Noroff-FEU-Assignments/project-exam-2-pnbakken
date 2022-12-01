@@ -12,11 +12,11 @@ function DisplayAllPosts({ settings }) {
   const { data, loading, error } = useGet(settings);
   const [posts, setPosts] = useState(null);
 
-  const [showSingle, setShowSingle] = useState(null);
+  const [showSingle, setShowSingle] = useState(false);
   const [lastSelected, setLastSelected] = useState(null);
 
   useEffect(() => {
-    if (lastSelected) {
+    if (lastSelected && data) {
       const targetElement = document.getElementById(lastSelected);
       if (targetElement) {
         targetElement.scrollIntoView({
@@ -25,7 +25,7 @@ function DisplayAllPosts({ settings }) {
         });
       }
     }
-  }, [lastSelected]);
+  }, [lastSelected, data]);
   return (
     <div
       id="posts-display"

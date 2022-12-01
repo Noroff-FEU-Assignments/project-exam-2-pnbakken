@@ -63,12 +63,16 @@ function CreatePostForm({
     setShowAddImage(!showAddImage);
   }
 
-  const [currentBodyLength, setCurrentBodyLength] = useState(0);
+  const [currentBodyLength, setCurrentBodyLength] = useState(
+    edit && edit.body ? edit.body.length : 0
+  );
   const updateCurrentBodyLength = (e) => {
     const length = e.target.value.length;
     setCurrentBodyLength(length);
   };
-  const [currentTitleLength, setCurrentTitleLength] = useState(0);
+  const [currentTitleLength, setCurrentTitleLength] = useState(
+    edit && edit.title ? edit.title.length : 0
+  );
   const updateCurrentTitleLength = (e) => {
     const length = e.target.value.length;
     setCurrentTitleLength(length);
@@ -153,7 +157,7 @@ function CreatePostForm({
               placeholder="Post Title *required"
               defaultValue={edit ? edit.title : ""}
               maxLength={BODY_LIMIT}
-              onChange={updateCurrentTitleLength}
+              onKeyUp={updateCurrentTitleLength}
             />
             <div className="flex-r full-width justify-end align-end">
               <span
