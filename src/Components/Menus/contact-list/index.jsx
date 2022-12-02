@@ -13,15 +13,9 @@ function ContactList({ contacts, handleShow }) {
     if (contacts) {
       return (
         <ul className="contacts no-list-style flex-c align-center full-width gap-md">
-          <button className="discrete" onClick={handleShow}>
-            Close
-          </button>
           {contacts.map((contact) => {
             return <Contact contact={contact} action={handleShow} />;
           })}
-          <button className="discrete" onClick={handleShow}>
-            Close
-          </button>
         </ul>
       );
     }
@@ -29,10 +23,16 @@ function ContactList({ contacts, handleShow }) {
 
   return (
     <div
-      className="contact-list flex-c p-3 full-width smaller-component-width"
+      className="contact-list flex-c p-3 gap-sm full-width smaller-component-width"
       onMouseLeave={handleShow}
     >
+      <button className="discrete" onClick={handleShow}>
+        Close
+      </button>
       <RenderContacts contacts={contacts} />
+      <button className="discrete" onClick={handleShow}>
+        Close
+      </button>
     </div>
   );
 }
@@ -46,10 +46,10 @@ export default ContactList;
 
 function Contact({ contact, action }) {
   return (
-    <li className="flex-row contact full-width">
+    <li className="contact flex-r full-width">
       <Link
         to={`/user/${contact.name}`}
-        className="flex-r wrap align-center light-text gap-md"
+        className="flex-r wrap align-center full-width light-text gap-md"
         onClick={action}
       >
         <ProfileImage src={contact.avatar} />

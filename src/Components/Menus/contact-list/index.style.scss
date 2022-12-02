@@ -12,10 +12,21 @@
 
     scrollbar-width: none;
 
+
+
     .contact {
-        border-bottom: 1px solid $colour-grey;
-        padding-bottom: 4px;
+        a {
+            border-bottom: 1px solid $colour-grey;
+            padding-bottom: 8px;
+
+
+        }
+
+
+
     }
+
+
 }
 
 .contact-list::-webkit-scrollbar {
