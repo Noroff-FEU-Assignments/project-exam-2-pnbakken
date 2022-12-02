@@ -8,22 +8,24 @@ import Register from "../register";
 import SinglePost from "../Post";
 import UserPage from "../User-Page";
 import UserSettings from "../user-settings";
+import ScrollToTop from "../../Components/Utility-Components/scroll-to-top";
 
 function PageRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<FrontPage />} />
-      <Route path="/home" element={<Home />} />
-      {/* {<Route path="/single-post/:id" element={<SinglePost />} />} */}
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+    <ScrollToTop>
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="/home" element={<Home />} />
+        {/* {<Route path="/single-post/:id" element={<SinglePost />} />} */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
-      <Route path="/user/:name" element={<UserPage />} />
+        <Route path="/user/:name" element={<UserPage />} />
 
-      <Route path="/user/:name/settings" element={<UserSettings />} />
-      <Route path="/users" element={<AllUsers />} />
-      <Route path="/users:limit" element={<AllUsers />} />
-    </Routes>
+        <Route path="/user/:name/settings" element={<UserSettings />} />
+        <Route path="/users" element={<AllUsers />} />
+      </Routes>
+    </ScrollToTop>
   );
 }
 
