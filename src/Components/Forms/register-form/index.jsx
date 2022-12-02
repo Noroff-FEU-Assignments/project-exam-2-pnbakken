@@ -69,7 +69,7 @@ function RegisterForm() {
   }
   return (
     <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
-      <fieldset disabled={disabled}>
+      <fieldset disabled={disabled} className="p-3 radius-md">
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -119,7 +119,9 @@ function RegisterForm() {
           )}
         </Form.Group>
         {responseError && <DisplayResponseErrors data={responseError} />}
-        <Button type="submit">Submit</Button>
+        <div className="flex-r full-width justify-end">
+          <Button type="submit">Submit</Button>
+        </div>
       </fieldset>
     </BootstrapForm>
   );
