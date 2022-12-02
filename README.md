@@ -74,6 +74,7 @@ Finished all remaining unstyled major components. Add working api pagination.
 
 #### Left to do:
 
+- Improve user image menu ui and flow
 - Finish styling reaction menu.
 - Finish styling all small details
 - Create About page

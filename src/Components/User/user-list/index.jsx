@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { USER_URL } from "../../../Constants";
+import AuthContext from "../../../Context/auth-context";
 import useGet from "../../../Hooks/use-get";
 import Follow from "../../Buttons/follow-user";
 import SetApiOffset from "../../Utility-Components/set-api-offset";
@@ -51,7 +52,7 @@ function UserList({ users }) {
             limitReached={limitReached}
           />
           {limitReached && (
-            <div>Looks like we have no more users to show you</div>
+            <div>Looks like we've reached the end of the list</div>
           )}
         </ul>
       )}
@@ -62,6 +63,7 @@ function UserList({ users }) {
 export default UserList;
 
 function UserListItem({ user }) {
+  const [auth] = useContext(AuthContext);
   return (
     <li className="user-list-item  standard-component-width flex-c align-center justify-between gap-sm radius-md">
       <div className="flex-c gap-sm align-center">
@@ -73,7 +75,11 @@ function UserListItem({ user }) {
           <span className="user-name">{user.name}</span>
         </Link>
       </div>
-      <Follow user={user} />
+      {user.name === auth.name ? (
+        <span className="brand-text">This is you!</span>
+      ) : (
+        <Follow user={user} />
+      )}
     </li>
   );
 }
