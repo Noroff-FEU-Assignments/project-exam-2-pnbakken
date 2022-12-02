@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import ProfileImage from "../../../User/profile-image";
 import validImageUrl from "../../../../Functions/valid-image-url";
-
-import "./index.style.scss";
-
-import Message from "../../../Message/message";
-
 import imageError from "../../../../assets/image/image-error.png";
 import { useEffect } from "react";
-import OwnerInteraction from "../../post-interaction/owner-interaction";
 import PostHeader from "../post-header";
+
+import "./index.style.scss";
 
 function PostContent({ data, isOwner }) {
   const [validMedia, setValidMedia] = useState(true);

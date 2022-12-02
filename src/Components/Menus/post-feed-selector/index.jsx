@@ -4,7 +4,6 @@ import "./index.style.scss";
 
 function PostFeedSelector({ getSelection, currentSelection }) {
   function sendChoice(e) {
-    console.log(e.target.value);
     getSelection(e.target.value);
   }
   return (

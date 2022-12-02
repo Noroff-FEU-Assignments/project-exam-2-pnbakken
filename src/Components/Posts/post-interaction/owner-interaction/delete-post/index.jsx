@@ -13,9 +13,9 @@ function DeletePost({ id, auth, close }) {
     try {
       const url = POSTS_URL + "/" + id;
       const client = createAxios(auth);
+      close();
       const response = await client.delete(url);
       setRefresh(!refresh);
-      close();
     } catch (error) {
       console.error(error);
     }

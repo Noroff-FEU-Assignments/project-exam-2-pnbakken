@@ -26,23 +26,19 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
   async function handleImage(e) {
     setLoading(true);
     e.preventDefault();
-    console.log("Validating image selection");
     const urlInput = document.querySelector("#url-input");
     const fileInput = document.querySelector("#file-input");
 
     try {
       if (urlInput.value) {
-        console.log("Prioritise url");
         const url = urlInput.value;
         if (await validateImageUrl(url)) {
-          console.log("Entered image url is valid");
           setImageUrl(url);
           imageUrlHandler(url);
           handleShow();
         }
       } else if (fileInput.files[0]) {
         const url = await doUpload(fileInput.files[0]);
-        console.log(url);
         if (url) {
           setImageUrl(url);
           imageUrlHandler(url);
@@ -53,11 +49,6 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
       console.error(error);
     } finally {
       setLoading(false);
-      if (imageUrl) {
-        console.log("Has image url");
-
-        console.log("Image handled");
-      }
     }
   }
 
@@ -128,9 +119,7 @@ async function doUpload(file) {
       `https://api.cloudinary.com/v1_1/${cloud}/image/upload`,
       formData
     );
-    console.log(response);
     if (response.data.url) {
-      console.log("Returning: " + response.data.url);
       return response.data.url;
     }
   } catch (error) {
