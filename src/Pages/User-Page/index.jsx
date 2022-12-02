@@ -6,6 +6,7 @@ import ContactList from "../../Components/Menus/contact-list";
 import NewPost from "../../Components/Menus/new-post";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import UserCard from "../../Components/User/user-card";
+import ScrollToTop from "../../Components/Utility-Components/scroll-to-top";
 import { USER_URL } from "../../Constants";
 import AuthContext from "../../Context/auth-context";
 import useGet from "../../Hooks/use-get";
@@ -37,24 +38,29 @@ function UserPage() {
   };
 
   return (
-    <MainLayout>
-      <AppInterfaceLayout>
-        <NewPost />
-        {user && (
-          <>
-            <UserCard
-              user={user}
-              handleShowSocial={handleShowSocial}
-              handleSocialSet={handleSocialSet}
-            />
-            {showSocial && socialSet && (
-              <ContactList contacts={socialSet} handleShow={handleShowSocial} />
-            )}
-            <DisplayAllPosts settings={getPostsSettings} />
-          </>
-        )}
-      </AppInterfaceLayout>
-    </MainLayout>
+    <ScrollToTop>
+      <MainLayout>
+        <AppInterfaceLayout>
+          <NewPost />
+          {user && (
+            <>
+              <UserCard
+                user={user}
+                handleShowSocial={handleShowSocial}
+                handleSocialSet={handleSocialSet}
+              />
+              {showSocial && socialSet && (
+                <ContactList
+                  contacts={socialSet}
+                  handleShow={handleShowSocial}
+                />
+              )}
+              <DisplayAllPosts settings={getPostsSettings} />
+            </>
+          )}
+        </AppInterfaceLayout>
+      </MainLayout>
+    </ScrollToTop>
   );
 }
 

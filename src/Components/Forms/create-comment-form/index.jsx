@@ -12,7 +12,7 @@ import BootstrapForm from "../bootstrap-form";
 import RefreshContext from "../../../Context/refresh-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
 
-function CreateComment({ url, replyID = null }) {
+function CreateComment({ url, replyID = null, close }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [refresh, setRefresh] = useContext(RefreshContext);
   const [formError, setFormError] = useState(null);
@@ -34,7 +34,9 @@ function CreateComment({ url, replyID = null }) {
 
         try {
           const response = await client.post(url, data);
+
           setRefresh(!refresh);
+          close && close();
         } catch (error) {
           console.error(error);
         }
@@ -50,14 +52,16 @@ function CreateComment({ url, replyID = null }) {
   }
   return (
     <BootstrapForm onSubmit={onSubmit}>
-      <fieldset disabled={disabled}>
+      <fieldset disabled={disabled} className="flex-c p-3 radius-sm gap-sm">
         <CustomTextArea
           as="textarea"
           id={inputId}
           name="body"
           placeholder="Leave a comment"
         />
-        <Button type="submit">Comment</Button>
+        <div className="flex-r justify-end">
+          <Button type="submit">Comment</Button>
+        </div>
       </fieldset>
     </BootstrapForm>
   );

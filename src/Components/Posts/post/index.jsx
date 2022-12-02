@@ -9,11 +9,13 @@ import PostContent from "./post-content";
 
 function Post({ children, data, close }) {
   const [auth, setAuth] = useContext(AuthContext);
-  const isOwner = auth && auth.email === data.author.email ? "owner" : "";
+  const isOwner = auth && auth.email === data.author.email ? true : false;
 
   return (
     <div
-      className={`post full-width standard-component-width ${isOwner} radius-sm flex-c gap-md`}
+      className={`post full-width standard-component-width ${
+        isOwner && "owner"
+      } radius-sm flex-c gap-md`}
     >
       {close && (
         <button type="button" className="discrete close-button" onClick={close}>

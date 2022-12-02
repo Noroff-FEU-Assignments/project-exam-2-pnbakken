@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import validImageUrl from "../../../Functions/valid-image-url";
 
 function ImageCarousel({ posts }) {
-  console.log(posts);
   const images = async () => {
     if (posts) {
       let imgArray = [];

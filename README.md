@@ -67,3 +67,18 @@ The flippin tag input is still acting screwy. It adds and displays tags, that pe
 ### v0.6.6
 
 Change app sidebar layout on mobile. Need to implement hide/show function
+
+### v0.7
+
+Finished all remaining unstyled major components. Add working api pagination.
+
+#### Left to do:
+
+- Improve user image menu ui and flow
+- Finish styling reaction menu.
+- Finish styling all small details
+- Create About page
+
+### v0.7.1
+
+Api pagination broke post feed selector. Fixed it

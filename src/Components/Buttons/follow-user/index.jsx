@@ -30,9 +30,7 @@ function Follow({ user }) {
     try {
       const response = await client.put(followUrl);
       response.status === 200 && setFollowing(true);
-      //console.log(response);
     } catch (error) {
-      //console.error(error);
     } finally {
       setDisabled(false);
     }
@@ -43,7 +41,6 @@ function Follow({ user }) {
     const unfollowUrl = url + "/unfollow";
     try {
       const response = await client.put(unfollowUrl);
-      //console.log(response);
       response.status === 200 && setFollowing(false);
     } catch (error) {
       console.error(error);

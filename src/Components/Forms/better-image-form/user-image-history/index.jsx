@@ -54,7 +54,6 @@ function UserImageHistory({ handler, endAction }) {
   }, [data]);
 
   function setImageFromHistory(e) {
-    console.log(e.target.dataset);
     handler(e.target.dataset.src);
     endAction();
   }
