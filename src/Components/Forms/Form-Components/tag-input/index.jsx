@@ -59,7 +59,6 @@ function TagInput({ tagHandler, edit }) {
           newTags.push(tag);
         }
         setTags(newTags);
-        console.log(tags);
         e.target.value = "";
         tagHandler(newTags);
         displayTags(newTags);
@@ -70,7 +69,6 @@ function TagInput({ tagHandler, edit }) {
   function deleteTag(tag) {
     if (tags) {
       const newTags = tags.filter((t) => t !== tag);
-      console.log(newTags);
       setTags(newTags);
       tagHandler(newTags);
       displayTags(newTags);

@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 import Follow from "../../Buttons/follow-user";
 
 function ContactList({ contacts, handleShow }) {
-  console.log(contacts);
-
   function RenderContacts({ contacts }) {
     if (contacts) {
       return (

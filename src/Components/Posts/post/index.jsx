@@ -10,7 +10,6 @@ import PostContent from "./post-content";
 function Post({ children, data, close }) {
   const [auth, setAuth] = useContext(AuthContext);
   const isOwner = auth && auth.email === data.author.email ? true : false;
-  console.log(data);
 
   return (
     <div

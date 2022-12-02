@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 
 function UrlInput({ resultHandler, edit = "", className = "" }) {
   const [imagePreview, setImagePreview] = useState(edit);
-  console.log(edit);
   function handleChange(e) {
     setImagePreview(e.target.value);
     resultHandler(e.target.value);
-    console.log(e.target.value);
   }
   return (
     <Form.Group className={`url-input ${className}`}>
