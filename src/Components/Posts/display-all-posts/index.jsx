@@ -13,7 +13,6 @@ import "./index.style.scss";
 function DisplayAllPosts({ settings }) {
   const RATE_LIMIT = 50;
   const [offset, setOffset] = useState(0);
-  const receivedUrl = settings.url;
   const [url, setUrl] = useState(
     settings.url + `&limit=${RATE_LIMIT}&offset=${offset}`
   );
@@ -21,8 +20,8 @@ function DisplayAllPosts({ settings }) {
   const [limitReached, setLimitReached] = useState(false);
 
   useEffect(() => {
-    setUrl(receivedUrl + `&limit=${RATE_LIMIT}&offset=${offset}`);
-  }, [offset]);
+    setUrl(settings.url + `&limit=${RATE_LIMIT}&offset=${offset}`);
+  }, [offset, settings.url]);
 
   const { data, loading, error } = useGet({ url: url });
   const [posts, setPosts] = useState(null);

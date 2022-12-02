@@ -77,3 +77,7 @@ Finished all remaining unstyled major components. Add working api pagination.
 - Finish styling reaction menu.
 - Finish styling all small details
 - Create About page
+
+### v0.7.1
+
+Api pagination broke post feed selector. Fixed it
