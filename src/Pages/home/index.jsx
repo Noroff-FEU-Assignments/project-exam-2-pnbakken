@@ -9,24 +9,50 @@ import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import { POSTS_URL } from "../../Constants";
 
 function Home() {
+  const RATE_LIMIT = 20;
+  const [offset, setOffset] = useState(0);
+
   const [urlSettings, setUrlSettings] = useState({
-    url: `${POSTS_URL}?_author=true`,
+    url: `${POSTS_URL}?_author=true&limit=${RATE_LIMIT}&offset=${offset}`,
   });
+
   const [selectedFeed, setSelectedFeed] = useState("all");
   useEffect(() => {
     if (selectedFeed) {
       switch (selectedFeed) {
         case "following":
-          setUrlSettings({ url: `${POSTS_URL}/following?_author=true` });
+          setOffset(0);
+          setUrlSettings({
+            url: `${POSTS_URL}/following?_author=true&limit=${RATE_LIMIT}&offset=${offset}`,
+          });
           break;
         case "all":
-          setUrlSettings({ url: `${POSTS_URL}?_author=true` });
+          setOffset(0);
+          setUrlSettings({
+            url: `${POSTS_URL}?_author=true&limit=${RATE_LIMIT}&offset=${offset}`,
+          });
           break;
         default:
           break;
       }
     }
   }, [selectedFeed]);
+
+  const loadNext = () => {
+    setOffset(offset + RATE_LIMIT);
+    setUrlSettings(() => {
+      if (selectedFeed === "following") {
+        return {
+          url: `${POSTS_URL}/following?_author=true&limit=${RATE_LIMIT}&offset=${offset}`,
+        };
+      } else if (selectedFeed === "all") {
+        return {
+          url: `${POSTS_URL}?_author=true&limit=${RATE_LIMIT}&offset=${offset}`,
+        };
+      }
+    });
+    window.scrollTo(0);
+  };
 
   return (
     <MainLayout>
@@ -37,6 +63,7 @@ function Home() {
           currentSelection={selectedFeed}
         />
         <DisplayAllPosts settings={urlSettings} />
+        <button onClick={loadNext}>Load more</button>
         <ImageCarousel />
       </AppInterfaceLayout>
     </MainLayout>
