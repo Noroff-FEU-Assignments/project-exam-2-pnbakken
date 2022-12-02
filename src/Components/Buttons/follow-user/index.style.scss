@@ -1,0 +1,13 @@
+@import "/src/style/partials/base/base";
+
+.follow-button {
+    background: $colour-primary !important;
+    padding: 0 20px;
+    border-radius: 20px;
+    height: 36px;
+}
+
+.follow-button.following {
+    background: $colour-light !important;
+    color: $colour-primary !important;
+}

@@ -1,0 +1,22 @@
+@import "/src/style/partials/base/base";
+
+
+.user-list {
+    @media(max-width: 768px) {
+        gap: 16px !important;
+    }
+}
+
+.user-list-item {
+    width: 200px;
+    padding: 32px;
+    background: $colour-secondary-background;
+    line-break: anywhere;
+
+
+    @media(max-width: 768px) {
+        scale: 0.85;
+        padding: 12px;
+        width: 160px;
+    }
+}

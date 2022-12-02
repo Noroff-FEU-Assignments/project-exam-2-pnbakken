@@ -4,6 +4,8 @@ import { USER_URL } from "../../../Constants";
 import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
 
+import "./index.style.scss";
+
 function Follow({ user }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
@@ -51,7 +53,11 @@ function Follow({ user }) {
   }
 
   return (
-    <button onClick={following ? unfollow : follow} disabled={disabled}>
+    <button
+      onClick={following ? unfollow : follow}
+      disabled={disabled}
+      className={`discrete follow-button  ${following ? "following" : ""}`}
+    >
       {following ? "Unfollow" : "Follow"}
     </button>
   );
