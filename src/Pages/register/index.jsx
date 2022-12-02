@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import RegisterForm from "../../Components/Forms/register-form";
 import MainLayout from "../../Components/Layout/main-layout";
@@ -15,8 +16,19 @@ function Register() {
   });
   return (
     <MainLayout>
-      <DecorativeText>More encouragement!</DecorativeText>
-      <RegisterForm />
+      <div className="flex-c top-level-indent full-width pb-5">
+        <div className="flex-c full-width align-center gap-lg">
+          <DecorativeText>More encouragement!</DecorativeText>
+
+          <div className="flex-c full-width standard-component-width gap-sm">
+            <RegisterForm />
+            <div className="flex-r gap-xs">
+              <span>Already have an account?</span>
+              <Link to="/login">Log In</Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </MainLayout>
   );
 }

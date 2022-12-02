@@ -12,15 +12,20 @@ function Home() {
   const [urlSettings, setUrlSettings] = useState({
     url: `${POSTS_URL}?_author=true`,
   });
+
   const [selectedFeed, setSelectedFeed] = useState("all");
   useEffect(() => {
     if (selectedFeed) {
       switch (selectedFeed) {
         case "following":
-          setUrlSettings({ url: `${POSTS_URL}/following?_author=true` });
+          setUrlSettings({
+            url: `${POSTS_URL}/following?_author=true`,
+          });
           break;
         case "all":
-          setUrlSettings({ url: `${POSTS_URL}?_author=true` });
+          setUrlSettings({
+            url: `${POSTS_URL}?_author=true`,
+          });
           break;
         default:
           break;
@@ -36,7 +41,9 @@ function Home() {
           getSelection={setSelectedFeed}
           currentSelection={selectedFeed}
         />
+
         <DisplayAllPosts settings={urlSettings} />
+
         <ImageCarousel />
       </AppInterfaceLayout>
     </MainLayout>

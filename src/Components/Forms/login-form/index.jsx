@@ -52,8 +52,11 @@ function LoginForm() {
   }
 
   return (
-    <BootstrapForm onSubmit={handleSubmit(onSubmit)}>
-      <fieldset disabled={disabled}>
+    <BootstrapForm
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex-c full-width standard-component-width radius-md"
+    >
+      <fieldset disabled={disabled} className="p-3">
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -76,7 +79,9 @@ function LoginForm() {
             <InputError>{errors.password.message}</InputError>
           )}
         </Form.Group>
-        <Button type="submit">Log In</Button>
+        <div className="flex-r full-width justify-end">
+          <Button type="submit">Log In</Button>
+        </div>
       </fieldset>
     </BootstrapForm>
   );
