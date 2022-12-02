@@ -10,11 +10,11 @@ function UserSocial({ user, handleShow, handleSet }) {
 
     switch (target) {
       case "followers":
-        handleSet(user.following);
+        handleSet(user.followers);
         handleShow();
         break;
       case "following":
-        handleSet(user.followers);
+        handleSet(user.following);
         handleShow();
         break;
       default:
@@ -25,7 +25,7 @@ function UserSocial({ user, handleShow, handleSet }) {
     <>
       <div className="flex-r gap-sm">
         <button
-          onClick={() => {
+          onMouseOver={() => {
             handleShowSocial("followers");
           }}
           className="flex-c align-center discrete light-text"
@@ -34,7 +34,7 @@ function UserSocial({ user, handleShow, handleSet }) {
           <span className="small-text">Followers</span>
         </button>
         <button
-          onClick={() => {
+          onMouseOver={() => {
             handleShowSocial("following");
           }}
           className="flex-c align-center discrete light-text"

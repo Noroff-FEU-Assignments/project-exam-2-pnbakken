@@ -31,7 +31,7 @@ function UserPage() {
 
   const [showSocial, setShowSocial] = useState(false);
   const handleShowSocial = () => setShowSocial(!showSocial);
-  const [socialSet, setSocialSet] = useState([]);
+  const [socialSet, setSocialSet] = useState();
   const handleSocialSet = (set) => {
     setSocialSet(set);
   };
@@ -48,7 +48,7 @@ function UserPage() {
               handleSocialSet={handleSocialSet}
             />
             {showSocial && socialSet && (
-              <ContactList contact={socialSet} handleShow={handleShowSocial} />
+              <ContactList contacts={socialSet} handleShow={handleShowSocial} />
             )}
             <DisplayAllPosts settings={getPostsSettings} />
           </>
