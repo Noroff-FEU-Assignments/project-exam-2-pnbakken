@@ -9,7 +9,7 @@ import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import { POSTS_URL } from "../../Constants";
 
 function Home() {
-  const RATE_LIMIT = 20;
+  const RATE_LIMIT = 50;
   const [offset, setOffset] = useState(0);
 
   const [urlSettings, setUrlSettings] = useState({
@@ -38,8 +38,7 @@ function Home() {
     }
   }, [selectedFeed]);
 
-  const loadNext = () => {
-    setOffset(offset + RATE_LIMIT);
+  useEffect(() => {
     setUrlSettings(() => {
       if (selectedFeed === "following") {
         return {
@@ -51,7 +50,16 @@ function Home() {
         };
       }
     });
-    window.scrollTo(0);
+  }, [offset]);
+
+  const loadNext = () => {
+    setOffset(offset + RATE_LIMIT);
+
+    window.scrollTo(0, 0);
+  };
+
+  const loadLast = () => {
+    setOffset(offset - RATE_LIMIT);
   };
 
   return (
@@ -62,8 +70,23 @@ function Home() {
           getSelection={setSelectedFeed}
           currentSelection={selectedFeed}
         />
+        <div className="flex-r full-width standard-component-width justify-between">
+          <div>
+            {offset > 0 && <button onClick={loadLast}>Load Previous</button>}
+          </div>
+          <div>
+            <button onClick={loadNext}>Load Next</button>
+          </div>
+        </div>
         <DisplayAllPosts settings={urlSettings} />
-        <button onClick={loadNext}>Load more</button>
+        <div className="flex-r full-width standard-component-width justify-between">
+          <div>
+            {offset > 0 && <button onClick={loadLast}>Load Previous</button>}
+          </div>
+          <div>
+            <button onClick={loadNext}>Load Next</button>
+          </div>
+        </div>
         <ImageCarousel />
       </AppInterfaceLayout>
     </MainLayout>
