@@ -13,7 +13,7 @@ function PostHeader({ data, isOwner }) {
 
   return (
     <div
-      className="post-header flex-row full-width justify-between"
+      className="post-header flex-r full-width justify-between"
       style={{ height: "64px" }}
     >
       {!showOwnerInteraction ? (
@@ -41,7 +41,7 @@ export default PostHeader;
 function HeaderInfo({ data }) {
   const dateCreated = new Date(data.created);
   return (
-    <div className="header-info flex-row gap-xs">
+    <div className="header-info flex-r full-width gap-xs">
       <Link to={`/user/${data.author.name}`}>
         <ProfileImage src={data.author.avatar ? data.author.avatar : ""} />
       </Link>

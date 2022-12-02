@@ -1,4 +1,36 @@
-.contact-list {
+@import "/src/style/partials/base/base";
 
-    background: blue;
+.contact-list {
+    position: absolute;
+    z-index: 3;
+    background: $colour-secondary-background;
+    top: 160px;
+    max-height: 60vh;
+    overflow: scroll;
+
+    -ms-overflow-style: none;
+
+    scrollbar-width: none;
+
+
+
+    .contact {
+        a {
+            border-bottom: 1px solid $colour-grey;
+            padding-bottom: 8px;
+
+
+        }
+
+
+
+    }
+
+
+}
+
+.contact-list::-webkit-scrollbar {
+    width: 4px;
+    height: 0;
+    background: $colour-grey;
 }
