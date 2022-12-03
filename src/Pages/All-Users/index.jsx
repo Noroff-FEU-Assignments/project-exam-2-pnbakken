@@ -5,11 +5,14 @@ import MainLayout from "../../Components/Layout/main-layout";
 import NewPost from "../../Components/Menus/new-post";
 import Heading from "../../Components/Typography/heading";
 import UserList from "../../Components/User/user-list";
+import setPageTitle from "../../Functions/set-page-title";
 
 function AllUsers() {
   const { limit } = useParams();
   console.log(limit);
   const [displayLimited, setDisplayLimited] = useState(limit ? limit : "");
+
+  setPageTitle("All Users | ");
 
   return (
     <MainLayout>

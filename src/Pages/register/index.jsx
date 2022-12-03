@@ -6,8 +6,10 @@ import MainLayout from "../../Components/Layout/main-layout";
 import DecorativeText from "../../Components/Typography/decorative-text";
 import Heading from "../../Components/Typography/heading";
 import AuthContext from "../../Context/auth-context";
+import setPageTitle from "../../Functions/set-page-title";
 
 function Register() {
+  setPageTitle("Register | ");
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,7 +27,7 @@ function Register() {
             <RegisterForm />
             <div className="flex-r gap-xs">
               <span>Already have an account?</span>
-              <Link to="/login">Log In</Link>
+              <Link to="/login" className="primary-text">Log In</Link>
             </div>
           </div>
         </div>

@@ -12,12 +12,15 @@ function FrontPageCTA() {
         <div className="flex-c gap-md align-center">
           <div className="flex-c align-center gap-xs">
             <span>Register your account now</span>
-            <Link to="/register">
+            <Link to="/register" c>
               <BrandButton>Register</BrandButton>
             </Link>
           </div>
           <div className="flex-c align-center">
-            <span>Already registered?</span> <Link to="/login">Log In</Link>
+            <span>Already registered?</span>{" "}
+            <Link to="/login" className="primary-text">
+              Log In
+            </Link>
           </div>
         </div>
       </div>

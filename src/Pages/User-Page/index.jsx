@@ -10,10 +10,13 @@ import UserCard from "../../Components/User/user-card";
 import ScrollToTop from "../../Components/Utility-Components/scroll-to-top";
 import { USER_URL } from "../../Constants";
 import AuthContext from "../../Context/auth-context";
+import setPageTitle from "../../Functions/set-page-title";
 import useGet from "../../Hooks/use-get";
 
 function UserPage() {
   const { name } = useParams();
+
+  setPageTitle(`${name} | `);
   const [auth, setAuth] = useContext(AuthContext);
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState(null);

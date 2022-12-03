@@ -5,9 +5,12 @@ import BrandButton from "../../Components/Buttons/brand-button";
 import LoginForm from "../../Components/Forms/login-form";
 import MainLayout from "../../Components/Layout/main-layout";
 import DecorativeText from "../../Components/Typography/decorative-text";
+import Heading from "../../Components/Typography/heading";
 import AuthContext from "../../Context/auth-context";
+import setPageTitle from "../../Functions/set-page-title";
 
 function Login() {
+  setPageTitle("Login | ");
   const navigate = useNavigate();
   const [auth, setAuth] = useContext(AuthContext);
 
@@ -19,7 +22,7 @@ function Login() {
   return (
     <MainLayout>
       <div className="flex-c top-level-indent full-width align-center gap-lg">
-        <DecorativeText>Log In</DecorativeText>
+        <Heading>Log In</Heading>
         <LoginForm />
         <div className="flex-c gap-xs">
           <span>Don't have an account? </span>

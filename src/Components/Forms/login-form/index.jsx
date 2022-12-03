@@ -9,6 +9,7 @@ import { LOGIN_URL } from "../../../Constants";
 import InputError from "../../Message/input-error";
 import { useNavigate } from "react-router-dom";
 import BootstrapForm from "../bootstrap-form";
+import BrandButton from "../../Buttons/brand-button";
 
 const schema = yup.object().shape({
   email: yup
@@ -54,9 +55,9 @@ function LoginForm() {
   return (
     <BootstrapForm
       onSubmit={handleSubmit(onSubmit)}
-      className="flex-c full-width standard-component-width radius-md"
+      className="flex-c full-width standard-component-width"
     >
-      <fieldset disabled={disabled} className="p-3">
+      <fieldset disabled={disabled} className="p-3 radius-md">
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -80,7 +81,7 @@ function LoginForm() {
           )}
         </Form.Group>
         <div className="flex-r full-width justify-end">
-          <Button type="submit">Log In</Button>
+          <BrandButton type="submit">Log In</BrandButton>
         </div>
       </fieldset>
     </BootstrapForm>

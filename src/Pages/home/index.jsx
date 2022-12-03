@@ -8,8 +8,11 @@ import PostFeedSelector from "../../Components/Menus/post-feed-selector";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import Heading from "../../Components/Typography/heading";
 import { POSTS_URL } from "../../Constants";
+import setPageTitle from "../../Functions/set-page-title";
 
 function Home() {
+  setPageTitle("Home | ");
+
   const [urlSettings, setUrlSettings] = useState({
     url: `${POSTS_URL}?_author=true`,
   });

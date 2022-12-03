@@ -9,10 +9,13 @@ import NewPost from "../../Components/Menus/new-post";
 import UserCard from "../../Components/User/user-card";
 import { USER_URL } from "../../Constants";
 import AuthContext from "../../Context/auth-context";
+import setPageTitle from "../../Functions/set-page-title";
 import useGet from "../../Hooks/use-get";
 
 function UserSettings() {
   const { name } = useParams();
+
+  setPageTitle(`${name} settings | `);
   const userUrl = {
     url: USER_URL + `/${name}`,
   };
