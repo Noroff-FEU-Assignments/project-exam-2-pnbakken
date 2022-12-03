@@ -31,3 +31,7 @@ function Reaction({ data }) {
     </div>
   );
 }
+
+Reaction.propTypes = {
+  data: PropTypes.object.isRequired,
+};

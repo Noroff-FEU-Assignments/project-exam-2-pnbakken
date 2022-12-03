@@ -14,7 +14,7 @@ function DeletePost({ id, auth, close }) {
       const url = POSTS_URL + "/" + id;
       const client = createAxios(auth);
       close();
-      const response = await client.delete(url);
+      await client.delete(url);
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);
@@ -43,6 +43,7 @@ function DeletePost({ id, auth, close }) {
 DeletePost.propTypes = {
   id: PropTypes.number.isRequired,
   auth: PropTypes.object.isRequired,
+  close: PropTypes.func,
 };
 
 export default DeletePost;

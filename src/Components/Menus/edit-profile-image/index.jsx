@@ -11,6 +11,7 @@ import BetterImageForm from "../../Forms/better-image-form";
 import "./index.style.scss";
 
 function EditProfileImage({ handleShow, property, current = "" }) {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [refresh, setRefresh] = useContext(RefreshContext);
   const mediaUrl = USER_URL + `/${auth.name}/media`;
@@ -22,7 +23,7 @@ function EditProfileImage({ handleShow, property, current = "" }) {
     const client = createAxios(auth);
 
     try {
-      const response = await client.put(mediaUrl, { [property]: imageUrl });
+      await client.put(mediaUrl, { [property]: imageUrl });
 
       setRefresh(!refresh);
     } catch (error) {
@@ -34,7 +35,7 @@ function EditProfileImage({ handleShow, property, current = "" }) {
     const client = createAxios(auth);
 
     try {
-      const response = await client.put(mediaUrl, { [property]: "" });
+      await client.put(mediaUrl, { [property]: "" });
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);

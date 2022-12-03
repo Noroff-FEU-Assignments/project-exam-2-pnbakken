@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import NewComment from "../new-comment";
 import { useContext } from "react";
@@ -37,12 +37,9 @@ DisplayComment.propTypes = {
 export default DisplayComment;
 
 function Comment({ comment, allComments, postID }) {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
-  const isOwner = () => {
-    if (auth && comment.owner === auth.name) {
-      return true;
-    } else return false;
-  };
+
   const reply = comment.replyToId
     ? allComments.filter((com) => com.id === comment.replyToId)
     : null;
@@ -86,3 +83,9 @@ function Comment({ comment, allComments, postID }) {
     </div>
   );
 }
+
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired,
+  allComments: PropTypes.array.isRequired,
+  postID: PropTypes.number.isRequired,
+};

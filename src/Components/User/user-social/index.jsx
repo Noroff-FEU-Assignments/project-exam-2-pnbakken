@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import ProfileImage from "../profile-image";
-import Follow from "../../Buttons/follow-user";
 
 function UserSocial({ user, handleShow, handleSet }) {
   async function handleShowSocial(target) {
@@ -49,6 +46,8 @@ function UserSocial({ user, handleShow, handleSet }) {
 
 UserSocial.propTypes = {
   user: PropTypes.object.isRequired,
+  handleShow: PropTypes.func.isRequired,
+  handleSet: PropTypes.func.isRequired,
 };
 
 export default UserSocial;

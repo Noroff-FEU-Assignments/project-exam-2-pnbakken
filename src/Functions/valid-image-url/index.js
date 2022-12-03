@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function validImageUrl(url) {
   return new Promise((resolve) => {
     const img = new Image();
@@ -6,6 +8,10 @@ function validImageUrl(url) {
     img.addEventListener("error", () => resolve(false));
   });
 }
+
+validImageUrl.propTypes = {
+  url: PropTypes.string.isRequired,
+};
 
 export default validImageUrl;
 

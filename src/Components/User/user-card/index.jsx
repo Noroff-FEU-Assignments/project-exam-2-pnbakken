@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import Follow from "../../Buttons/follow-user";
@@ -6,16 +6,14 @@ import ProfileImage from "../profile-image";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
-import RefreshContext from "../../../Context/refresh-context";
 import { Link } from "react-router-dom";
 
 import editIcon from "../../../assets/icon/icon-edit.svg";
 import UserSocial from "../user-social";
-import ContactList from "../../Menus/contact-list";
 
 function UserCard({ user, handleShowSocial, handleSocialSet }) {
+  //eslint-disable-next-line
   const [auth, isAuth] = useContext(AuthContext);
-  const [refresh, setRefresh] = useContext(RefreshContext);
   const isOwner = auth ? auth.name === user.name : false;
 
   if (!user) {
@@ -60,6 +58,8 @@ function UserCard({ user, handleShowSocial, handleSocialSet }) {
 
 UserCard.propTypes = {
   user: PropTypes.object.isRequired,
+  handleShowSocial: PropTypes.func,
+  handleSocialSet: PropTypes.func,
 };
 
 export default UserCard;

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import BrandButton from "../../Components/Buttons/brand-button";
 import LoginForm from "../../Components/Forms/login-form";
 import MainLayout from "../../Components/Layout/main-layout";
-import DecorativeText from "../../Components/Typography/decorative-text";
 import Heading from "../../Components/Typography/heading";
 import AuthContext from "../../Context/auth-context";
 import setPageTitle from "../../Functions/set-page-title";
@@ -12,6 +11,7 @@ import setPageTitle from "../../Functions/set-page-title";
 function Login() {
   setPageTitle("Login | ");
   const navigate = useNavigate();
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
   useEffect(() => {

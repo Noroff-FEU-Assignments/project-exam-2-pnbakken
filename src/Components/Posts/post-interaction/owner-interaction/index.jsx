@@ -1,19 +1,14 @@
 import React from "react";
 import { useContext } from "react";
-import { useState } from "react";
 import AuthContext from "../../../../Context/auth-context";
 import DeletePost from "./delete-post";
 import EditPost from "./edit-post";
-
-import menuIcon from "../../../../assets/icon/icon-ellipsis.svg";
+import PropTypes from "prop-types";
 
 function OwnerInteraction({ post, close = () => {} }) {
-  const [show, setShow] = useState(false);
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
-  function handleSetShow() {
-    setShow(!show);
-  }
   return (
     <div className="owner-interaction p-3 full-width flex-r gap-md">
       <div className="owner-interaction-menu flex-r full-width justify-between">
@@ -23,5 +18,10 @@ function OwnerInteraction({ post, close = () => {} }) {
     </div>
   );
 }
+
+OwnerInteraction.propTypes = {
+  post: PropTypes.object.isRequired,
+  close: PropTypes.func,
+};
 
 export default OwnerInteraction;

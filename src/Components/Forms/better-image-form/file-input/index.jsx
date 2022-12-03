@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 function FileInput({ resultHandler, className = "" }) {
   const [imagePreview, setImagePreview] = useState("");
@@ -18,10 +19,17 @@ function FileInput({ resultHandler, className = "" }) {
         accept="image/*"
         onChange={handleImagePreview}
       />
-      <div>{imagePreview && <img src={imagePreview} />}</div>
+      <div>
+        {imagePreview && <img src={imagePreview} alt="Your selection" />}
+      </div>
     </Form.Group>
   );
 }
+
+FileInput.propTypes = {
+  resultHandler: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
 
 export default FileInput;
 

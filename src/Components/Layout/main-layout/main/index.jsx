@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container } from "react-bootstrap";
 
 function Main({ children }) {
-  return <main className="">{children}</main>;
+  return <main>{children}</main>;
 }
 
 Main.propTypes = {

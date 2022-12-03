@@ -5,13 +5,15 @@ import AuthContext from "../../../../../Context/auth-context";
 import createAxios from "../../../../../Functions/create-axios";
 
 function DeleteComment({ postID, commentID }) {
+  // NOT IN USE
   const url = POSTS_URL + `/${postID}/comment/${commentID}`;
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
   async function doDelete() {
     const client = createAxios(auth);
     try {
-      const response = await client.delete(url);
+      await client.delete(url);
     } catch (error) {
       console.error(error.response);
     }

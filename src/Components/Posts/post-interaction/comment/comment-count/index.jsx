@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import icon from "../../../../../assets/icon/icon-comment.svg";
 
@@ -17,5 +18,9 @@ function CommentCount({ data }) {
     </div>
   );
 }
+
+CommentCount.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default CommentCount;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Heading({ children, size = 1, className = "" }) {
   const HSize = `h${size}`;
@@ -10,5 +11,11 @@ function Heading({ children, size = 1, className = "" }) {
     </HSize>
   );
 }
+
+Heading.propTypes = {
+  children: PropTypes.node.isRequired,
+  size: PropTypes.number,
+  className: PropTypes.string,
+};
 
 export default Heading;

@@ -19,6 +19,7 @@ BrandButton.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   type: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default BrandButton;

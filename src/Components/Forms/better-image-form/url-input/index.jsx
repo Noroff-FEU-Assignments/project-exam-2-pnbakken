@@ -18,7 +18,9 @@ function UrlInput({ resultHandler, edit = "", className = "" }) {
         defaultValue={edit ? edit : ""}
         onChange={handleChange}
       />
-      <div>{imagePreview && <img src={imagePreview} />}</div>
+      <div>
+        {imagePreview && <img src={imagePreview} alt="Your selection" />}
+      </div>
     </Form.Group>
   );
 }
@@ -26,6 +28,7 @@ function UrlInput({ resultHandler, edit = "", className = "" }) {
 UrlInput.propTypes = {
   resultHandler: PropTypes.func.isRequired,
   edit: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default UrlInput;

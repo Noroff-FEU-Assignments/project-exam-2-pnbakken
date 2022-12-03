@@ -3,10 +3,12 @@ import { useContext } from "react";
 import { USER_URL } from "../../../Constants";
 import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
+import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
 function Follow({ otherUser }) {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
 
@@ -63,5 +65,9 @@ function Follow({ otherUser }) {
     </button>
   );
 }
+
+Follow.propTypes = {
+  otherUser: PropTypes.object.isRequired,
+};
 
 export default Follow;

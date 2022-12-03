@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 const ShowNewPostContext = createContext(null, () => {});
 
@@ -10,6 +11,10 @@ export const ShowNewPostContextProvider = ({ children }) => {
       {children}
     </ShowNewPostContext.Provider>
   );
+};
+
+ShowNewPostContext.propTypes = {
+  children: PropTypes.node,
 };
 
 export default ShowNewPostContext;

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Form, FormControl } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,6 +10,7 @@ import InputError from "../../Message/input-error";
 import { useNavigate } from "react-router-dom";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
+import DisplayResponseErrors from "../../Message/display-response-errors";
 
 const schema = yup.object().shape({
   email: yup
@@ -23,8 +24,10 @@ const schema = yup.object().shape({
 });
 
 function LoginForm() {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
+  const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
 
   const {
@@ -47,6 +50,7 @@ function LoginForm() {
       }
     } catch (error) {
       console.error(error);
+      setFormError(error);
     } finally {
       setDisabled(false);
     }
@@ -83,6 +87,9 @@ function LoginForm() {
         <div className="flex-r full-width justify-end">
           <BrandButton type="submit">Log In</BrandButton>
         </div>
+        {formError && (
+          <DisplayResponseErrors data={formError.response.errors.data} />
+        )}
       </fieldset>
     </BootstrapForm>
   );

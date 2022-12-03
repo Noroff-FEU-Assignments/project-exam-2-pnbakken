@@ -10,6 +10,7 @@ import setPageTitle from "../../Functions/set-page-title";
 
 function Register() {
   setPageTitle("Register | ");
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
@@ -27,7 +28,9 @@ function Register() {
             <RegisterForm />
             <div className="flex-r gap-xs">
               <span>Already have an account?</span>
-              <Link to="/login" className="primary-text">Log In</Link>
+              <Link to="/login" className="primary-text">
+                Log In
+              </Link>
             </div>
           </div>
         </div>

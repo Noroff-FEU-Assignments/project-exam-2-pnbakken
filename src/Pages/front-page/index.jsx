@@ -9,6 +9,7 @@ import setPageTitle from "../../Functions/set-page-title";
 function FrontPage() {
   setPageTitle();
 
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
 

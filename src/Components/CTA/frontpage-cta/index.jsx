@@ -25,7 +25,7 @@ function FrontPageCTA() {
         </div>
       </div>
       <div className="smaller-component-width">
-        <img src={splashImage} />
+        <img src={splashImage} alt="Welcome to Just Post" />
       </div>
     </section>
   );
