@@ -6,23 +6,27 @@ import createAxios from "../../../Functions/create-axios";
 
 import "./index.style.scss";
 
-function Follow({ user }) {
+function Follow({ otherUser }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
 
   const isFollowing = () => {
-    let follow = false;
-    if (user.followers) {
-      user.followers.forEach((f) =>
-        f.name === auth.name ? (follow = true) : ""
-      );
+    let follower = false;
+    if (otherUser.followers) {
+      otherUser.followers.forEach((f) => {
+        if (f.name === auth.name) {
+          follower = true;
+        }
+      });
     }
-    return follow;
+    console.log(follower);
+    return follower;
   };
-  const [following, setFollowing] = useState(isFollowing());
 
+  const [following, setFollowing] = useState(isFollowing());
+  console.log(following);
   const client = createAxios(auth);
-  const url = `${USER_URL}/${user.name}`;
+  const url = `${USER_URL}/${otherUser.name}`;
 
   async function follow() {
     setDisabled(true);

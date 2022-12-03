@@ -1,8 +1,14 @@
 import React from "react";
 
-function Heading({ content, size = 1 }) {
+function Heading({ children, size = 1, className = "" }) {
   const HSize = `h${size}`;
-  return <HSize>{content}</HSize>;
+  return (
+    <HSize
+      className={`font-brand full-width large-component-width ${className}`}
+    >
+      {children}
+    </HSize>
+  );
 }
 
 export default Heading;

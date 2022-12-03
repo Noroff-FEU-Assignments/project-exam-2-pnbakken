@@ -32,6 +32,7 @@ function UserList({ users }) {
       setLimitReached(false);
     }
   }, [data]);
+
   return (
     <div className="user-list-container full-width large-component-width align-center">
       {data && (
@@ -75,11 +76,8 @@ function UserListItem({ user }) {
           <span className="user-name">{user.name}</span>
         </Link>
       </div>
-      {user.name === auth.name ? (
-        <span className="brand-text">This is you!</span>
-      ) : (
-        <Follow user={user} />
-      )}
+
+      <Follow otherUser={user} />
     </li>
   );
 }

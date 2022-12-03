@@ -40,7 +40,7 @@ function UserCard({ user, handleShowSocial, handleSocialSet }) {
                 handleSet={handleSocialSet}
               />
               {!isOwner ? (
-                <Follow user={user} />
+                <Follow otherUser={user} />
               ) : (
                 <Link
                   to={`/user/${auth && auth.name}/settings`}

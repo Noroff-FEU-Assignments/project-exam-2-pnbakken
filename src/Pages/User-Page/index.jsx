@@ -5,6 +5,7 @@ import MainLayout from "../../Components/Layout/main-layout";
 import ContactList from "../../Components/Menus/contact-list";
 import NewPost from "../../Components/Menus/new-post";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
+import Heading from "../../Components/Typography/heading";
 import UserCard from "../../Components/User/user-card";
 import ScrollToTop from "../../Components/Utility-Components/scroll-to-top";
 import { USER_URL } from "../../Constants";
@@ -55,6 +56,7 @@ function UserPage() {
                   handleShow={handleShowSocial}
                 />
               )}
+              <Heading>{user.name}</Heading>
               <DisplayAllPosts settings={getPostsSettings} />
             </>
           )}
