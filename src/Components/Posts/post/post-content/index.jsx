@@ -8,7 +8,7 @@ import PostHeader from "../post-header";
 
 import "./index.style.scss";
 
-function PostContent({ data, isOwner = false }) {
+function PostContent({ data, isOwner = false, handleShow }) {
   const [validMedia, setValidMedia] = useState(true);
 
   useEffect(() => {
@@ -25,7 +25,15 @@ function PostContent({ data, isOwner = false }) {
     <div className={`post-content p-3 flex-c gap-sm`}>
       <PostHeader data={data} isOwner={isOwner} />
       <div className="post-main flex-c align-self-center full-width smaller-component-width gap-xs">
-        <div className="post-title align-self-start">{data.title}</div>
+        <div className="align-self-start">
+          {handleShow ? (
+            <div className="show-interact" onClick={handleShow}>
+              <span className="post-title align-self-start">{data.title}</span>
+            </div>
+          ) : (
+            <span className="post-title align-self-start">{data.title}</span>
+          )}
+        </div>
         <div className="post-body flex-c full-width gap-sm">
           {data.body && <p>{data.body}</p>}
           {data.media && (
