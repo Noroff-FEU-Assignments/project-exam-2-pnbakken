@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -56,6 +56,9 @@ function CreatePostForm({
   const [imageUrl, setImageUrl] = useState(
     edit && edit.media ? edit.media : ""
   );
+  const removeImage = () => {
+    setImageUrl("");
+  };
   const [showAddImage, setShowAddImage] = useState(false);
   function handleShowAddImage() {
     setShowAddImage(!showAddImage);
@@ -102,10 +105,11 @@ function CreatePostForm({
     const client = createAxios(auth);
 
     try {
-      if (imageUrl) {
+      if (imageUrl || imageUrl === "") {
         data.media = imageUrl;
       }
-      if (postBody) {
+      if (postBody || postBody === "") {
+        // quick fix for post edits
         data.body = postBody;
       }
       if (tags) {
@@ -194,15 +198,15 @@ function CreatePostForm({
             />
           </Form.Group>
 
-          {imageUrl && (
-            <div>
-              {/*eslint-disable-next-line*/}
-              <img src={imageUrl} alt="your image-selection" />
-            </div>
-          )}
           <div className="new-post-menu flex-r wrap justify-between align-center">
-            <Button onClick={handleShowAddImage}>Add Image</Button>
-
+            <button
+              type="button"
+              className="system-button"
+              onClick={handleShowAddImage}
+            >
+              Add Image
+            </button>
+            {imageUrl && <button onClick={removeImage}>Remove image</button>}
             <div className="flex-r gap-md align-center">
               <div>
                 {edit ? (
@@ -224,6 +228,12 @@ function CreatePostForm({
               </div>
             </div>
           </div>
+          {imageUrl && (
+            <div className="mt-3">
+              {/*eslint-disable-next-line*/}
+              <img src={imageUrl} alt="your image-selection" />
+            </div>
+          )}
         </fieldset>
         {error && <DisplayResponseErrors data={error.response.data.errors} />}
       </BootstrapForm>

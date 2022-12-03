@@ -1,0 +1,9 @@
+.system-button {
+    background: $colour-primary-background;
+    border: 3px solid $colour-primary-background;
+    height: 36px;
+    padding: 0 24px;
+
+    color: $colour-light;
+    @extend .radius-sm;
+}
