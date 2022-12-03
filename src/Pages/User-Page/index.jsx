@@ -7,7 +7,7 @@ import NewPost from "../../Components/Menus/new-post";
 import DisplayResponseErrors from "../../Components/Message/display-response-errors";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
 import Heading from "../../Components/Typography/heading";
-import UserCard from "../../Components/User/user-card";
+import UserBanner from "../../Components/User/user-banner";
 import ScrollToTop from "../../Components/Utility-Components/scroll-to-top";
 import { USER_URL } from "../../Constants";
 import setPageTitle from "../../Functions/set-page-title";
@@ -47,7 +47,7 @@ function UserPage() {
           <NewPost />
           {user && (
             <>
-              <UserCard
+              <UserBanner
                 user={user}
                 handleShowSocial={handleShowSocial}
                 handleSocialSet={handleSocialSet}
