@@ -7,6 +7,8 @@ import RefreshContext from "../../../Context/refresh-context";
 import createAxios from "../../../Functions/create-axios";
 import BootstrapForm from "../bootstrap-form";
 
+import "./index.style.scss";
+
 function ReactionForm({ postID }) {
   const url = `${POSTS_URL}/${postID}/react`;
   const [auth, setAuth] = useContext(AuthContext);
@@ -29,8 +31,8 @@ function ReactionForm({ postID }) {
 
   return (
     <BootstrapForm>
-      <fieldset disabled={disabled}>
-        <div className="symbols flex-r wrap gap-sm align-center">
+      <fieldset disabled={disabled} className="reaction-form p-3 radius-sm">
+        <div className="symbols flex-r wrap gap-md justify-evenly align-center">
           {reactionsCollection.map((reaction) => {
             return (
               <button
@@ -59,20 +61,9 @@ const reactionsCollection = [
     name: "thumbs up",
   },
   {
-    code: "U+261D",
-    symbol: "☝",
-    name: "point up",
-  },
-  {
     code: "U+1F60A",
     symbol: "😊",
     name: "smiling face",
-  },
-
-  {
-    code: "U+1F60D",
-    symbol: "😍",
-    name: "heart eyes",
   },
   {
     code: "U+1F602",
@@ -80,34 +71,9 @@ const reactionsCollection = [
     name: "cry laughing",
   },
   {
-    code: "U+1F973",
-    symbol: "🥳",
-    name: "partying face",
-  },
-  {
-    code: "U+1F638",
-    symbol: "😸",
-    name: "grinning cat",
-  },
-  {
     code: "U+2764",
     symbol: "❤️",
     name: "heart",
-  },
-  {
-    code: "U+1F4AF",
-    symbol: "💯",
-    name: "one hundred",
-  },
-  {
-    code: "U+1F90C",
-    symbol: "🤌",
-    name: "pinched fingers",
-  },
-  {
-    code: "U+1F634",
-    symbol: "😴",
-    name: "sleeping face",
   },
 
   {
@@ -115,26 +81,10 @@ const reactionsCollection = [
     symbol: "😡",
     name: "angry face",
   },
-  {
-    code: "U+1F631",
-    symbol: "😱",
-    name: "scream in fear",
-  },
 
   {
     code: "U+1F44E",
     symbol: "👎",
     name: "thumbs down",
-  },
-
-  {
-    code: "U+1F441",
-    symbol: "👁️",
-    name: "eye",
-  },
-  {
-    code: "...",
-    symbol: "🎅",
-    name: "father christmas",
   },
 ];

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { USER_URL } from "../../../Constants";
@@ -16,8 +16,14 @@ function EditProfileImage({ handleShow, property, current = "" }) {
   const [refresh, setRefresh] = useContext(RefreshContext);
   const mediaUrl = USER_URL + `/${auth.name}/media`;
   const [imageUrl, setImageUrl] = useState(current);
-  const [showImageForm, setShowImageForm] = useState(true);
-  const handleShowImageForm = () => setShowImageForm(!showImageForm);
+  const [showMenu, setShowMenu] = useState(true);
+
+  useEffect(() => {
+    if (imageUrl) {
+      updateImage();
+      handleShow(false);
+    }
+  }, [imageUrl]);
 
   async function updateImage() {
     const client = createAxios(auth);
@@ -26,45 +32,32 @@ function EditProfileImage({ handleShow, property, current = "" }) {
       await client.put(mediaUrl, { [property]: imageUrl });
 
       setRefresh(!refresh);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async function removeImage() {
-    const client = createAxios(auth);
-
-    try {
-      await client.put(mediaUrl, { [property]: "" });
-      setRefresh(!refresh);
+      handleShow();
+      window.location.reload(); // For some reason my data refresh doesn't work here, so this is my inelegant fix
     } catch (error) {
       console.error(error);
     }
   }
 
   return (
-    <div className="flex-c full-width">
-      {showImageForm && (
-        <div>
-          <HistoryProvider>
-            <BetterImageForm
-              imageUrlHandler={setImageUrl}
-              handleShow={handleShowImageForm}
-            />
-          </HistoryProvider>
-        </div>
-      )}
+    <div className="edit-image-form flex-c full-width">
+      <div>
+        <HistoryProvider>
+          <BetterImageForm
+            imageUrlHandler={setImageUrl}
+            handleShow={handleShow}
+          />
+        </HistoryProvider>
+      </div>
+
       <div className="flex-row justify-between">
         {imageUrl && imageUrl !== current ? (
-          <button type="button" onClick={updateImage}>
+          <button type="button" className="system-button" onClick={updateImage}>
             Update
           </button>
         ) : (
-          <span></span>
+          ""
         )}
-        <button type="button" onClick={removeImage}>
-          Remove {property} image
-        </button>
       </div>
     </div>
   );

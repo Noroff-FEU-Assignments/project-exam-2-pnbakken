@@ -7,11 +7,19 @@ function SetApiOffset({ limit, offset, handleOffset, limitReached }) {
   return (
     <div className="flex-r full-width justify-between">
       {offset > 0 ? (
-        <button onClick={lowerOffset}>Previous</button>
+        <button className="system-button" onClick={lowerOffset}>
+          Previous
+        </button>
       ) : (
         <div></div>
       )}
-      {!limitReached ? <button onClick={upOffset}>Next</button> : <div></div>}
+      {!limitReached ? (
+        <button className="system-button" onClick={upOffset}>
+          Next
+        </button>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

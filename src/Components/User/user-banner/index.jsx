@@ -13,18 +13,18 @@ import UserSocial from "../user-social";
 
 import defaultBanner from "../../../assets/image/default-banner.png";
 
-function UserCard({ user, handleShowSocial, handleSocialSet }) {
+function UserBanner({ user, handleShowSocial, handleSocialSet }) {
   //eslint-disable-next-line
   const [auth, isAuth] = useContext(AuthContext);
   const isOwner = auth ? auth.name === user.name : false;
 
   if (!user) {
-    return <div className="user-card full-width"></div>;
+    return <div className="user-banner full-width"></div>;
   }
   return (
     <>
       <div
-        className="user-card full-width flex-c justify-end"
+        className="user-banner full-width flex-c justify-end radius-md"
         style={{
           backgroundImage: `url(${user.banner ? user.banner : defaultBanner})`,
         }}
@@ -60,10 +60,10 @@ function UserCard({ user, handleShowSocial, handleSocialSet }) {
   );
 }
 
-UserCard.propTypes = {
+UserBanner.propTypes = {
   user: PropTypes.object.isRequired,
   handleShowSocial: PropTypes.func,
   handleSocialSet: PropTypes.func,
 };
 
-export default UserCard;
+export default UserBanner;

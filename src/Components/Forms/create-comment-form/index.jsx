@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import createAxios from "../../../Functions/create-axios";
@@ -10,6 +9,8 @@ import RefreshContext from "../../../Context/refresh-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
 import DisplayResponseErrors from "../../Message/display-response-errors";
 
+const BODY_LIMIT = 280;
+
 function CreateComment({ url, replyID = null, close }) {
   //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
@@ -18,6 +19,12 @@ function CreateComment({ url, replyID = null, close }) {
 
   const [disabled, setDisabled] = useState(false);
   const client = createAxios(auth);
+
+  const [currentBodyLength, setCurrentBodyLength] = useState(0);
+  const updateCurrentBodyLength = (e) => {
+    const length = e.target.value.length;
+    setCurrentBodyLength(length);
+  };
 
   const inputId = replyID ? "reply-body" : "comment-body";
   async function onSubmit(e) {
@@ -58,12 +65,22 @@ function CreateComment({ url, replyID = null, close }) {
           id={inputId}
           name="body"
           placeholder="Leave a comment"
+          maxLength={BODY_LIMIT}
+          onKeyUp={updateCurrentBodyLength}
         />
+        <div className="flex-r full-width justify-end align-end">
+          <span className={currentBodyLength < BODY_LIMIT ? "small-text" : ""}>
+            {currentBodyLength}
+          </span>
+          /{BODY_LIMIT}
+        </div>
         {formError && (
           <DisplayResponseErrors data={formError.response.data.errors} />
         )}
         <div className="flex-r justify-end">
-          <Button type="submit">Comment</Button>
+          <button className="system-button" type="submit">
+            Comment
+          </button>
         </div>
       </fieldset>
     </BootstrapForm>
