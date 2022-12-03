@@ -32,7 +32,14 @@ function PostDetail({ postID, setShow, setLastShown }) {
           </button>
         </>
       )}
-      {error && <DisplayResponseErrors data={error.response.data.errors} />}
+      {error && (
+        <>
+          <DisplayResponseErrors data={error.response.data.errors} />
+          <button className="mt-2 discrete" onClick={closePost}>
+            Close
+          </button>
+        </>
+      )}
     </>
   );
 }
