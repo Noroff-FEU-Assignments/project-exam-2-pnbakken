@@ -6,7 +6,7 @@ import BrandButton from "../../Buttons/brand-button";
 
 function FrontPageCTA() {
   return (
-    <section className="flex-r full-width full-height wrap justify-center gap-md">
+    <section className="flex-r full-width full-height wrap justify-center gap-md top-level-indent">
       <div className="standard-component-width full-width flex-c  gap-sm">
         <DecorativeText size={100}>Join our friendly community!</DecorativeText>
         <div className="flex-c gap-md align-center">
