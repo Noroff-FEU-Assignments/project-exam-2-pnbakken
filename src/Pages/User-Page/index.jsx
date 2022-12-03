@@ -18,7 +18,6 @@ function UserPage() {
 
   setPageTitle(`${name} | `);
 
-  const [user, setUser] = useState(null);
   const getUserSettings = {
     url: `${USER_URL}/${name}?_following=true&_followers=true`,
   };
@@ -27,11 +26,6 @@ function UserPage() {
   };
 
   const { data, loading, error } = useGet(getUserSettings);
-  useEffect(() => {
-    if (data) {
-      setUser(data);
-    }
-  }, [data]);
 
   const [showSocial, setShowSocial] = useState(false);
   const handleShowSocial = () => setShowSocial(!showSocial);
@@ -45,10 +39,10 @@ function UserPage() {
       <MainLayout>
         <AppInterfaceLayout>
           <NewPost />
-          {user && (
+          {data && (
             <>
               <UserBanner
-                user={user}
+                user={data}
                 handleShowSocial={handleShowSocial}
                 handleSocialSet={handleSocialSet}
               />
@@ -58,7 +52,7 @@ function UserPage() {
                   handleShow={handleShowSocial}
                 />
               )}
-              <Heading>{user.name}</Heading>
+              <Heading>{data.name}</Heading>
               <DisplayAllPosts settings={getPostsSettings} />
             </>
           )}
