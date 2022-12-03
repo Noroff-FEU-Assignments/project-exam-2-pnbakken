@@ -4,13 +4,24 @@ import { NavLink } from "react-router-dom";
 import AuthContext from "../../../Context/auth-context";
 import LogoutButton from "../../Buttons/logout-button";
 
+import logo from "../../../assets/image/logo.png";
+import logoSm from "../../../assets/image/logo-sm.png";
+import useWindowSize from "../../../Hooks/use-window-size";
+
 function GlobalNavBar() {
   //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
+  const windowSize = useWindowSize();
+
   return (
     <Navbar expand="lg" className="top-level-indent" variant="dark">
       <NavLink to={auth ? "/home" : "/"}>
-        <Navbar.Brand>Just Post</Navbar.Brand>
+        <Navbar.Brand>
+          <img
+            src={windowSize.innerWidth > 991 ? logo : logoSm}
+            alt="just-post logo"
+          />
+        </Navbar.Brand>
       </NavLink>
       <Navbar.Toggle aria-controls="global-nav-menu" />
       <Navbar.Collapse id="global-nav-menu">

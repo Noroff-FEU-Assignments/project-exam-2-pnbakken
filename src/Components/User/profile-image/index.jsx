@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
+import defaultAvatar from "../../../assets/image/default-avatar.png";
 
 function ProfileImage({ src, size, children }) {
   const style = {
-    ...(src && { backgroundImage: `url(${src})` }),
+    backgroundImage: `url(${src ? src : defaultAvatar})`,
     ...(size && { width: `${size}px`, height: `${size}px` }),
   };
 

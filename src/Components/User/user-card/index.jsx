@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import editIcon from "../../../assets/icon/icon-edit.svg";
 import UserSocial from "../user-social";
 
+import defaultBanner from "../../../assets/image/default-banner.png";
+
 function UserCard({ user, handleShowSocial, handleSocialSet }) {
   //eslint-disable-next-line
   const [auth, isAuth] = useContext(AuthContext);
@@ -23,7 +25,9 @@ function UserCard({ user, handleShowSocial, handleSocialSet }) {
     <>
       <div
         className="user-card full-width flex-c justify-end"
-        style={{ backgroundImage: `url(${user.banner ? user.banner : ""})` }}
+        style={{
+          backgroundImage: `url(${user.banner ? user.banner : defaultBanner})`,
+        }}
       >
         <div className="user-info full-width flex-c align-center">
           <div className="full-width standard-component-width flex-r wrap justify-evenly align-end">
