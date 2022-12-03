@@ -48,7 +48,7 @@ function Home() {
         <Heading className="standard-component-width">
           {selectedFeed} posts
         </Heading>
-        <DisplayAllPosts settings={urlSettings} />
+        <DisplayAllPosts settings={urlSettings} feed={selectedFeed} />
 
         <ImageCarousel />
       </AppInterfaceLayout>

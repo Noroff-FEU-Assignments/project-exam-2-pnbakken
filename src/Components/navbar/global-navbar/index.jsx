@@ -29,9 +29,9 @@ function GlobalNavBar() {
           <NavLink className="nav-link" to={auth ? "/home" : "/"} end>
             Home
           </NavLink>
-          <NavLink className="nav-link" to="/about">
+          {/* <NavLink className="nav-link" to="/about">
             About
-          </NavLink>
+          </NavLink> */}
           {auth ? (
             <LogoutButton />
           ) : (
