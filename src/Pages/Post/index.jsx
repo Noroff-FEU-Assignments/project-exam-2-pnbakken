@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
+import DisplayResponseErrors from "../../Components/Message/display-response-errors";
 import Post from "../../Components/Posts/post";
-import PostDetail from "../../Components/Posts/post-detail";
 import InteractionPanel from "../../Components/Posts/post-interaction/interaction-panel";
 import { POSTS_URL } from "../../Constants";
 import useGet from "../../Hooks/use-get";
@@ -27,6 +27,8 @@ function SinglePost() {
               <InteractionPanel data={data} />
             </Post>
           )}
+          {loading && <>Loading</>}
+          {error && <DisplayResponseErrors data={error.response.data.errors} />}
         </div>
       </AppInterfaceLayout>
     </MainLayout>

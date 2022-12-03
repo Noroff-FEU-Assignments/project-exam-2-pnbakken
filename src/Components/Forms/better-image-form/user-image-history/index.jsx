@@ -7,11 +7,16 @@ import AuthContext from "../../../../Context/auth-context";
 import HistoryContext from "../../../../Context/history-context";
 import validImageUrl from "../../../../Functions/valid-image-url";
 import useGet from "../../../../Hooks/use-get";
+import PropTypes from "prop-types";
 
 import "./index.style.scss";
+import Message from "../../../Message/message";
 
 function UserImageHistory({ handler, endAction }) {
+  // This function needs rewriting
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
+  //eslint-disable-next-line
   const [history, setHistory] = useContext(HistoryContext);
   const getUserHistorySettings = {
     url: USER_URL + `/${auth.name}/posts`,
@@ -51,6 +56,7 @@ function UserImageHistory({ handler, endAction }) {
       setImages(imageHistory);
     }
     getImages();
+    //eslint-disable-next-line
   }, [data]);
 
   function setImageFromHistory(e) {
@@ -76,8 +82,15 @@ function UserImageHistory({ handler, endAction }) {
           })}
         </div>
       )}
+      {loading && <>Loading</>}
+      {error && <Message type="error">Something went wrong</Message>}
     </div>
   );
 }
+
+UserImageHistory.propTypes = {
+  handler: PropTypes.func.isRequired,
+  endAction: PropTypes.func.isRequired,
+};
 
 export default UserImageHistory;

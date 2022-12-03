@@ -1,21 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
 import ContactList from "../../Components/Menus/contact-list";
 import NewPost from "../../Components/Menus/new-post";
+import DisplayResponseErrors from "../../Components/Message/display-response-errors";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
+import Heading from "../../Components/Typography/heading";
 import UserCard from "../../Components/User/user-card";
 import ScrollToTop from "../../Components/Utility-Components/scroll-to-top";
 import { USER_URL } from "../../Constants";
-import AuthContext from "../../Context/auth-context";
+import setPageTitle from "../../Functions/set-page-title";
 import useGet from "../../Hooks/use-get";
 
 function UserPage() {
   const { name } = useParams();
-  const [auth, setAuth] = useContext(AuthContext);
+
+  setPageTitle(`${name} | `);
+
   const [user, setUser] = useState(null);
-  const [posts, setPosts] = useState(null);
   const getUserSettings = {
     url: `${USER_URL}/${name}?_following=true&_followers=true`,
   };
@@ -55,9 +58,12 @@ function UserPage() {
                   handleShow={handleShowSocial}
                 />
               )}
+              <Heading>{user.name}</Heading>
               <DisplayAllPosts settings={getPostsSettings} />
             </>
           )}
+          {loading && <>Loading</>}
+          {error && <DisplayResponseErrors data={error.response.data.errors} />}
         </AppInterfaceLayout>
       </MainLayout>
     </ScrollToTop>

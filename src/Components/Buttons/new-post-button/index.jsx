@@ -6,6 +6,7 @@ import BrandButton from "../brand-button";
 import "./index.style.scss";
 import iconPlus from "../../../assets/icon/icon-plus.svg";
 function NewPostButton() {
+  //eslint-disable-next-line
   const [showNewPost, setShowNewPost] = useContext(ShowNewPostContext);
   const windowSize = useWindowSize();
 

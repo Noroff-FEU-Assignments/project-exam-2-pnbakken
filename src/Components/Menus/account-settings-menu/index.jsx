@@ -13,7 +13,7 @@ function AccountSettingsMenu({ user }) {
     setShowEditProfileBanner(!showEditProfileBanner);
 
   return (
-    <div className="account-settings-menu full-width">
+    <div className="account-settings-menu full-width large-component-width">
       <ul className="flex-c full-width standard-component-width gap-md no-list-style">
         <li className="menu-item full-width">
           <button className="discrete" onClick={handleShowEditProfileAvatar}>

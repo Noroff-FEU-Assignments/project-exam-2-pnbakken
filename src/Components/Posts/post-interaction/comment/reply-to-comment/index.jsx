@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { POSTS_URL } from "../../../../../Constants";
 import CreateComment from "../../../../Forms/create-comment-form";
+import PropTypes from "prop-types";
 
 function ReplyToComment({ replyToId, postID }) {
   const [show, setShow] = useState(false);
@@ -22,5 +23,10 @@ function ReplyToComment({ replyToId, postID }) {
     </>
   );
 }
+
+ReplyToComment.propTypes = {
+  replyToId: PropTypes.number.isRequired,
+  postID: PropTypes.number.isRequired,
+};
 
 export default ReplyToComment;

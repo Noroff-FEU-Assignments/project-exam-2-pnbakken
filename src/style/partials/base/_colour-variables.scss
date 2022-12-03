@@ -6,6 +6,13 @@ $colour-rich-black: #031c2b;
 $colour-eerie-black: #262626;
 $colour-pitch-black: #021218;
 
+$colour-independence: #4D4861;
+$colour-yale-blue: #044389;
+$colour-citron: #91972A;
+$colour-selective-yellow: #FFBA08;
+$colour-midnight-green: #0E3B43;
+$colour-dark-cornflower-blue: #1B4079;
+
 $colour-dark: $colour-rich-black;
 $colour-light: $colour-baby-powder;
 $colour-grey: $colour-eerie-black;
@@ -13,7 +20,7 @@ $colour-grey: $colour-eerie-black;
 $colour-primary: $colour-ruby;
 $colour-secondary: $colour-carolina-blue;
 
-$colour-primary-background: $colour-space-cadet;
+$colour-primary-background: $colour-dark-cornflower-blue;
 $colour-secondary-background: $colour-rich-black;
 $colour-secondary-background-transparent: rgb($colour-secondary-background, 0.8);
 $colour-system-background: $colour-pitch-black;

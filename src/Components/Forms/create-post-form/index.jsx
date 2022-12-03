@@ -16,6 +16,7 @@ import { HistoryProvider } from "../../../Context/history-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
 import TagInput from "../Form-Components/tag-input";
+import DisplayResponseErrors from "../../Message/display-response-errors";
 
 const BODY_LIMIT = 280;
 
@@ -42,16 +43,13 @@ function CreatePostForm({
   close,
   postBodyId = "new-post-body",
 }) {
-  const [running, setRunning] = useState(edit ? true : false);
   const [refresh, setRefresh] = useContext(RefreshContext);
-  function startRunning() {
-    setRunning(true);
-  }
+  const [error, setError] = useState(null);
   function stopRunning() {
     setImageUrl("");
-    setRunning(false);
   }
   const [disabled, setDisabled] = useState(false);
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
   const [tags, setTags] = useState([]);
@@ -104,7 +102,6 @@ function CreatePostForm({
     const client = createAxios(auth);
 
     try {
-      let response = null;
       if (imageUrl) {
         data.media = imageUrl;
       }
@@ -115,13 +112,14 @@ function CreatePostForm({
         data.tags = tags;
       }
       if (edit) {
-        response = await client.put(url, data);
+        await client.put(url, data);
       } else {
-        response = await client.post(url, data);
+        await client.post(url, data);
       }
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);
+      setError(error);
     } finally {
       setImageUrl("");
       setDisabled(false);
@@ -142,9 +140,7 @@ function CreatePostForm({
       >
         <fieldset
           disabled={disabled || showAddImage}
-          className={`full-width standard-component-width p-4 radius-sm ${
-            running ? "running" : ""
-          }`}
+          className={`full-width standard-component-width p-4 radius-sm`}
           //onFocus={startRunning}
         >
           <Form.Group className="mb-3">
@@ -200,7 +196,8 @@ function CreatePostForm({
 
           {imageUrl && (
             <div>
-              <img src={imageUrl} />
+              {/*eslint-disable-next-line*/}
+              <img src={imageUrl} alt="your image-selection" />
             </div>
           )}
           <div className="new-post-menu flex-r wrap justify-between align-center">
@@ -228,6 +225,7 @@ function CreatePostForm({
             </div>
           </div>
         </fieldset>
+        {error && <DisplayResponseErrors data={error.response.data.errors} />}
       </BootstrapForm>
       {showAddImage && (
         <HistoryProvider>
@@ -245,5 +243,7 @@ function CreatePostForm({
 CreatePostForm.propTypes = {
   url: PropTypes.string.isRequired,
   edit: PropTypes.object,
+  close: PropTypes.func,
+  postBodyId: PropTypes.string,
 };
 export default CreatePostForm;

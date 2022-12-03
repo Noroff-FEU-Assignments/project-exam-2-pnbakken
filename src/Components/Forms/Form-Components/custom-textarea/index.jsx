@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
@@ -36,5 +37,11 @@ function CustomTextArea({
     </>
   );
 }
+
+CustomTextArea.propTypes = {
+  id: PropTypes.string,
+  className: PropTypes.string,
+  name: PropTypes.string,
+};
 
 export default CustomTextArea;

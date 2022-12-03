@@ -1,5 +1,6 @@
 import React from "react";
 import ReactionForm from "../../../../Forms/reaction-form";
+import PropTypes from "prop-types";
 
 function NewReaction({ postID }) {
   return (
@@ -8,5 +9,9 @@ function NewReaction({ postID }) {
     </div>
   );
 }
+
+NewReaction.propTypes = {
+  postID: PropTypes.number.isRequired,
+};
 
 export default NewReaction;

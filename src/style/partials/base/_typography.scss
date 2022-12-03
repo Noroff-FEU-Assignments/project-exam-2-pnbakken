@@ -58,6 +58,14 @@ button {
     font-family: $font-brand;
 }
 
+.primary-text {
+    color: $colour-primary !important;
+}
+
+.primary-text:hover {
+    color: $colour-primary !important;
+}
+
 .dark-text {
     color: $colour-dark;
 }

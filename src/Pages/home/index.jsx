@@ -6,9 +6,13 @@ import MainLayout from "../../Components/Layout/main-layout";
 import NewPost from "../../Components/Menus/new-post";
 import PostFeedSelector from "../../Components/Menus/post-feed-selector";
 import DisplayAllPosts from "../../Components/Posts/display-all-posts";
+import Heading from "../../Components/Typography/heading";
 import { POSTS_URL } from "../../Constants";
+import setPageTitle from "../../Functions/set-page-title";
 
 function Home() {
+  setPageTitle("Home | ");
+
   const [urlSettings, setUrlSettings] = useState({
     url: `${POSTS_URL}?_author=true`,
   });
@@ -41,7 +45,9 @@ function Home() {
           getSelection={setSelectedFeed}
           currentSelection={selectedFeed}
         />
-
+        <Heading className="standard-component-width">
+          {selectedFeed} posts
+        </Heading>
         <DisplayAllPosts settings={urlSettings} />
 
         <ImageCarousel />

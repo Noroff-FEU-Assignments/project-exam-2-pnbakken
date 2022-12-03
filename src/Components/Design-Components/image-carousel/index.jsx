@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import validImageUrl from "../../../Functions/valid-image-url";
 
+// NOT IN USE
 function ImageCarousel({ posts }) {
+  //eslint-disable-next-line
   const images = async () => {
     if (posts) {
       let imgArray = [];

@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import CentralColumn from "../../Design-Components/center-column";
 import AppSidebar from "../../navbar/app-sidebar";
 import { RefreshProvider } from "../../../Context/refresh-context";
-import { Container } from "react-bootstrap";
 import { ShowNewPostContextProvider } from "../../../Context/show-new-post-context";
 
 import "./index.style.scss";
@@ -13,6 +12,7 @@ import bgImg from "../../../assets/image/app-bg-3.jpg";
 
 function AppInterfaceLayout({ children }) {
   const navigate = useNavigate();
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
   useEffect(() => {

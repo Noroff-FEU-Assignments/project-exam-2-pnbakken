@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import BootstrapForm from "../bootstrap-form";
-import { Form } from "react-bootstrap";
-import SelectedImageDisplay from "./selectedImageDisplay";
 import FileInput from "./file-input";
 import BrandButton from "../../Buttons/brand-button";
 import UrlInput from "./url-input";
@@ -10,6 +8,7 @@ import createAxios from "../../../Functions/create-axios";
 import UserImageHistory from "./user-image-history";
 
 import "./index.style.scss";
+import Message from "../../Message/message";
 
 /**
  * Uploads selected image file or checks typed image url and passes string to callback handler.
@@ -19,6 +18,7 @@ import "./index.style.scss";
  * @returns JSX.Component
  */
 function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
+  //eslint-disable-next-line
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState(null);
@@ -47,6 +47,7 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
       }
     } catch (error) {
       console.error(error);
+      setFormError(error);
     } finally {
       setLoading(false);
     }
@@ -67,6 +68,7 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
           <FileInput resultHandler={setImageUrl} className="mb-3" />
         </div>
         <div className="menu flex-r full-width wrap justify-between">
+          {formError && <Message type="error">Something went wrong</Message>}
           <button type="button" onClick={handleShow}>
             Cancel
           </button>
@@ -85,7 +87,7 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
 
 BetterImageForm.propTypes = {
   imageUrlHandler: PropTypes.func.isRequired,
-  handleShow: PropTypes.func,
+  handleShow: PropTypes.func.isRequired,
   edit: PropTypes.string,
 };
 

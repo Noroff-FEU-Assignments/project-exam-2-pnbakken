@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function SetApiOffset({ limit, offset, handleOffset, limitReached }) {
   const upOffset = () => handleOffset(offset + limit);
@@ -14,5 +15,12 @@ function SetApiOffset({ limit, offset, handleOffset, limitReached }) {
     </div>
   );
 }
+
+SetApiOffset.propTypes = {
+  limit: PropTypes.number.isRequired,
+  offSet: PropTypes.number.isRequired,
+  handleOffset: PropTypes.func.isRequired,
+  limitReached: PropTypes.bool.isRequired,
+};
 
 export default SetApiOffset;

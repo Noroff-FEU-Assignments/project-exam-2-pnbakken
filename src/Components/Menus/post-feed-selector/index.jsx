@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
@@ -30,5 +31,10 @@ function PostFeedSelector({ getSelection, currentSelection }) {
     </div>
   );
 }
+
+PostFeedSelector.propTypes = {
+  getSelection: PropTypes.func.isRequired,
+  currentSelection: PropTypes.string.isRequired,
+};
 
 export default PostFeedSelector;
