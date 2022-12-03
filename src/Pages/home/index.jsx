@@ -42,7 +42,9 @@ function Home() {
           getSelection={setSelectedFeed}
           currentSelection={selectedFeed}
         />
-        <Heading>{selectedFeed} posts</Heading>
+        <Heading className="standard-component-width">
+          {selectedFeed} posts
+        </Heading>
         <DisplayAllPosts settings={urlSettings} />
 
         <ImageCarousel />
