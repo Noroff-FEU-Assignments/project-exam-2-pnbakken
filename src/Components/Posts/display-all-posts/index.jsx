@@ -9,9 +9,14 @@ import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
-function DisplayAllPosts({ settings }) {
+function DisplayAllPosts({ settings, feed }) {
   const RATE_LIMIT = 50;
   const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    setOffset(0);
+  }, [feed]);
+
   const [url, setUrl] = useState(
     settings.url + `&limit=${RATE_LIMIT}&offset=${offset}`
   );
