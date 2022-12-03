@@ -1,20 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import "./index.style.scss";
-import { useContext } from "react";
-import AuthContext from "../../../Context/auth-context";
-import PostDetailModal from "../post-detail";
-import PostContent from "../post/post-content";
 import PostFooter from "../post/post-footer";
 import ClickableWrapper from "../../Utility-Components/clickable-wrapper";
 import Post from "../post";
-import InteractionPanel from "../post-interaction/interaction-panel";
-import SelectedImageDisplay from "../../Forms/better-image-form/selectedImageDisplay";
+
+import "./index.style.scss";
 
 function PostListItem({ data, showSingle }) {
-  const [auth, setAuth] = useContext(AuthContext);
-
   function handleShow() {
     showSingle({ id: data.id });
   }
@@ -31,6 +23,7 @@ function PostListItem({ data, showSingle }) {
 
 PostListItem.propTypes = {
   data: PropTypes.object.isRequired,
+  showSingle: PropTypes.func.isRequired,
 };
 
 export default PostListItem;

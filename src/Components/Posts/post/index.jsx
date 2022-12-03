@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import "./index.style.scss";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
-import OwnerInteraction from "../post-interaction/owner-interaction";
 import PostContent from "./post-content";
 
 function Post({ children, data, close }) {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const isOwner = auth && auth.email === data.author.email ? true : false;
 
@@ -31,6 +31,7 @@ function Post({ children, data, close }) {
 Post.propTypes = {
   children: PropTypes.node.isRequired,
   data: PropTypes.object.isRequired,
+  close: PropTypes.func,
 };
 
 export default Post;

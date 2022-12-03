@@ -1,5 +1,5 @@
 import React from "react";
-import NewReaction from "../new-reaction";
+import PropTypes from "prop-types";
 
 import icon from "../../../../../assets/icon/icon-thumbsup.svg";
 
@@ -18,5 +18,9 @@ function ReactionCount({ data }) {
     </div>
   );
 }
+
+ReactionCount.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default ReactionCount;

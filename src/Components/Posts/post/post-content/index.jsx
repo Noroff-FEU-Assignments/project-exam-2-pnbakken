@@ -8,7 +8,7 @@ import PostHeader from "../post-header";
 
 import "./index.style.scss";
 
-function PostContent({ data, isOwner }) {
+function PostContent({ data, isOwner = false }) {
   const [validMedia, setValidMedia] = useState(true);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ function PostContent({ data, isOwner }) {
       }
     }
     checkMedia();
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -61,8 +62,7 @@ function PostContent({ data, isOwner }) {
 
 PostContent.propTypes = {
   data: PropTypes.object.isRequired,
-  show: PropTypes.bool,
-  setShow: PropTypes.func,
+  isOwner: PropTypes.bool.isRequired,
 };
 
 export default PostContent;

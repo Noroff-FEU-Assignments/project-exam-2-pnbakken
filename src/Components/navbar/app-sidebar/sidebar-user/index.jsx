@@ -1,16 +1,14 @@
-import userEvent from "@testing-library/user-event";
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { USER_URL } from "../../../../Constants";
 import AuthContext from "../../../../Context/auth-context";
-import useGet from "../../../../Hooks/use-get";
 import useWindowSize from "../../../../Hooks/use-window-size";
 import ProfileImage from "../../../User/profile-image";
 
 import "./index.style.scss";
 
 function SidebarUser() {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
   const windowSize = useWindowSize();

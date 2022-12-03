@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import "./index.style.scss";
 import ProfileImage from "../../User/profile-image";
 import { Link } from "react-router-dom";
-import Follow from "../../Buttons/follow-user";
+
+import "./index.style.scss";
 
 function ContactList({ contacts, handleShow }) {
   function RenderContacts({ contacts }) {

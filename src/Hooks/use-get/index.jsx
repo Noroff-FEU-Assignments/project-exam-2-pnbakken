@@ -8,12 +8,15 @@ function useGet(settings) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
+  //eslint-disable-next-line
   const [refresh, setRefresh] = useContext(RefreshContext);
-  const client = createAxios(auth);
+
   console.log(settings.url);
   useEffect(() => {
     async function getData() {
+      const client = createAxios(auth);
       if (auth) {
         try {
           setLoading(true);
@@ -21,9 +24,10 @@ function useGet(settings) {
           console.log(response);
           if (response.status === 200) {
             setData(response.data);
+            setError(null);
           }
         } catch (error) {
-          //setError(error.response.errors);
+          setError(error);
           console.error(error);
         } finally {
           setLoading(false);

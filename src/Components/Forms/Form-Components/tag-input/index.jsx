@@ -8,6 +8,7 @@ function TagInput({ tagHandler, edit }) {
     if (edit) {
       tagHandler(edit);
     }
+    //eslint-disable-next-line
   }, []);
 
   const [tags, setTags] = useState(edit ? edit : []);

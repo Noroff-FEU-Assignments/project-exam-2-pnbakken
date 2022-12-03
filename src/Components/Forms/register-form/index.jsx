@@ -10,6 +10,7 @@ import DisplayResponseErrors from "../../Message/display-response-errors";
 import InputError from "../../Message/input-error";
 import { useNavigate } from "react-router-dom";
 import BootstrapForm from "../bootstrap-form";
+import BrandButton from "../../Buttons/brand-button";
 
 const schema = yup.object().shape({
   username: yup.string().required("Please enter a username"),
@@ -120,7 +121,7 @@ function RegisterForm() {
         </Form.Group>
         {responseError && <DisplayResponseErrors data={responseError} />}
         <div className="flex-r full-width justify-end">
-          <Button type="submit">Submit</Button>
+          <BrandButton type="submit">Submit</BrandButton>
         </div>
       </fieldset>
     </BootstrapForm>

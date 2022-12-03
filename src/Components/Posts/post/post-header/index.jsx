@@ -67,3 +67,7 @@ function HeaderInfo({ data }) {
     </div>
   );
 }
+
+HeaderInfo.propTypes = {
+  data: PropTypes.object.isRequired,
+};

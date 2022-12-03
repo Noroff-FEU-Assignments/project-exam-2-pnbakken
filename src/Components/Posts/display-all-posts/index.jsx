@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { POSTS_URL } from "../../../Constants";
 import useGet from "../../../Hooks/use-get";
-import ImageCarousel from "../../Design-Components/image-carousel";
 import Message from "../../Message/message";
 import SetApiOffset from "../../Utility-Components/set-api-offset";
 import PostDetail from "../post-detail";
 import PostListItem from "../post-list-item";
+import PropTypes from "prop-types";
 
 import "./index.style.scss";
 
@@ -24,31 +23,18 @@ function DisplayAllPosts({ settings }) {
   }, [offset, settings.url]);
 
   const { data, loading, error } = useGet({ url: url });
-  const [posts, setPosts] = useState(null);
 
   const [showSingle, setShowSingle] = useState(false);
-  const [lastSelected, setLastSelected] = useState(null);
 
   useEffect(() => {
     if (data && data.length < RATE_LIMIT) {
-      // data.length < RATE_LIMIT works pretty well unless the number of posts is exactly a multiple of the limit. In that case the app will not be aware it has no more posts to fetch and will let the user click forwards to display an empty list
+      // data.length < RATE_LIMIT works pretty well unless the number of posts is exactly a multiple amount of the rate limit. In that case the app will not be aware it has no more posts to fetch and will let the user click forward to display an empty list
       setLimitReached(true);
     } else {
       setLimitReached(false);
     }
   }, [data]);
 
-  useEffect(() => {
-    if (lastSelected && data) {
-      const targetElement = document.getElementById(lastSelected);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behaviour: "smooth",
-          block: "start",
-        });
-      }
-    }
-  }, [lastSelected, data]);
   return (
     <div
       id="posts-display"
@@ -60,11 +46,7 @@ function DisplayAllPosts({ settings }) {
       {data &&
         !loading &&
         (showSingle && showSingle.id ? (
-          <PostDetail
-            postID={showSingle.id}
-            setShow={setShowSingle}
-            setLastShown={setLastSelected}
-          />
+          <PostDetail postID={showSingle.id} setShow={setShowSingle} />
         ) : (
           <div className="flex-c wrap align-center full-width">
             <ul className="post-list flex-c align-center gap-lg full-width standard-component-width">
@@ -99,5 +81,9 @@ function DisplayAllPosts({ settings }) {
     </div>
   );
 }
+
+DisplayAllPosts.propTypes = {
+  settings: PropTypes.object.isRequired,
+};
 
 export default DisplayAllPosts;

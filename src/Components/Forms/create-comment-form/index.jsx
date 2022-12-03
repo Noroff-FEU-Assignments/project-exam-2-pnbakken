@@ -1,8 +1,5 @@
 import React from "react";
-import { Button, Form } from "react-bootstrap";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Button } from "react-bootstrap";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import createAxios from "../../../Functions/create-axios";
@@ -11,8 +8,10 @@ import AuthContext from "../../../Context/auth-context";
 import BootstrapForm from "../bootstrap-form";
 import RefreshContext from "../../../Context/refresh-context";
 import CustomTextArea from "../Form-Components/custom-textarea";
+import DisplayResponseErrors from "../../Message/display-response-errors";
 
 function CreateComment({ url, replyID = null, close }) {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [refresh, setRefresh] = useContext(RefreshContext);
   const [formError, setFormError] = useState(null);
@@ -33,12 +32,13 @@ function CreateComment({ url, replyID = null, close }) {
         };
 
         try {
-          const response = await client.post(url, data);
-
+          await client.post(url, data);
+          setFormError(null);
           setRefresh(!refresh);
           close && close();
         } catch (error) {
           console.error(error);
+          setFormError(error);
         }
       } else {
         setFormError("You can't leave an empty comment");
@@ -59,6 +59,9 @@ function CreateComment({ url, replyID = null, close }) {
           name="body"
           placeholder="Leave a comment"
         />
+        {formError && (
+          <DisplayResponseErrors data={formError.response.data.errors} />
+        )}
         <div className="flex-r justify-end">
           <Button type="submit">Comment</Button>
         </div>

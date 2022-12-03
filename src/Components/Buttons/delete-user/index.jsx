@@ -5,14 +5,16 @@ import { USER_URL } from "../../../Constants";
 import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
 
+// NOT IN USE
 function DeleteUser() {
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
 
   async function runDelete() {
     const client = createAxios(auth);
 
     try {
-      const response = await client.delete(USER_URL + `/${auth.name}`);
+      await client.delete(USER_URL + `/${auth.name}`);
     } catch (error) {}
   }
   return (

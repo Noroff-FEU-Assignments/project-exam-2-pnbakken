@@ -4,6 +4,7 @@ import DisplayComment from "../comment/display-comment";
 import DisplayReaction from "../reaction/display-reaction";
 import NewReaction from "../reaction/new-reaction";
 import ReactionCount from "../reaction/reaction-count";
+import PropTypes from "prop-types";
 
 function InteractionPanel({ data }) {
   return (
@@ -20,5 +21,9 @@ function InteractionPanel({ data }) {
     </div>
   );
 }
+
+InteractionPanel.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default InteractionPanel;
