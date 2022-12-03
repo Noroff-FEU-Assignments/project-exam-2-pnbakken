@@ -6,7 +6,7 @@ import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import PostContent from "./post-content";
 
-function Post({ children, data, close }) {
+function Post({ children, data, close, handleShow }) {
   //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const isOwner = auth && auth.email === data.author.email ? true : false;
@@ -22,7 +22,11 @@ function Post({ children, data, close }) {
           Close
         </button>
       )}
-      <PostContent data={data} isOwner={isOwner} />
+      <PostContent
+        data={data}
+        isOwner={isOwner}
+        handleShow={handleShow ? handleShow : undefined}
+      />
       {children}
     </div>
   );

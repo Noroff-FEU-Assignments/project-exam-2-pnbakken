@@ -4,6 +4,7 @@ import CentralColumn from "../../Components/Design-Components/center-column";
 import AppInterfaceLayout from "../../Components/Layout/app-interface-layout";
 import MainLayout from "../../Components/Layout/main-layout";
 import AccountSettingsMenu from "../../Components/Menus/account-settings-menu";
+import BetterProfileImageMenu from "../../Components/Menus/better-profile-image-menu";
 import NewPost from "../../Components/Menus/new-post";
 import DisplayResponseErrors from "../../Components/Message/display-response-errors";
 import UserBanner from "../../Components/User/user-banner";
@@ -27,7 +28,7 @@ function UserSettings() {
         <CentralColumn>
           {loading && <>Loading...</>}
           {data && <UserBanner user={data} />}
-          {data && <AccountSettingsMenu user={data} />}
+          {data && <BetterProfileImageMenu user={data} />}
           {error && <DisplayResponseErrors data={error.response.data.errors} />}
         </CentralColumn>
       </AppInterfaceLayout>

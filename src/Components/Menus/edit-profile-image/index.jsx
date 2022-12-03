@@ -16,8 +16,6 @@ function EditProfileImage({ handleShow, property, current = "" }) {
   const [refresh, setRefresh] = useContext(RefreshContext);
   const mediaUrl = USER_URL + `/${auth.name}/media`;
   const [imageUrl, setImageUrl] = useState(current);
-  const [showImageForm, setShowImageForm] = useState(true);
-  const handleShowImageForm = () => setShowImageForm(!showImageForm);
 
   async function updateImage() {
     const client = createAxios(auth);
@@ -26,34 +24,23 @@ function EditProfileImage({ handleShow, property, current = "" }) {
       await client.put(mediaUrl, { [property]: imageUrl });
 
       setRefresh(!refresh);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async function removeImage() {
-    const client = createAxios(auth);
-
-    try {
-      await client.put(mediaUrl, { [property]: "" });
-      setRefresh(!refresh);
+      handleShow();
     } catch (error) {
       console.error(error);
     }
   }
 
   return (
-    <div className="flex-c full-width">
-      {showImageForm && (
-        <div>
-          <HistoryProvider>
-            <BetterImageForm
-              imageUrlHandler={setImageUrl}
-              handleShow={handleShowImageForm}
-            />
-          </HistoryProvider>
-        </div>
-      )}
+    <div className="edit-image-form flex-c full-width">
+      <div>
+        <HistoryProvider>
+          <BetterImageForm
+            imageUrlHandler={setImageUrl}
+            handleShow={handleShow}
+          />
+        </HistoryProvider>
+      </div>
+
       <div className="flex-row justify-between">
         {imageUrl && imageUrl !== current ? (
           <button type="button" onClick={updateImage}>
@@ -62,9 +49,6 @@ function EditProfileImage({ handleShow, property, current = "" }) {
         ) : (
           <span></span>
         )}
-        <button type="button" onClick={removeImage}>
-          Remove {property} image
-        </button>
       </div>
     </div>
   );

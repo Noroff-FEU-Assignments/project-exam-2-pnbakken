@@ -12,7 +12,7 @@ function PostListItem({ data, showSingle }) {
   }
   return (
     <li className={`post-list-item flex-c align-center full-width radius-sm `}>
-      <Post data={data}>
+      <Post data={data} handleShow={handleShow}>
         <ClickableWrapper onClick={handleShow}>
           <PostFooter data={data} />
         </ClickableWrapper>

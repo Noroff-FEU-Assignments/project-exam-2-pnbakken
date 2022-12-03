@@ -6,11 +6,13 @@ import createAxios from "../../../Functions/create-axios";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
+import RefreshContext from "../../../Context/refresh-context";
 
 function Follow({ otherUser }) {
   //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
+  const [refresh, setRefresh] = useContext(RefreshContext);
 
   const isFollowing = () => {
     let follower = false;
@@ -39,6 +41,7 @@ function Follow({ otherUser }) {
     } catch (error) {
     } finally {
       setDisabled(false);
+      setRefresh(!refresh);
     }
   }
 
@@ -52,6 +55,7 @@ function Follow({ otherUser }) {
       console.error(error);
     } finally {
       setDisabled(false);
+      setRefresh(!refresh);
     }
   }
 
