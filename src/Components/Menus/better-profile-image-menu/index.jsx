@@ -7,18 +7,16 @@ import createAxios from "../../../Functions/create-axios";
 import AuthContext from "../../../Context/auth-context";
 import { USER_URL } from "../../../Constants";
 import EditProfileImage from "../edit-profile-image";
+import RefreshContext from "../../../Context/refresh-context";
 
 function BetterProfileImageMenu({ user, handleRefresh }) {
   const [auth] = useContext(AuthContext);
   const [showAvatarForm, setShowAvatarForm] = useState(false);
   const handleShowAvatarForm = () => setShowAvatarForm(!showAvatarForm);
+  const [refresh, setRefresh] = useContext(RefreshContext);
 
   const [showBannerForm, setShowBannerForm] = useState(false);
   const handleShowBannerForm = () => setShowBannerForm(!showBannerForm);
-
-  const [avatarUrl, setAvatarUrl] = useState("");
-  const [bannerUrl, setBannerUrl] = useState("");
-  const [property, setProperty] = useState("");
 
   const mediaUrl = USER_URL + `/${auth.name}/media`;
 
@@ -27,7 +25,8 @@ function BetterProfileImageMenu({ user, handleRefresh }) {
 
     try {
       await client.put(mediaUrl, { [property]: "" });
-      handleRefresh();
+      setRefresh(!refresh);
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
@@ -35,13 +34,13 @@ function BetterProfileImageMenu({ user, handleRefresh }) {
 
   return (
     <div className="profile-image-menu flex-c full-width standard-component-width gap-lg">
-      <div className="flex-r justify-between wrap align-center gap-md">
+      <div className="flex-r full-width justify-between wrap align-center gap-md">
         <BrandButton onClick={handleShowAvatarForm}>Update avatar</BrandButton>
         <button className="system-button" onClick={() => removeImage("avatar")}>
           Remove avatar
         </button>
       </div>
-      <div className="flex-r justify-between wrap align-center gap-md">
+      <div className="flex-r full-width justify-between wrap align-center gap-md">
         <BrandButton onClick={handleShowBannerForm}>Update banner</BrandButton>
         <button className="system-button" onClick={() => removeImage("banner")}>
           Remove banner

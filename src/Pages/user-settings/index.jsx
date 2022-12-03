@@ -27,8 +27,12 @@ function UserSettings() {
         <NewPost />
         <CentralColumn>
           {loading && <>Loading...</>}
-          {data && <UserBanner user={data} />}
-          {data && <BetterProfileImageMenu user={data} />}
+          {data && (
+            <>
+              <UserBanner user={data} />
+              <BetterProfileImageMenu user={data} />
+            </>
+          )}
           {error && <DisplayResponseErrors data={error.response.data.errors} />}
         </CentralColumn>
       </AppInterfaceLayout>
