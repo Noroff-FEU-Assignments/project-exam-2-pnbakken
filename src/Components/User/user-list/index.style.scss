@@ -10,9 +10,8 @@
 .user-list-item {
     width: 200px;
     padding: 32px;
-    background: $colour-secondary-background;
+    background: $colour-light;
     line-break: anywhere;
-
 
     @media(max-width: 555px) {
         scale: 0.85;

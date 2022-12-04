@@ -6,7 +6,7 @@ import Message from "../../../Message/message";
 import menuIcon from "../../../../assets/icon/icon-ellipsis.svg";
 import OwnerInteraction from "../../post-interaction/owner-interaction";
 
-function PostHeader({ data, isOwner }) {
+function PostHeader({ data, isOwner, close }) {
   const [showOwnerInteraction, setShowOwnerInteraction] = useState(false);
   const handleShowOwnerInteraction = () =>
     setShowOwnerInteraction(!showOwnerInteraction);
@@ -19,7 +19,7 @@ function PostHeader({ data, isOwner }) {
       {!showOwnerInteraction ? (
         <HeaderInfo data={data} />
       ) : (
-        <OwnerInteraction post={data} close={handleShowOwnerInteraction} />
+        <OwnerInteraction post={data} close={close} />
       )}
       {isOwner && (
         <div className="">

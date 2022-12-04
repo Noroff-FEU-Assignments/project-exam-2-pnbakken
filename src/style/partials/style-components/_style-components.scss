@@ -7,3 +7,11 @@
     color: $colour-light;
     @extend .radius-sm;
 }
+
+.error {
+    padding: 16px;
+    background: rgb(red, 0.4);
+    color: $colour-light;
+    margin: 8px !important;
+    border-radius: 0.25em;
+}

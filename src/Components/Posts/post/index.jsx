@@ -6,7 +6,7 @@ import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import PostContent from "./post-content";
 
-function Post({ children, data, close, handleShow }) {
+function Post({ children, data, close, handleShow, isOpen = false }) {
   //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const isOwner = auth && auth.email === data.author.email ? true : false;
@@ -17,7 +17,7 @@ function Post({ children, data, close, handleShow }) {
         isOwner && "owner"
       } radius-sm flex-c gap-md`}
     >
-      {close && (
+      {isOpen && (
         <button type="button" className="discrete close-button" onClick={close}>
           Close
         </button>
@@ -36,6 +36,8 @@ Post.propTypes = {
   children: PropTypes.node.isRequired,
   data: PropTypes.object.isRequired,
   close: PropTypes.func,
+  handleShow: PropTypes.func,
+  isOpen: PropTypes.bool,
 };
 
 export default Post;

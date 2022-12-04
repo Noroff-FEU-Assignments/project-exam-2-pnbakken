@@ -12,7 +12,9 @@ function EditPost({ post, auth }) {
   }
   return (
     <>
-      <button onClick={showEdit}>Edit</button>
+      <button className="system-button" onClick={showEdit}>
+        Edit
+      </button>
       {show && (
         <div className="flex-c align-center full-width">
           <Modal
