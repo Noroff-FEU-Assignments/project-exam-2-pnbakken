@@ -16,13 +16,13 @@ function EditProfileImage({ handleShow, property, current = "" }) {
   const [refresh, setRefresh] = useContext(RefreshContext);
   const mediaUrl = USER_URL + `/${auth.name}/media`;
   const [imageUrl, setImageUrl] = useState(current);
-  const [showMenu, setShowMenu] = useState(true);
 
   useEffect(() => {
     if (imageUrl) {
       updateImage();
       handleShow(false);
     }
+    //eslint-disable-next-line
   }, [imageUrl]);
 
   async function updateImage() {
