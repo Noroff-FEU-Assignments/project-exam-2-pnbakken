@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,6 +45,7 @@ function RegisterForm() {
     resolver: yupResolver(schema),
   });
 
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
   const [responseError, setResponseError] = useState(null);

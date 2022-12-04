@@ -15,7 +15,7 @@ The live site can be accessed [here](https://just-post-app.netlify.app/).
 
 - [5. Acknowledgements](#5-acknowledgements)
 
-- [0. Update History](#5-update-history)
+- [0. Update History](#0-update-history)
 
 ## <a name="#1">1.</a> About
 
