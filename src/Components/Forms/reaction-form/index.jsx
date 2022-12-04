@@ -11,6 +11,7 @@ import "./index.style.scss";
 
 function ReactionForm({ postID }) {
   const url = `${POSTS_URL}/${postID}/react`;
+  //eslint-disable-next-line
   const [auth, setAuth] = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
   const client = createAxios(auth);
@@ -20,7 +21,7 @@ function ReactionForm({ postID }) {
     setDisabled(true);
     const symbol = e.target.dataset.symbol;
     try {
-      const response = await client.put(url + `/${symbol}`);
+      await client.put(url + `/${symbol}`);
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);

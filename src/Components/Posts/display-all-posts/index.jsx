@@ -8,6 +8,7 @@ import PostListItem from "../post-list-item";
 import PropTypes from "prop-types";
 
 import "./index.style.scss";
+import { useLocation } from "react-router-dom";
 
 function DisplayAllPosts({ settings, feed }) {
   const RATE_LIMIT = 50;
@@ -39,6 +40,14 @@ function DisplayAllPosts({ settings, feed }) {
       setLimitReached(false);
     }
   }, [data]);
+
+  const location = useLocation();
+  useEffect(() => {
+    console.log("path changed");
+    setShowSingle(false);
+
+    //eslint-disable-next-line
+  }, [location]);
 
   return (
     <div
@@ -89,6 +98,7 @@ function DisplayAllPosts({ settings, feed }) {
 
 DisplayAllPosts.propTypes = {
   settings: PropTypes.object.isRequired,
+  feed: PropTypes.string,
 };
 
 export default DisplayAllPosts;

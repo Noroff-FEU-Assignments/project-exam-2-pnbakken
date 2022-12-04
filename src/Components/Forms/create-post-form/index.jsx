@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useContext } from "react";
 import AuthContext from "../../../Context/auth-context";
 import createAxios from "../../../Functions/create-axios";
-import getRandomEncouragement from "./string-collection";
 import PropTypes from "prop-types";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
@@ -17,6 +16,7 @@ import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
 import TagInput from "../Form-Components/tag-input";
 import DisplayResponseErrors from "../../Message/display-response-errors";
+import getRandom from "../../../Functions/get-random";
 
 const BODY_LIMIT = 280;
 
@@ -257,3 +257,21 @@ CreatePostForm.propTypes = {
   postBodyId: PropTypes.string,
 };
 export default CreatePostForm;
+
+const encouragements = [
+  "It would be good if you posted something",
+  "Maybe you should post something",
+  "Everyone's excited to see what you post",
+  "It's better to post than to not post",
+  "Show everyone how good you are at posting",
+  "Post something",
+  "Time to unleash posting perfection",
+  "Maybe you should post something",
+  "Post as much as humanly possible",
+  "Sometimes you've just gotta post",
+  "I can't believe you aren't posting",
+];
+
+function getRandomEncouragement() {
+  return getRandom(encouragements);
+}

@@ -10,7 +10,7 @@ import InputError from "../../Message/input-error";
 import { useNavigate } from "react-router-dom";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
-import DisplayResponseErrors from "../../Message/display-response-errors";
+import Message from "../../Message/message";
 
 const schema = yup.object().shape({
   email: yup
@@ -87,9 +87,7 @@ function LoginForm() {
         <div className="flex-r full-width justify-end">
           <BrandButton type="submit">Log In</BrandButton>
         </div>
-        {formError && (
-          <DisplayResponseErrors data={formError.response.errors.data} />
-        )}
+        {formError && <Message type="error">{formError.toString()}</Message>}
       </fieldset>
     </BootstrapForm>
   );

@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import BrandButton from "../../Buttons/brand-button";
 import { Modal } from "react-bootstrap";
-import BetterImageForm from "../../Forms/better-image-form";
 import createAxios from "../../../Functions/create-axios";
 import AuthContext from "../../../Context/auth-context";
 import { USER_URL } from "../../../Constants";
