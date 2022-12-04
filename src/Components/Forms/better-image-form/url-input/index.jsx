@@ -9,7 +9,7 @@ function UrlInput({ resultHandler, edit = "", className = "" }) {
     resultHandler(e.target.value);
   }
   return (
-    <Form.Group className={`url-input ${className}`}>
+    <Form.Group className={`url-input-form ${className}`}>
       <Form.Label>Image Url</Form.Label>
       <Form.Control
         type="text"
