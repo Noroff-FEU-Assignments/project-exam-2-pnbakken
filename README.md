@@ -86,9 +86,9 @@ I feel like I've only scratched the surface of what can be achieved using a fram
 
 Having said all that; my main take-away is that I've had a lot of fun working on this. Just using the api functionality itself and posting with other students has been a laugh. The brief gives a lot of room for interpretation and I've enjoyed getting to know the API and trying to piece together a pleasant front-end to interact with it.
 
-I've tried to remain objective and keep a personal distance to the design and end-product, but I can't get away from the fact that this is _my_ end-product, and a majority of the choices made underway are purely based on my personal preference. So one thing I'm looking forward to in the future is working in a group where not _every_ decision is mine to make. (Although I have listened to my testers and incorporated the feedback they gave).
+I've tried to remain objective and keep a personal distance to the design and end-product, but I can't get away from the fact that this is _my_ end-product, and a majority of the choices made underway are purely based on my personal preference. So one thing I'm looking forward to in the future is working in a group where not _every_ decision is mine to make. (Although I have listened to my testers and incorporated what feedback they gave).
 
-## <a name="#5">5</a>. Acknowedgements
+## <a name="#5">5</a>. Acknowledgements
 
 _I have noted in the code where I have copied resources._
 
@@ -102,7 +102,7 @@ I couldn't have reached the state of this project (or really, the end of this co
 
 - Inger-Anne Sundbø. My MVP. For going above and beyond with testing, providing feedback, and general encouragement and moral support.
 
-## 0. Update History
+## <a name="#0">0</a>. Update History
 
 ### v0.5.0
 
