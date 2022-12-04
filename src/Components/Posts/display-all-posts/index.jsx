@@ -43,7 +43,6 @@ function DisplayAllPosts({ settings, feed }) {
 
   const location = useLocation();
   useEffect(() => {
-    console.log("path changed");
     setShowSingle(false);
 
     //eslint-disable-next-line

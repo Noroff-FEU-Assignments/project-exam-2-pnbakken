@@ -13,7 +13,6 @@ function useGet(settings) {
   //eslint-disable-next-line
   const [refresh, setRefresh] = useContext(RefreshContext);
 
-  console.log(settings.url);
   useEffect(() => {
     async function getData() {
       const client = createAxios(auth);
@@ -21,7 +20,6 @@ function useGet(settings) {
         try {
           setLoading(true);
           const response = await client.get(settings.url);
-          console.log(response);
           if (response.status === 200) {
             setData(response.data);
             setError(null);

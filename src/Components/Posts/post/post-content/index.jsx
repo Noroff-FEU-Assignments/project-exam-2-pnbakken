@@ -71,6 +71,8 @@ function PostContent({ data, isOwner = false, handleShow, close }) {
 PostContent.propTypes = {
   data: PropTypes.object.isRequired,
   isOwner: PropTypes.bool.isRequired,
+  handleShow: PropTypes.func,
+  close: PropTypes.func,
 };
 
 export default PostContent;
