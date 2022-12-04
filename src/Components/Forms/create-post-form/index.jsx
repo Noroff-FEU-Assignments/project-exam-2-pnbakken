@@ -16,7 +16,6 @@ import CustomTextArea from "../Form-Components/custom-textarea";
 import BetterImageForm from "../better-image-form";
 import TagInput from "../Form-Components/tag-input";
 import DisplayResponseErrors from "../../Message/display-response-errors";
-import getRandom from "../../../Functions/get-random";
 
 const BODY_LIMIT = 280;
 
@@ -42,6 +41,7 @@ function CreatePostForm({
   edit = null,
   close,
   postBodyId = "new-post-body",
+  encouragement,
 }) {
   const [refresh, setRefresh] = useContext(RefreshContext);
   const [error, setError] = useState(null);
@@ -78,8 +78,6 @@ function CreatePostForm({
     const length = e.target.value.length;
     setCurrentTitleLength(length);
   };
-
-  const encouragement = getRandomEncouragement();
 
   const {
     register,
@@ -172,7 +170,7 @@ function CreatePostForm({
 
           <Form.Group className="mb-3">
             <CustomTextArea
-              placeholder="You should post something" // I broke the random function on this
+              placeholder={encouragement} // I broke the random function on this
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
@@ -255,23 +253,24 @@ CreatePostForm.propTypes = {
   edit: PropTypes.object,
   close: PropTypes.func,
   postBodyId: PropTypes.string,
+  encouragement: PropTypes.string,
 };
 export default CreatePostForm;
 
-const encouragements = [
-  "It would be good if you posted something",
-  "Maybe you should post something",
-  "Everyone's excited to see what you post",
-  "It's better to post than to not post",
-  "Show everyone how good you are at posting",
-  "Post something",
-  "Time to unleash posting perfection",
-  "Maybe you should post something",
-  "Post as much as humanly possible",
-  "Sometimes you've just gotta post",
-  "I can't believe you aren't posting",
-];
+// const encouragements = [
+//   "It would be good if you posted something",
+//   "Maybe you should post something",
+//   "Everyone's excited to see what you post",
+//   "It's better to post than to not post",
+//   "Show everyone how good you are at posting",
+//   "Post something",
+//   "Time to unleash posting perfection",
+//   "Maybe you should post something",
+//   "Post as much as humanly possible",
+//   "Sometimes you've just gotta post",
+//   "I can't believe you aren't posting",
+// ];
 
-function getRandomEncouragement() {
-  return getRandom(encouragements);
-}
+// function getRandomEncouragement() {
+//   return getRandom(encouragements);
+// }

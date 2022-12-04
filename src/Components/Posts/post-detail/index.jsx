@@ -15,7 +15,6 @@ function PostDetail({ postID, setShow }) {
   const { data, loading, error } = useGet(settings);
 
   function closePost() {
-    console.log("post closed");
     setShow(false);
   }
 

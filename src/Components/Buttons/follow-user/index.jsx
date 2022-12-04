@@ -23,12 +23,10 @@ function Follow({ otherUser }) {
         }
       });
     }
-    console.log(follower);
     return follower;
   };
 
   const [following, setFollowing] = useState(isFollowing());
-  console.log(following);
   const client = createAxios(auth);
   const url = `${USER_URL}/${otherUser.name}`;
 

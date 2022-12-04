@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function DisplayReaction({ reactionData }) {
-  console.log(reactionData);
-
   return (
     <>
       {reactionData && (

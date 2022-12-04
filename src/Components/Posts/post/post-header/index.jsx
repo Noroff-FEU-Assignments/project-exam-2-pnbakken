@@ -35,6 +35,7 @@ function PostHeader({ data, isOwner, close }) {
 PostHeader.propTypes = {
   data: PropTypes.object.isRequired,
   isOwner: PropTypes.bool.isRequired,
+  close: PropTypes.func,
 };
 export default PostHeader;
 

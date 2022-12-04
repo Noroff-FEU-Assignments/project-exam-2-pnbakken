@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 
 function UserSocial({ user, handleShow, handleSet }) {
   async function handleShowSocial(target) {
-    console.log(target);
-
     switch (target) {
       case "followers":
         handleSet(user.followers);

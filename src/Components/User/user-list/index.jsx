@@ -45,7 +45,7 @@ function UserList() {
             limitReached={limitReached}
           />
           {data.map((user) => {
-            return <UserListItem user={user} />;
+            return <UserListItem user={user} key={user.name} />;
           })}
           <SetApiOffset
             limit={RATE_LIMIT}

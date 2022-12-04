@@ -1,4 +1,4 @@
-const encouragements = [
+export const encouragements = [
   "It would be good if you posted something",
   "Maybe you should post something",
   "Everyone's excited to see what you post",
