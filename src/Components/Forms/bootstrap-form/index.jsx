@@ -25,7 +25,7 @@ function BootstrapForm({
 
 BootstrapForm.propTypes = {
   children: PropTypes.node.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   className: PropTypes.string,
   id: PropTypes.string,
 };
