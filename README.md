@@ -5,17 +5,17 @@ The live site can be accessed [here](https://just-post-app.netlify.app/).
 
 ## Table of Contents
 
-- [1. About](#1)
+- [1. About](#1-about)
 
-- [2.Getting Started](#2)
+- [2.Getting Started](#2-getting-started)
 
-- [3. Release Notes](#3.-release-notes)
+- [3. Release Notes](#3-release-notes)
 
-- [4. Reflection](#4.-reflection)
+- [4. Reflection](#4-reflection)
 
-- [5. Acknowledgements](#5.-acknowledgements)
+- [5. Acknowledgements](#5-acknowledgements)
 
-- [0. Update History](#0.-update-history)
+- [0. Update History](#5-update-history)
 
 ## <a name="#1">1.</a> About
 
@@ -48,7 +48,7 @@ The app will receive an object with a token which will authenticate all subseque
 
 In its current state, the app allows a user to post (image and tags optional), leave a comment or reaction to a post, reply to a comment, follow and unfollow a user and see a list of all their posts, and change the user's own avatar and banner images.
 
-## 3. Release Notes
+## <a name="#3">3</a>. Release Notes
 
 ### v0.8
 
@@ -76,7 +76,7 @@ This is the exam submission version. Most of the worst bugs encountered during d
 - Maybe add light colour scheme if time permits. I'm dark mode for life, but it's nice to change things up occasionally.
 - On very short mobile screens, important content disappears below the fold. For test users who are afraid to even scroll down for fear of doing something wrong - this is a problem.
 
-## 4. Reflection
+## <a name="#4">4</a>. Reflection
 
 This is the largest project I've built so far and I'm exhausted. I'm happy with the end result on screen though, minus a few irritations.
 I feel like the code and the technical side is messy. This is our first experience building anything remotely close to this size, and the structure is something I've had to work out as I've gone along, resulting in the disorganised state of some of the components themselves and their directories.
@@ -88,7 +88,7 @@ Having said all that; my main take-away is that I've had a lot of fun working on
 
 I've tried to remain objective and keep a personal distance to the design and end-product, but I can't get away from the fact that this is _my_ end-product, and a majority of the choices made underway are purely based on my personal preference. So one thing I'm looking forward to in the future is working in a group where not _every_ decision is mine to make. (Although I have listened to my testers and incorporated the feedback they gave).
 
-## 5. Acknowedgements
+## <a name="#5">5</a>. Acknowedgements
 
 _I have noted in the code where I have copied resources._
 
