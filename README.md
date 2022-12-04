@@ -5,9 +5,9 @@ The live site can be accessed [here](https://just-post-app.netlify.app/).
 
 ## Table of Contents
 
-- [1. About](#1.-about)
+- [1. About](#1)
 
-- [2. Getting Started](#2.-getting-started)
+- [2.Getting Started](#2)
 
 - [3. Release Notes](#3.-release-notes)
 
@@ -17,7 +17,7 @@ The live site can be accessed [here](https://just-post-app.netlify.app/).
 
 - [0. Update History](#0.-update-history)
 
-## 1. About
+## <a name="#1">1.</a> About
 
 ### Technologies Used
 
@@ -32,7 +32,7 @@ The live site can be accessed [here](https://just-post-app.netlify.app/).
 The brief for this project was to design a modern social media front-end, using the social endpoints of the [Noroff API](https://noroff-api-docs.netlify.app/).
 It includes a required set of features, in the form of short user stories. The full brief can be read [here](https://github.com/Noroff-FEU-Assignments/project-exam-2-pnbakken/blob/main/BRIEF.MD)
 
-## 2. Getting Started
+## <a name="#2">2</a>. Getting Started
 
 To use this application just clone the repo, run `npm install`, then run `npm start`. The app wil run on port `3000`, or whichever is available. Or go to the [website](https://just-post-app.netlify.app/)
 

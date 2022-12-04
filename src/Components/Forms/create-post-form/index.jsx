@@ -172,7 +172,7 @@ function CreatePostForm({
 
           <Form.Group className="mb-3">
             <CustomTextArea
-              placeholder={encouragement}
+              placeholder="You should post something" // I broke the random function on this
               id={postBodyId}
               name="body"
               defaultValue={edit && edit.body ? edit.body : ""}
