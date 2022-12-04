@@ -13,7 +13,7 @@ function Home() {
   setPageTitle("Home | ");
 
   const [urlSettings, setUrlSettings] = useState({
-    url: `${POSTS_URL}?_author=true`,
+    url: `${POSTS_URL}?_author=true&_reactions=true`,
   });
 
   const [selectedFeed, setSelectedFeed] = useState("all");
@@ -22,12 +22,12 @@ function Home() {
       switch (selectedFeed) {
         case "following":
           setUrlSettings({
-            url: `${POSTS_URL}/following?_author=true`,
+            url: `${POSTS_URL}/following?_author=true&_reactions=true`,
           });
           break;
         case "all":
           setUrlSettings({
-            url: `${POSTS_URL}?_author=true`,
+            url: `${POSTS_URL}?_author=true&_reactions=true`,
           });
           break;
         default:

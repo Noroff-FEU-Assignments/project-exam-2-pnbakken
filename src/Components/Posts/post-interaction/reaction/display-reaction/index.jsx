@@ -7,7 +7,7 @@ function DisplayReaction({ reactionData }) {
       {reactionData && (
         <div className="reaction-display flex-r wrap full-width p-2 gap-xs">
           {reactionData.map((reaction) => {
-            return <Reaction data={reaction} />;
+            return <Reaction data={reaction} key={reaction.symbol} />;
           })}
         </div>
       )}
@@ -16,7 +16,7 @@ function DisplayReaction({ reactionData }) {
 }
 
 DisplayReaction.propTypes = {
-  reactionData: PropTypes.object.isRequired,
+  reactionData: PropTypes.array.isRequired,
 };
 
 export default DisplayReaction;

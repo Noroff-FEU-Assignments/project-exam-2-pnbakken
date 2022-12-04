@@ -42,6 +42,7 @@ function ReactionForm({ postID }) {
                 value={reaction.name}
                 data-symbol={reaction.symbol}
                 onClick={sendReaction}
+                key={reaction.name}
               >
                 {reaction.symbol}
               </button>
