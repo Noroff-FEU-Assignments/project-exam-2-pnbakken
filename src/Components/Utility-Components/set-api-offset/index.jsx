@@ -26,7 +26,7 @@ function SetApiOffset({ limit, offset, handleOffset, limitReached }) {
 
 SetApiOffset.propTypes = {
   limit: PropTypes.number.isRequired,
-  offSet: PropTypes.number.isRequired,
+  offset: PropTypes.number.isRequired,
   handleOffset: PropTypes.func.isRequired,
   limitReached: PropTypes.bool.isRequired,
 };

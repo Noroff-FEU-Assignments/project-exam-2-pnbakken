@@ -17,7 +17,6 @@ function SinglePost() {
 
   const { data, loading, error } = useGet(singlePostUrlSettings);
 
-  console.log(id);
   return (
     <MainLayout>
       <AppInterfaceLayout>
