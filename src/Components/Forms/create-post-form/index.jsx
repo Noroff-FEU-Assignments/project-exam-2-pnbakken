@@ -196,16 +196,18 @@ function CreatePostForm({
             />
           </Form.Group>
 
-          <div className="new-post-menu flex-r wrap justify-between align-center">
-            <button
-              type="button"
-              className="system-button"
-              onClick={handleShowAddImage}
-            >
-              Add Image
-            </button>
-            {imageUrl && <button onClick={removeImage}>Remove image</button>}
-            <div className="flex-r gap-md align-center">
+          <div className="new-post-menu flex-c gap-md align-center full-width">
+            <div className="flex-r wrap gap-sm full-width">
+              <button
+                type="button"
+                className="system-button"
+                onClick={handleShowAddImage}
+              >
+                Add Image
+              </button>
+              {imageUrl && <button onClick={removeImage}>Remove image</button>}
+            </div>
+            <div className="flex-r gap-md justify-between align-center full-width">
               <div>
                 {edit ? (
                   <button type="button" onClick={close}>
