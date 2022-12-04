@@ -14,6 +14,8 @@ import BrandButton from "../../Buttons/brand-button";
 
 // Email regex copied from Ankit Soni
 
+// Confirm password from https://dev.to/agiksetiawan/validation-password-and-confirm-password-with-yup-3gfj
+
 const schema = yup.object().shape({
   username: yup.string().required("Please enter a username"),
   email: yup
