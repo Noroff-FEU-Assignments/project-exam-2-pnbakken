@@ -13,12 +13,14 @@ function DeletePost({ id, auth, close }) {
     try {
       const url = POSTS_URL + "/" + id;
       const client = createAxios(auth);
-      close();
+
       await client.delete(url);
+      if (close) {
+        close();
+      }
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);
-    } finally {
     }
   }
   return (

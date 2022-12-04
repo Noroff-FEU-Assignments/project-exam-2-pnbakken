@@ -26,6 +26,7 @@ function Post({ children, data, close, handleShow, isOpen = false }) {
         data={data}
         isOwner={isOwner}
         handleShow={handleShow ? handleShow : undefined}
+        close={close}
       />
       {children}
     </div>
