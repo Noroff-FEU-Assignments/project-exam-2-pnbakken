@@ -9,6 +9,7 @@ import UserImageHistory from "./user-image-history";
 
 import "./index.style.scss";
 import Message from "../../Message/message";
+import validImageUrl from "../../../Functions/valid-image-url";
 
 /**
  * Uploads selected image file or checks typed image url and passes string to callback handler.
@@ -28,11 +29,11 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
     e.preventDefault();
     const urlInput = document.querySelector("#url-input");
     const fileInput = document.querySelector("#file-input");
-
     try {
       if (urlInput.value) {
         const url = urlInput.value;
-        if (await validateImageUrl(url)) {
+
+        if (await validImageUrl(url)) {
           setImageUrl(url);
           imageUrlHandler(url);
           handleShow();
@@ -93,19 +94,6 @@ BetterImageForm.propTypes = {
 };
 
 export default BetterImageForm;
-
-async function validateImageUrl(url) {
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    if (result.status === 200) {
-      return true;
-    } else return false;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
-}
 
 async function doUpload(file) {
   const client = createAxios();
