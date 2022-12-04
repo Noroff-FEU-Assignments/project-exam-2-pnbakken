@@ -6,8 +6,8 @@ import Post from "../post";
 import InteractionPanel from "../post-interaction/interaction-panel";
 import DisplayResponseErrors from "../../Message/display-response-errors";
 
-// This was a genuine modal in the beginning but it was a pain to style so I've changed rendering methods in the parent component instead
-function PostDetail({ postID, setShow, setLastShown }) {
+// This was a  modal in the beginning but it was a pain to style so I've changed rendering methods in the parent component instead. Also my whole system for displaying one post is a complete mess
+function PostDetail({ postID, setShow }) {
   const settings = {
     url: POSTS_URL + `/${postID}?_author=true&_comments=true&_reactions=true`,
   };
@@ -15,8 +15,8 @@ function PostDetail({ postID, setShow, setLastShown }) {
   const { data, loading, error } = useGet(settings);
 
   function closePost() {
-    setShow(null);
-    setLastShown(postID);
+    console.log("post closed");
+    setShow(false);
   }
 
   return (
@@ -24,7 +24,7 @@ function PostDetail({ postID, setShow, setLastShown }) {
       {loading && <>Loading</>}
       {data && (
         <>
-          <Post data={data} close={closePost}>
+          <Post data={data} close={closePost} isOpen={true}>
             <InteractionPanel data={data} />
           </Post>
           <button className="mt-2 discrete" onClick={closePost}>
@@ -32,7 +32,14 @@ function PostDetail({ postID, setShow, setLastShown }) {
           </button>
         </>
       )}
-      {error && <DisplayResponseErrors data={error.response.data.errors} />}
+      {error && (
+        <>
+          <DisplayResponseErrors data={error.response.data.errors} />
+          <button className="mt-2 discrete" onClick={closePost}>
+            Close
+          </button>
+        </>
+      )}
     </>
   );
 }

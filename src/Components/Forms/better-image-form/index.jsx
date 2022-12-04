@@ -58,16 +58,17 @@ function BetterImageForm({ imageUrlHandler, handleShow, edit = "" }) {
       onSubmit={handleImage}
       className="better-add-image full-width flex-c"
     >
-      <fieldset disabled={loading} className="p-4">
-        <div className="inputs mb-4">
+      <fieldset disabled={loading} className="p-4 flex-c gap-sm">
+        <div className="inputs flex-c gap-sm">
           <UrlInput
             resultHandler={setImageUrl}
             edit={edit ? edit : ""}
             className="mb-3"
           />
+          <span>{"or".toUpperCase()}</span>
           <FileInput resultHandler={setImageUrl} className="mb-3" />
         </div>
-        <div className="menu flex-r full-width wrap justify-between">
+        <div className="menu flex-r full-width wrap align-center justify-between">
           {formError && <Message type="error">Something went wrong</Message>}
           <button type="button" onClick={handleShow}>
             Cancel

@@ -10,6 +10,7 @@ import "./index.style.scss";
 import { HashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import getRandom from "../../../../../Functions/get-random";
 
 function DisplayComment({ commentData, postID }) {
   return (
@@ -69,8 +70,7 @@ function Comment({ comment, allComments, postID }) {
       {reply && (
         <div className="reply-to ps-4 pe-4 pt-2 pb-2 radius-sm">
           <HashLink to={`${location}#${postID}/${reply[0].id}`}>
-            <span className="op">{reply[0].owner}</span> felt this was so
-            important it had to be said:{" "}
+            <span className="op">{reply[0].owner}</span> {randomAction()}:{" "}
           </HashLink>
           <p>{reply[0].body}</p>
         </div>
@@ -88,4 +88,17 @@ Comment.propTypes = {
   comment: PropTypes.object.isRequired,
   allComments: PropTypes.array.isRequired,
   postID: PropTypes.number.isRequired,
+};
+
+const actions = [
+  "felt this was so important it had to be said",
+  "commented",
+  "couldn't sleep unless they told you",
+  "burst in through the door and exclaimed",
+  "just had to be the one to say",
+  "felt it worth mentioning:",
+];
+
+const randomAction = () => {
+  return getRandom(actions);
 };

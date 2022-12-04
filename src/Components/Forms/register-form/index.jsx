@@ -12,17 +12,28 @@ import { useNavigate } from "react-router-dom";
 import BootstrapForm from "../bootstrap-form";
 import BrandButton from "../../Buttons/brand-button";
 
+// Email regex copied from Ankit Soni
+
+// Confirm password from https://dev.to/agiksetiawan/validation-password-and-confirm-password-with-yup-3gfj
+
 const schema = yup.object().shape({
   username: yup.string().required("Please enter a username"),
   email: yup
     .string()
     .email("Please enter a valid email")
+    .matches(
+      /^[a-zA-Z]+[a-zA-Z0-9_.]+@+(\bnoroff|\bstud.noroff).+n+o$/,
+      "Please use a Noroff email"
+    )
     .required("Please enter an email"),
   password: yup
     .string()
     .required("Please enter a password")
     .min(8, "Password must be at least 8 characters"),
-  confirmPassword: yup.string().required("Please confirm your password"),
+  confirmPassword: yup
+    .string()
+    .required("Please confirm your password")
+    .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
 
 function RegisterForm() {

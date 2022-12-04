@@ -18,11 +18,14 @@ function DeletePost({ id, auth, close }) {
       setRefresh(!refresh);
     } catch (error) {
       console.error(error);
+    } finally {
     }
   }
   return (
     <>
-      <button onClick={handleShowConfirm}>delete post</button>
+      <button className="system-button" onClick={handleShowConfirm}>
+        delete post
+      </button>
       <Modal show={showConfirm} onHide={handleShowConfirm}>
         <Modal.Body className="p-3 flex-c align-center full-width gap-sm">
           Are you sure you want to delete your lovely post?

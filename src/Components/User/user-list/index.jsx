@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { USER_URL } from "../../../Constants";
 import useGet from "../../../Hooks/use-get";
-import Follow from "../../Buttons/follow-user";
+//import Follow from "../../Buttons/follow-user";
 import DisplayResponseErrors from "../../Message/display-response-errors";
 import SetApiOffset from "../../Utility-Components/set-api-offset";
 import ProfileImage from "../profile-image";
@@ -72,14 +72,14 @@ function UserListItem({ user }) {
       <div className="flex-c gap-sm align-center">
         <Link
           to={`/user/${user.name}`}
-          className="flex-c align-center light-text"
+          className="flex-c align-center dark-text"
         >
           <ProfileImage src={user.avatar ? user.avatar : ""} />
           <span className="user-name">{user.name}</span>
         </Link>
       </div>
 
-      <Follow otherUser={user} />
+      {/* <Follow otherUser={user} /> Stopped working when I added API pagination. Shows as following or not following at random on every other "page". Disabled from production build until I fix it */}
     </li>
   );
 }
