@@ -22,7 +22,7 @@ function UserPage() {
     url: `${USER_URL}/${name}?_following=true&_followers=true`,
   };
   const getPostsSettings = {
-    url: `${USER_URL}/${name}/posts?_author=true`,
+    url: `${USER_URL}/${name}/posts?_author=true&_reactions=true`,
   };
 
   const { data, loading, error } = useGet(getUserSettings);
