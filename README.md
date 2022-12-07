@@ -92,7 +92,7 @@ I've tried to remain objective and keep a personal distance to the design and en
 ## <a name="#5">5</a>. Acknowledgements
 
 _I have noted in the code where I have copied resources._
-One place I haven't noted it is in useLocalStorage hook. This is copied from [useLocalStorage hook]("https://usehooks.com/useLocalStorage/")
+One place I haven't noted it is in useLocalStorage hook. This is copied from [useLocalStorage hook](https://usehooks.com/useLocalStorage/)
 
 I couldn't have reached the state of this project (or really, the end of this course) on my own, and I have to acknowledge, in no particular order:
 
