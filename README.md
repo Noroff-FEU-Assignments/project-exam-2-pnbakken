@@ -61,6 +61,7 @@ This is the exam submission version. Most of the worst bugs encountered during d
 - App navbar acts strange on mobile browsers. Bounces up and down.
 - On the user list page the follow button stopped working when I added data-pagination. It would display as following or non-following on random users. I haven't been able to determine the cause of this so I have removed the buttons from the page to avoid confusion.
 - On the user settings page, the user banner and profile image does not update as it should. I've brute-forced a workaround that uses window.location.reload(), as I found it more important to let the user know their image is updated at all, rather than doing so elegantly. Will try to fix.
+- Adding the close post on relocate function broke the hashlinks in comment threads.
 - I'm not sure how big of an issue this actually is, but the codebase feels enormous, for such a relatively small project. Mostly I've tried to do to what seemed logical at the time, but there are still some components that could be further split into smaller parts, and at the same time there are some components that are way more granular than neccessary, making certain parts a maze to navigate even for someone who's been staring at it for 7 weeks
 
 #### Things left to fix/improve/do
