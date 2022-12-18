@@ -1,5 +1,7 @@
 # Project Exam 2 - [Just Post](https://just-post-app.netlify.app/) social media front-end
 
+![image](https://res.cloudinary.com/dt8j2ptfq/image/upload/v1671193314/portfolio/projects/Screenshot_2022-12-16_131946_cmlssl.jpg)
+
 This is my submission for Project Exam 2 for December 22. The app is a front-end for the [Noroff API social endpoints](https://noroff-api-docs.netlify.app/).
 The live site can be accessed [here](https://just-post-app.netlify.app/).
 
