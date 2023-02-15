@@ -82,7 +82,6 @@ This is the exam submission version. Most of the worst bugs encountered during d
 
 ## <a name="#4">4</a>. Reflection
 
-This is the largest project I've built so far and I'm exhausted. I'm happy with the end result on screen though, minus a few irritations.
 I feel like the code and the technical side is messy. This is our first experience building anything remotely close to this size, and the structure is something I've had to work out as I've gone along, resulting in the disorganised state of some of the components themselves and their directories.
 
 As far as DRY principles go this is by far my most css-efficient project, but I know there are redundancies and I'm sure there are plenty more left to discover. This also goes for React components. I have tried to keep reusability of components in mind, but I'm sure I could achieve this just as well with a lot less code.
